@@ -46,6 +46,9 @@ var game;
 function init()
 {
     preloadStuff();
+	
+	// start the soundtrack
+	createjs.Sound.play("ld34-sound/bgm/Rainy Place.mp3", {loop: -1, volume: 0.4});
 }
 function afterLoad(){
     mainWorld = new World();

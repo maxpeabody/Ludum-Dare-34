@@ -1,3 +1,7 @@
+/* Sets up keyboard callbacks + the canvas.
+
+Coded by: Benedict */
+
 var canvas = document.getElementById("gameCanvas");
 var context = canvas.getContext("2d");
 

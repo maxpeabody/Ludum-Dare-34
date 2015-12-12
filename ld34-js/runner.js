@@ -1,19 +1,15 @@
+/* Main method and game loop.
+
+Coded by: Benedict, Max */
+
 function Game(){
-
-	// NOTE: WE'RE PROBABLY GONNA WANT TO MOVE THIS TO A "player.js" CLASS.
-    var player = new Animation();
-    player.setSheet("ld34-images/arrow_right_strip.png",32,100);
-    player.x = 50; player.xSpeed = 3.5;
-    player.y = 50; player.yVelocity = 0; player.jumpVelocity = 22;
-	player.inAir = false;
-    player.setDrawBasedOnOrigin(player.bottom);
-
+	
     this.update = function(){
 		// player movement
-		if(keyboard["left"]) // Need to make it so the player "flips"
-			player.x -= player.xSpeed;
+		if(keyboard["left"]) // Need to make it so the this.player "flips"
+			player.x -= player.xSpeed; player.animation.x -= player.xSpeed;
 		if(keyboard["right"])
-			player.x += player.xSpeed;
+			player.x += player.xSpeed; player.animation.x += player.xSpeed;
 		if(keyboard["up"] && !player.inAir)
 		{
 			player.yVelocity = -1 * player.jumpVelocity;
@@ -34,17 +30,17 @@ function Game(){
 		player.y += player.yVelocity;
 		
 		// draw player
-		player.drawImage(mainCamera);
+		player.animation.drawImage(mainCamera);
     }
 }
 Game.prototype = new Updateable();
 
-function animate() {
+function animate(player) {
     requestAnimFrame( animate );
     context.clearRect(0, 0, canvas.width,canvas.height);
 
     //here's where you do all the draw and update calls to whatever's in the game!
-    game.update();
+    game.update(player);
 }
 
 //don't ask me how this works- it pretty much just sets up an animation context
@@ -63,6 +59,16 @@ window.requestAnimFrame = (function(){
 
 var game = new Game();
 var mainCamera = new Camera();
-function init(){
-    animate();
+function init()
+{
+	// Initialize the player character.
+	var playerAnimation = new Animation();
+    playerAnimation.setSheet("ld34-images/arrow_right_strip.png",32,100);
+    playerAnimation.setDrawBasedOnOrigin(playerAnimation.bottom);
+	
+	this.player = app.player;
+	this.player.init(playerAnimation, 50, 50);
+	
+	// Start the animation/game loop
+    animate(this.player);
 }

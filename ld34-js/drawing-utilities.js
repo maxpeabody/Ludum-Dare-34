@@ -27,6 +27,9 @@ function Drawable(){
     this.setDrawBasedOnOrigin = function(originCode){
         if(this.image){
             var imgWid = this.image.naturalWidth;
+            if(this.animated){
+                imgWid = this.slicewidth;
+            }
             var imgHi = this.image.naturalHeight;
 
             this.origin = originCode;

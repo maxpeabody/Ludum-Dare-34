@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>LUDUM DARE 2015</title>
+	
+	<style type="text/css">
+		canvas
+		{
+			position: fixed;
+			left: 2em;
+			top: 0.8em;
+		}
+	</style>
+</head>
+<body>
+	<!-- set up invisible images so the drawing context can access them -->
+	<!-- <img src="images/basemap.png" id="environment" style="visibility:hidden;"/> -->
+	
+	<canvas width='900' height='526'>
+	</canvas>
+	<!-- This project uses the PreloadJS and SoundJS libraries, maybe possibly?
+		http://www.createjs.com/#!/PreloadJS 
+		http://www.createjs.com/#!/SoundJS -->
+	<script src="http://code.createjs.com/preloadjs-0.4.1.min.js"></script>
+	<script src="http://code.createjs.com/soundjs-0.5.2.min.js"></script>
+	
+	<script src="js/Loader.js"></script>
+	<script src="js/Main.js"></script>
+</body>
+</html>

@@ -1,7 +1,8 @@
 /* Methods for player movement, drawing/animating the player, etc. etc.
 Defined as a singleton object.
 
-Coded by: Max (physics, input, animation tweaks), Benedict (majority of animation stuff, collisions) */
+Coded by: Max (physics, input, animation implementation/tweaks), Benedict (majority of animation stuff, collisions),
+	Not The Author (animation implementation/tweaks) */
 
 function Player(){
 
@@ -13,6 +14,9 @@ function Player(){
 	this.jumpVelocity = 9;
 	this.inAir = false;
 	
+	this.upButtonReleased = true;
+	this.landingCooldown = 0;
+	
 	this.facing = "right";
 
 	this.setSheet("ld34-images/protag_stand_right.png",64,100);
@@ -21,30 +25,55 @@ function Player(){
 	addColliderToObject(this,20,this.image.naturalHeight,this.origin);
 
 	this.update = function() {
-		if (keyboard["left"] && !keyboard["right"]) { // Need to make it so the this.player "flips"
+		if (keyboard["left"] && !keyboard["right"]) 
+		{
 			this.x -= this.xSpeed;
 			this.setSheet("ld34-images/protag_run_left.png", 64, 100);
 			this.setDrawBasedOnOrigin(this.origin);
 			this.facing = "left";
 		}
-		else if (keyboard["right"] && !keyboard["left"]) {
+		else if (keyboard["right"] && !keyboard["left"]) 
+		{
 			this.x += this.xSpeed;
 			this.setSheet("ld34-images/protag_run_right.png", 64, 100);
 			this.setDrawBasedOnOrigin(this.origin);
 			this.facing = "right";
 		}
-		else if (this.facing == "left") {
+		else if (this.facing == "left" && !this.inAir) 
+		{
 			this.setSheet("ld34-images/protag_stand_left.png", 64, 100);
 			this.setDrawBasedOnOrigin(this.origin);
-		}else{
+		}
+		else if(!this.inAir) // facing right is implicit
+		{
 			this.setSheet("ld34-images/protag_stand_right.png", 64, 100);
 			this.setDrawBasedOnOrigin(this.origin);
 		}
 		
-		if (keyboard["up"] && !this.inAir) {
+		// if in the air, "overwrite" whatever spriteSheet WOULD be used
+		// This probably isn't the MOST efficient way to do it, but it should be fine.
+		if(this.inAir)
+		{
+			if(this.facing == "left" && this.yVelocity < 0)
+				this.setSheet("ld34-images/protag_jump_left.png", 64, 100);
+			else if(this.facing == "right" && this.yVelocity < 0)
+				this.setSheet("ld34-images/protag_jump_right.png", 64, 100);
+			else if(this.facing == "left") // velocity >= 0 implicit
+				this.setSheet("ld34-images/protag_fall_left.png", 64, 100);
+			else // etc.
+				this.setSheet("ld34-images/protag_fall_right.png", 64, 100);
+				
+			this.setDrawBasedOnOrigin(this.origin);
+		}
+		
+		if (keyboard["up"] && !this.inAir && this.upButtonReleased) 
+		{
 			this.yVelocity = -1 * this.jumpVelocity;
 			this.inAir = true; // Can't jump again until they hit the ground.
+			this.upButtonReleased = false; // No jumping repeatedly by holding it down.
 		}
+		else if(!this.inAir && !keyboard["up"])
+			this.upButtonReleased = true;
 
 		this.y += this.yVelocity;
 
@@ -63,6 +92,16 @@ function Player(){
 			}
 			this.yVelocity = 0;
 			this.inAir = false;
+			
+			// Animates the player landing
+			// ...There isn't a GREAT way to implement this, yet.
+			/* if(this.facing == "left")
+				this.setSheet("ld34-images/protag_land_left.png", 64, 100);
+			else
+				this.setSheet("ld34-images/protag_land_right.png", 64, 100);
+			
+			this.setDrawBasedOnOrigin(this.origin);
+			this.landingCooldown = 10; */
 		}
 
 

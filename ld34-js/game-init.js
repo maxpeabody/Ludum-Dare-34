@@ -43,10 +43,12 @@ function preloadStuff(){
     loadImage("ld34-images/testdoohickey.png");
     loadImage("ld34-images/testwhatsit.png");
     loadImage("ld34-images/big_long_floor.png");
-    loadImage("ld34-images/protag-fall-left.png");
-    loadImage("ld34-images/protag-fall-right.png");
-    loadImage("ld34-images/protag-jump-left.png");
-    loadImage("ld34-images/protag-jump-right.png");
+	loadImage("ld34-images/protag_fall_left.png");
+	loadImage("ld34-images/protag_fall_right.png");
+    loadImage("ld34-images/protag_fall_left.png");
+    loadImage("ld34-images/protag_fall_right.png");
+    loadImage("ld34-images/protag_jump_left.png");
+    loadImage("ld34-images/protag_jump_right.png");
     loadImage("ld34-images/protag_run_left.png");
     loadImage("ld34-images/protag_run_right.png");
     loadImage("ld34-images/protag_stand_left.png");

@@ -46,11 +46,18 @@ function World(){
         secondThing.image = loadImage("ld34-images/testdoohickey.png");
         secondThing.setDrawBasedOnOrigin(secondThing.bottomLeft);
         addColliderToObject(secondThing,270,23,secondThing.origin);
-        window.console.log(secondThing.origin);
+
+        var floor = new Drawable();
+        floor.x = -100;
+        floor.y = 450;
+        floor.image = loadImage("ld34-images/big_long_floor.png");
+        floor.setDrawBasedOnOrigin(floor.topLeft);
+        addColliderToObject(floor,floor.image.naturalWidth,floor.image.naturalHeight,floor.origin);
 
         this.addDrawableObject(wiggles);
         this.addDrawableObject(firstThing);
         this.addDrawableObject(secondThing);
+        this.addDrawableObject(floor);
     }
 }
 World.prototype = new Updateable();

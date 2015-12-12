@@ -23,6 +23,7 @@ function animate() {
 
     //here's where you do all the draw and update calls to whatever's in the game!
     game.update();
+    //context.drawImage(loadImage("ld34-images/arrow_idle.png"),150,400); //test image
 }
 
 //don't ask me how this works- it pretty much just sets up an animation context
@@ -40,13 +41,16 @@ window.requestAnimFrame = (function(){
 })();
 
 
-var mainWorld = new World();
-var mainCamera = new Camera();
-var game = new Game();
+var mainWorld;
+var mainCamera;
+var game;
 function init()
 {
     preloadStuff();
 }
 function afterLoad(){
+    mainWorld = new World();
+    mainCamera = new Camera();
+    game = new Game();
     animate();
 }

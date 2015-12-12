@@ -88,9 +88,6 @@ function Animation(){
         //it does this by setting the onload function to this.finishSlicing
         //the reason it does the .bind thing is because otherwise the function will run in the image's scope
         //instead of in the Animation's scope
-        this.image.onload = this.finishSlicing.bind(this,framewidth,msPerFrame);
-    }
-    this.finishSlicing = function(framewidth,msPerFrame){ //consider this basically part 2 of the .setSheet function
         this.slicewidth = framewidth;
         this.slicecount = Math.floor(this.image.naturalWidth / this.slicewidth);
         this.framelength = msPerFrame;

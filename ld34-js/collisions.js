@@ -44,6 +44,10 @@ function addColliderToObject(object,width,height,offsetcode){
         object.cX = -width;
         object.cY = -height;
     }
+    window.console.log("object xy: " + object.x + "," + object.y + "\n" +
+                "colx: " + (object.x+object.cX) + " to " + (object.x+object.cX+object.cW) + "\n" +
+                "coly: " + (object.y+object.cY) + " to " + (object.y+object.cY+object.cH) + "\n");
+
 
     object.isCollidingWith = function(o2){
         if(o2.hasCollider){
@@ -64,6 +68,26 @@ function addColliderToObject(object,width,height,offsetcode){
         }else{
             return false;
         }
+    }
+    object.howFarToMoveToGetOut = function(o2){ //only call after you've confirmed a collision
+        var dirs = {left:0,right:0,up:0,down:0};
+
+        var left1 = object.x + object.cX;
+        var right1 = object.x + object.cX + object.cW
+        var top1 = object.y + object.cY;
+        var bottom1 = object.y + object.cY + object.cH;
+
+        var left2 = o2.x + o2.cX;
+        var right2 = o2.x + o2.cX + o2.cW
+        var top2 = o2.y + o2.cY;
+        var bottom2 = o2.y + o2.cY + o2.cH;
+
+        dirs.up = bottom1 - top2;
+        dirs.down = bottom2 - top1;
+        dirs.left = right1-left2;
+        dirs.right = right2-left1;
+
+        return dirs;
     }
 
     mainWorld.colliders.push(object);

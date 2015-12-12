@@ -17,26 +17,32 @@ function loadImage(imageFileName){ //call this to load image files- prevent load
     }else{
         var imgToAdd = new Image();
         imgToAdd.src = imageFileName;
-        imgToAdd.onload = function(){
-            imageCount++;
-            if(imageCount >= imageMax){
-                allImagesLoaded=true;
-                afterLoad();
-            }
-        };
+        if(!allImagesLoaded) {
+            imgToAdd.onload = function () {
+                imageCount++;
+                window.console.log("loading image " + imageCount);
+                if (imageCount >= imageMax) {
+                    allImagesLoaded = true;
+                    window.console.log("all images loaded (" + imageMax + ")");
+                    afterLoad();
+                }
+            };
+        }
         images[imageFileName] = imgToAdd;
         return images[imageFileName];
     }
 }
 
 function preloadStuff(){
-    imageMax = 5;
+    window.console.log("we're calling the preloader");
+    imageMax = 6;
 
     loadImage("ld34-images/arrow_right_strip.png");
     loadImage("ld34-images/arrow_left_strip.png");
     loadImage("ld34-images/arrow_idle.png");
     loadImage("ld34-images/testdoohickey.png");
     loadImage("ld34-images/testwhatsit.png");
+    loadImage("ld34-images/big_long_floor.png");
 }
 
 //some stuff for getting keyboard events- just ask if(keyboard["nameOfKey"]) and boom

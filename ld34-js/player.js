@@ -1,7 +1,7 @@
 /* Methods for player movement, drawing/animating the player, etc. etc.
 Defined as a singleton object.
 
-Coded by: Max (physics and input), Benedict (animation and collision) */
+Coded by: Max (physics, input, animation tweaks), Benedict (majority of animation stuff, collisions) */
 
 function Player(){
 
@@ -12,21 +12,32 @@ function Player(){
 	this.yVelocity = 0;
 	this.jumpVelocity = 9;
 	this.inAir = false;
+	
+	this.facing = "right";
 
-	this.setSheet("ld34-images/arrow_right_strip.png",32,100);
+	this.setSheet("ld34-images/protag_stand_right.png",64,100);
 	this.setDrawBasedOnOrigin(this.bottom);
 
-	addColliderToObject(this,32,32,this.bottom);
+	addColliderToObjectBasedOnSprite(this);
 
 	this.update = function() {
-		if (keyboard["left"]) { // Need to make it so the this.player "flips"
+		if (keyboard["left"] && !keyboard["right"]) { // Need to make it so the this.player "flips"
 			this.x -= this.xSpeed;
-			this.setSheet("ld34-images/arrow_left_strip.png",32,100);
+			this.setSheet("ld34-images/protag_run_left.png",64,100);
+			
+			this.facing = "left";
 		}
-		if (keyboard["right"]) {
+		else if (keyboard["right"]&& !keyboard["left"]) {
 			this.x += this.xSpeed;
-			this.setSheet("ld34-images/arrow_right_strip.png",32,100);
+			this.setSheet("ld34-images/protag_run_right.png",64,100);
+			
+			this.facing = "right";
 		}
+		else if(this.facing == "left")
+			this.setSheet("ld34-images/protag_stand_left.png", 64, 100);
+		else
+			this.setSheet("ld34-images/protag_stand_right.png", 64, 100);
+		
 		if (keyboard["up"] && !this.inAir) {
 			this.yVelocity = -1 * this.jumpVelocity;
 			this.inAir = true; // Can't jump again until they hit the ground.
@@ -52,11 +63,9 @@ function Player(){
 		}
 
 
-
-
 	}
 	this.isColliding = function(){
-		for(i=0;i<mainWorld.colliders.length;i++){
+		for(i=0;i < mainWorld.colliders.length; i++){
 			var o2 = mainWorld.colliders[i];
 			if(o2 != this && this.isCollidingWith(o2)){
 				return o2;

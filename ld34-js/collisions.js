@@ -65,9 +65,9 @@ function addColliderToObject(object,width,height,offsetcode){
                     right2 < left1 ||
                     top2 > bottom1 ||
                     bottom2 < top1);
-        }else{
-            return false;
         }
+		else
+            return false;
     }
     object.getFirstCollision = function(){
         for(i=0;i<mainWorld.colliders.length;i++){
@@ -101,10 +101,10 @@ function addColliderToObject(object,width,height,offsetcode){
 
     mainWorld.colliders.push(object);
 }
-function addColliderToObjectBasedOnSprite(object){
-    if(object.animated && object.slicewidth){
+function addColliderToObjectBasedOnSprite(object)
+{
+    if(object.animated && object.slicewidth)
         addColliderToObject(object,object.slicewidth,object.image.naturalHeight,object.origin);
-    }else{
+    else
         addColliderToObject(object,object.image.naturalWidth,object.image.naturalHeight,object.origin);
-    }
 }

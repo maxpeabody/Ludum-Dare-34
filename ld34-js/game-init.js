@@ -35,7 +35,7 @@ function loadImage(imageFileName){ //call this to load image files- prevent load
 
 function preloadStuff(){
     window.console.log("we're calling the preloader");
-    imageMax = 6;
+    imageMax = 13;
 
     loadImage("ld34-images/arrow_right_strip.png");
     loadImage("ld34-images/arrow_left_strip.png");
@@ -43,6 +43,15 @@ function preloadStuff(){
     loadImage("ld34-images/testdoohickey.png");
     loadImage("ld34-images/testwhatsit.png");
     loadImage("ld34-images/big_long_floor.png");
+    loadImage("ld34-images/protag-fall-left.png");
+    loadImage("ld34-images/protag-fall-right.png");
+    loadImage("ld34-images/protag-jump-left.png");
+    loadImage("ld34-images/protag-jump-right.png");
+    loadImage("ld34-images/protag_run_left.png");
+    loadImage("ld34-images/protag_run_right.png");
+    loadImage("ld34-images/protag_stand_left.png");
+    loadImage("ld34-images/protag_stand_left.png");
+
 }
 
 //some stuff for getting keyboard events- just ask if(keyboard["nameOfKey"]) and boom

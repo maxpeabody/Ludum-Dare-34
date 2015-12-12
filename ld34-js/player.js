@@ -20,7 +20,8 @@ function Player()
 	
 	// SFX stuff
 	this.isRunning = false;
-	this.whichStep = 1;
+	this.runSFXStarted = false;
+	this.runSFX = createjs.Sound.play("ld34-sound/sfx/StepBoth.wav", {loop: -1, volume: 0});
 	
 	// Animation stuff
 	this.facing = "right";
@@ -137,10 +138,26 @@ function Player()
 			this.landingCooldown = 10; */
 		}
 
-		// Running SFX
-		// Not perfect if you jump part of the way through, but we can go back and polish it up later.
+		// Turn running SFX on if the player is running, off if they aren't.
+		// This solution... isn't great, but it's functional and doesn't seem to harm performance.
 		if(this.isRunning)
-			createjs.Sound.play("ld34-sound/sfx/StepBoth.wav", {loop: 0, volume: 0.12});
+			this.runSFX.volume = 0.12;
+		else
+			this.runSFX.volume = 0;
+		
+		/* if(this.isRunning == true)
+		{
+			console.log("Start Running!");
+			this.runSFXStarted = true;
+			this.runSFX.play();
+		}
+		else if(this.runSFXStarted);
+		{
+			console.log("STOP RUNNING!");
+			
+			this.runSFXStarted = false;
+			this.runSFX.pause();
+		} */
 	}
 	this.isColliding = function(){
 		for(i=0;i < mainWorld.colliders.length; i++)

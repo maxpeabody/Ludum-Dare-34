@@ -1,8 +1,8 @@
 /* Methods for player movement, drawing/animating the player, etc. etc.
 Defined as a singleton object.
 
-Coded by: Max (physics, input, animation implementation/tweaks), Benedict (majority of animation stuff, collisions),
-	Not The Author (animation implementation/tweaks) */
+Coded by: Max (physics, input, animation implementation/tweaks, sound), 
+	Benedict (majority of animation stuff, collisions), Not The Author (animation implementation/tweaks) */
 
 function Player()
 {

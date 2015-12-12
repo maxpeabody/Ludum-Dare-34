@@ -2,13 +2,13 @@ function World(){
     this.colliders = [];
     this.drawables = [];
 
-    this.drawAll = new function(){
+    this.drawAll = function(){
         for(i=0;i<this.drawables.length;i++){
             this.drawables[i].drawImage(mainCamera);
         }
     }
 
-    this.addDrawableObject = new function(drawable){ //adds object to draw list according to z
+    this.addDrawableObject = function(drawable){ //adds object to draw list according to z
         var z = drawable.z;
         var found = false;
         for(i=0;i<this.drawables.length;i++){
@@ -23,11 +23,11 @@ function World(){
         }
     }
 
-    this.buildWorld = new function(){
+    this.buildWorld = function(){
         var wiggles = new Animation();
         wiggles.setDrawBasedOnOrigin(wiggles.center);
         wiggles.x = 200;
-        wiggles.y = 140;
+        wiggles.y = 180;
         wiggles.z = 1;
         wiggles.setSheet("ld34-images/arrow_left_strip.png",32,100);
 
@@ -43,7 +43,7 @@ function World(){
         secondThing.y = 300;
         secondThing.z = 0;
         secondThing.setDrawBasedOnOrigin(secondThing.bottomLeft);
-        secongThing.image = loadImage("ld34-images/testdoohickey.png");
+        secondThing.image = loadImage("ld34-images/testdoohickey.png");
 
         this.addDrawableObject(wiggles);
         this.addDrawableObject(firstThing);

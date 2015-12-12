@@ -31,6 +31,7 @@ function Player(){
 
 	this.x = 24;
 	this.y = 24;
+	this.z = 5;
 	this.xSpeed = 3.5;
 	this.yVelocity = 0;
 	this.jumpVelocity = 22;

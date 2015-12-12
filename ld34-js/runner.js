@@ -5,11 +5,13 @@ Coded by: Benedict, Max */
 function Game(){
 
 	this.player = new Player();
-
+    this.world = new World();
+    this.world.buildWorld();
+    this.world.addDrawableObject(this.player);
 
     this.update = function(){
+        this.world.drawAll();
 		this.player.update();
-		this.player.drawImage(mainCamera);
     }
 }
 Game.prototype = new Updateable();

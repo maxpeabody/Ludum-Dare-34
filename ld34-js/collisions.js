@@ -108,3 +108,9 @@ function addColliderToObjectBasedOnSprite(object){
         addColliderToObject(object,object.image.naturalWidth,object.image.naturalHeight,object.origin);
     }
 }
+
+
+
+function addTriangleCollider(object,above,leftX,leftY,rightX,rightY,offsetcode){
+    
+}

@@ -19,10 +19,14 @@ function Player(){
 	addColliderToObject(this,32,32,this.bottom);
 
 	this.update = function() {
-		if (keyboard["left"]) // Need to make it so the this.player "flips"
+		if (keyboard["left"]) { // Need to make it so the this.player "flips"
 			this.x -= this.xSpeed;
-		if (keyboard["right"])
+			this.setSheet("ld34-images/arrow_left_strip.png",32,100);
+		}
+		if (keyboard["right"]) {
 			this.x += this.xSpeed;
+			this.setSheet("ld34-images/arrow_right_strip.png",32,100);
+		}
 		if (keyboard["up"] && !this.inAir) {
 			this.yVelocity = -1 * this.jumpVelocity;
 			this.inAir = true; // Can't jump again until they hit the ground.

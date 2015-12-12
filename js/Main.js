@@ -29,7 +29,7 @@ app.Main =
 	{
 		console.log("app.Main.init() called");
 		// declare properties
-		self = this;
+		//self = this; //SORRY HAD TO BREAK THIS -SC
 		this.canvas = document.querySelector('canvas');
 		this.ctx = this.canvas.getContext('2d');
 			

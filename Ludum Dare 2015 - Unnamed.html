@@ -4,28 +4,34 @@
 	<meta charset="utf-8" />
 	<title>LUDUM DARE 2015</title>
 	
-	<style type="text/css">
+	<!--<style type="text/css">
 		canvas
 		{
 			position: fixed;
 			left: 2em;
 			top: 0.8em;
 		}
-	</style>
+	</style>-->
 </head>
-<body>
+<body onload="init()">
 	<!-- set up invisible images so the drawing context can access them -->
 	<!-- <img src="images/basemap.png" id="environment" style="visibility:hidden;"/> -->
-	
-	<canvas width='900' height='526'>
-	</canvas>
+	<p>Here's text so we can see</p>
+	<canvas id="gameCanvas" width='900' height='526'>hey there delilah you need html5</canvas>
+	<p>where canvas begins and ends.</p>
 	<!-- This project uses the PreloadJS and SoundJS libraries, maybe possibly?
 		http://www.createjs.com/#!/PreloadJS 
 		http://www.createjs.com/#!/SoundJS -->
 	<script src="http://code.createjs.com/preloadjs-0.4.1.min.js"></script>
 	<script src="http://code.createjs.com/soundjs-0.5.2.min.js"></script>
-	
-	<script src="js/Loader.js"></script>
-	<script src="js/Main.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+	<script src="ld34-js/game-init.js"></script>
+	<script src="ld34-js/timing.js"></script>
+	<script src="ld34-js/drawing-utilities.js"></script>
+	<script src="ld34-js/runner.js"></script>
+
+	<!-- <script src="js/Loader.js"></script>
+	<script src="js/Main.js"></script> -->
 </body>
 </html>

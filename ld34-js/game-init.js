@@ -7,6 +7,38 @@ var context = canvas.getContext("2d");
 
 var keyboard = {};
 
+var images = {};
+var allImagesLoaded = false;
+var imageMax = 0;
+var imageCount = 0;
+function loadImage(imageFileName){ //call this to load image files- prevent loading same image more than once
+    if(imageFileName in images){
+        return images[imageFileName];
+    }else{
+        var imgToAdd = new Image();
+        imgToAdd.src = imageFileName;
+        imgToAdd.onload = function(){
+            imageCount++;
+            if(imageCount >= imageMax){
+                allImagesLoaded=true;
+                afterLoad();
+            }
+        };
+        images[imageFileName] = imgToAdd;
+        return images[imageFileName];
+    }
+}
+
+function preloadStuff(){
+    imageMax = 5;
+
+    loadImage("ld34-images/arrow_right_strip.png");
+    loadImage("ld34-images/arrow_left_strip.png");
+    loadImage("ld34-images/arrow_idle.png");
+    loadImage("ld34-images/testdoohickey.png");
+    loadImage("ld34-images/testwhatsit.png");
+}
+
 //some stuff for getting keyboard events- just ask if(keyboard["nameOfKey"]) and boom
 document.addEventListener("keydown",function(event){
     if(event.keyCode == 37)

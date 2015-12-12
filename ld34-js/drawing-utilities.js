@@ -1,14 +1,4 @@
-var images = {};
-function loadImage(imageFileName){ //call this to load image files- prevent loading same image more than once
-    if(imageFileName in images){
-        return images[imageFileName];
-    }else{
-        var imgToAdd = new Image();
-        imgToAdd.src = imageFileName;
-        images[imageFileName] = imgToAdd;
-        return images[imageFileName];
-    }
-}
+
 
 function Located(){
     this.x = 0;
@@ -38,6 +28,8 @@ function Drawable(){
         if(this.image){
             var imgWid = this.image.naturalWidth;
             var imgHi = this.image.naturalHeight;
+
+            this.origin = originCode;
 
             if(originCode == this.topLeft){
                 this.xoffset = 0;

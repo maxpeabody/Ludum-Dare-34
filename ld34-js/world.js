@@ -25,25 +25,28 @@ function World(){
 
     this.buildWorld = function(){
         var wiggles = new Animation();
-        wiggles.setDrawBasedOnOrigin(wiggles.center);
         wiggles.x = 200;
         wiggles.y = 180;
         wiggles.z = 1;
         wiggles.setSheet("ld34-images/arrow_left_strip.png",32,100);
+        wiggles.setDrawBasedOnOrigin(wiggles.center);
 
         var firstThing = new Drawable();
         firstThing.x = 200;
         firstThing.y = 200;
         firstThing.z = 0;
-        firstThing.setDrawBasedOnOrigin(firstThing.bottom);
         firstThing.image = loadImage("ld34-images/testwhatsit.png");
+        firstThing.setDrawBasedOnOrigin(firstThing.bottom);
+
 
         var secondThing = new Drawable();
         secondThing.x = 150;
-        secondThing.y = 300;
+        secondThing.y = 400;
         secondThing.z = 0;
-        secondThing.setDrawBasedOnOrigin(secondThing.bottomLeft);
         secondThing.image = loadImage("ld34-images/testdoohickey.png");
+        secondThing.setDrawBasedOnOrigin(secondThing.bottomLeft);
+        addColliderToObject(secondThing,270,23,secondThing.origin);
+        window.console.log(secondThing.origin);
 
         this.addDrawableObject(wiggles);
         this.addDrawableObject(firstThing);

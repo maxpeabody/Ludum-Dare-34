@@ -3,30 +3,6 @@ Defined as a singleton object.
 
 Coded by: Max (physics and input), Benedict (animation) */
 
-//"use strict";
-
-// if app exists use the existing copy
-// else create a new object literal
-//var app = app || {};
-
-/*app.player =
-{
-	// declare variables
-	animation: undefined,
-	
-	x: 24, y: 24,
-	xSpeed: 3.5, yVelocity: 0, jumpSpeed: 22,
-	inAir: false,
-	
-	init: function(defAnimation, defX, defY)
-	{
-		console.log("Initializing player.")
-		
-		this.x = defX; this.y = defY;
-		this.animation = defAnimation;
-	}
-}; // end app.player*/
-
 function Player(){
 
 	this.x = 24;
@@ -39,6 +15,8 @@ function Player(){
 
 	this.setSheet("ld34-images/arrow_right_strip.png",32,100);
 	this.setDrawBasedOnOrigin(this.bottom);
+
+	addColliderToObject(this,32,32,this.bottom);
 
 	this.update = function() {
 		if (keyboard["left"]) // Need to make it so the this.player "flips"
@@ -61,6 +39,12 @@ function Player(){
 		}
 
 		this.y += this.yVelocity;
+
+		if(mainWorld.colliders[1]){
+			if(this.isCollidingWith(mainWorld.colliders[1])){
+				window.console.log("colliding");
+			}
+		}
 	}
 }
 Player.prototype = new Animation();

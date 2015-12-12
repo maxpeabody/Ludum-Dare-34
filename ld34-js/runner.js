@@ -2,21 +2,22 @@
 
 Coded by: Benedict, Max */
 
+
+
 function Game(){
 
 	this.player = new Player();
-    this.world = new World();
-    this.world.buildWorld();
-    this.world.addDrawableObject(this.player);
+    mainWorld.buildWorld();
+    mainWorld.addDrawableObject(this.player);
 
     this.update = function(){
-        this.world.drawAll();
+        mainWorld.drawAll();
 		this.player.update();
     }
 }
 Game.prototype = new Updateable();
 
-function animate(player) {
+function animate() {
     requestAnimFrame( animate );
     context.clearRect(0, 0, canvas.width,canvas.height);
 
@@ -38,10 +39,14 @@ window.requestAnimFrame = (function(){
         };
 })();
 
-var game = new Game();
+
+var mainWorld = new World();
 var mainCamera = new Camera();
+var game = new Game();
 function init()
 {
-	// Start the animation/game loop
-    animate(this.player);
+    preloadStuff();
+}
+function afterLoad(){
+    animate();
 }

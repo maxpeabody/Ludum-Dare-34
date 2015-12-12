@@ -10,6 +10,7 @@ function Game(){
 
     this.update = function(){
         mainWorld.drawAll();
+        mainWorld.update();
 		this.player.update();
     }
 }
@@ -48,7 +49,9 @@ function init()
 }
 function afterLoad(){
     mainWorld = new World();
-    mainCamera = new Camera();
+    mainCamera = new PlayerCamera();
     game = new Game();
+    mainCamera.givePlayer(game.player);
+    mainWorld.updateables.push(mainCamera);
     animate();
 }

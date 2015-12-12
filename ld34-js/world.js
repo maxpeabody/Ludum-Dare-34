@@ -5,10 +5,16 @@ Coded by Benedict */
 function World(){
     this.colliders = [];
     this.drawables = [];
+    this.updateables = [];
 
     this.drawAll = function(){
         for(i=0;i<this.drawables.length;i++){
             this.drawables[i].drawImage(mainCamera);
+        }
+    }
+    this.update = function(){
+        for(i=0;i<this.updateables.length;i++){
+            this.updateables[i].update();
         }
     }
 

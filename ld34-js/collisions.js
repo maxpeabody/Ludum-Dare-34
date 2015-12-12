@@ -69,6 +69,15 @@ function addColliderToObject(object,width,height,offsetcode){
             return false;
         }
     }
+    object.getFirstCollision = function(){
+        for(i=0;i<mainWorld.colliders.length;i++){
+            var o2 = mainWorld.colliders[i];
+            if(o2 != this && this.isCollidingWith(o2)){
+                return o2;
+            }
+        }
+        return false;
+    }
     object.howFarToMoveToGetOut = function(o2){ //only call after you've confirmed a collision
         var dirs = {left:0,right:0,up:0,down:0};
 
@@ -91,4 +100,11 @@ function addColliderToObject(object,width,height,offsetcode){
     }
 
     mainWorld.colliders.push(object);
+}
+function addColliderToObjectBasedOnSprite(object){
+    if(object.animated && object.slicewidth){
+        addColliderToObject(object,object.slicewidth,object.image.naturalHeight,object.origin);
+    }else{
+        addColliderToObject(object,object.image.naturalWidth,object.image.naturalHeight,object.origin);
+    }
 }

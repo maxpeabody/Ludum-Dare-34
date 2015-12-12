@@ -2,8 +2,6 @@
 
 Coded by: Benedict, Max */
 
-
-
 function Game(){
 
 	this.player = new Player();

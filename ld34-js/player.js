@@ -8,9 +8,9 @@ function Player(){
 	this.x = 24;
 	this.y = 24;
 	this.z = 5;
-	this.xSpeed = 3.5;
+	this.xSpeed = 3.75;
 	this.yVelocity = 0;
-	this.jumpVelocity = 22;
+	this.jumpVelocity = 9;
 	this.inAir = false;
 
 	this.setSheet("ld34-images/arrow_right_strip.png",32,100);
@@ -34,7 +34,7 @@ function Player(){
 
 		// effect of gravity on player
 		if (this.y < 456) // Later, replace this with "if the player isn't colliding on the bottom"
-			this.yVelocity += 1.5;
+			this.yVelocity += 0.22;
 		// add conditional for player "hitting their head" here (or maybe before "hitting the ground?")
 		// When player hits the ground, stop their movement + allow them to jump again
 		else if (this.yVelocity > 0) {

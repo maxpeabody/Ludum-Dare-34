@@ -1,3 +1,7 @@
+/* Handles scenery/non-player objects 
+
+Coded by Benedict */
+
 function World(){
     this.colliders = [];
     this.drawables = [];

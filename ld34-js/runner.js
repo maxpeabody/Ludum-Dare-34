@@ -2,8 +2,6 @@ function Game(){
 
     var wiggly = new Animation();
     wiggly.setSheet("ld34-images/arrow_right_strip.png",32,100);
-    wiggly.animated = false;
-    //wiggly.setStatic("ld34-images/arrow_idle.png");
     wiggly.x = 50;
     wiggly.y = 50;
     wiggly.setDrawBasedOnOrigin(wiggly.bottom);
@@ -12,6 +10,7 @@ function Game(){
         wiggly.drawImage(mainCamera);
     }
 }
+Game.prototype = new Updateable();
 
 function animate() {
     requestAnimFrame( animate );

@@ -1,6 +1,6 @@
 /* Handles scenery/non-player objects 
 
-Coded by Benedict */
+Coded by Benedict; map 1 set up by Max */
 
 function World(){
     this.colliders = [];

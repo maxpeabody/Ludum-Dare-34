@@ -57,6 +57,7 @@ function World(){
         secondThing.image = loadImage("ld34-images/testdoohickey.png");
         secondThing.setDrawBasedOnOrigin(secondThing.bottomLeft);
         addColliderToObject(secondThing,270,22,secondThing.origin);
+        secondThing.oneWay = true;
 
         var secondThing2 = new Drawable();
         secondThing2.x = -110;
@@ -76,7 +77,7 @@ function World(){
 
         var triangle2 = new Drawable();
         triangle2.x = 500;
-        triangle2.y = 450;
+        triangle2.y = 451;
         triangle2.z = 1;
         triangle2.image = loadImage("ld34-images/UGLYTESTRAMP2.png");
         triangle2.setDrawBasedOnOrigin(triangle2.bottomLeft);

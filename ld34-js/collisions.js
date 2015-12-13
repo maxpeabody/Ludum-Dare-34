@@ -277,10 +277,11 @@ function addColliderToObject(object,width,height,offsetcode){
         var distString = "distances: ";
         for(smallColCount=0;smallColCount<dirsArray.length;smallColCount++){
             var shortDist = dirsArray[smallColCount];
-            distString += shortDist + ", ";
-            if(shortDist > 0 && shortDist < shortestDist){
+            distString += "(" + smallColCount + ")" + shortDist + ", ";
+            if(shortDist > 0 && shortDist <= shortestDist){
                 shortestDist = shortDist;
                 best = smallColCount;
+                window.console.log("new best is: " + best);
             }
         }
         window.console.log(distString);

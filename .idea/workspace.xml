@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7f90aa0b-f2a3-42bf-9830-7e419fd95833" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ld34-js/collisions.js" afterPath="$PROJECT_DIR$/ld34-js/collisions.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ld34-js/player.js" afterPath="$PROJECT_DIR$/ld34-js/player.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ld34-js/world.js" afterPath="$PROJECT_DIR$/ld34-js/world.js" />
     </list>
     <ignored path="Ludum-Dare-34.iws" />
@@ -41,7 +40,7 @@
         <entry file="file://$PROJECT_DIR$/ld34-js/collisions.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="88" column="29" selection-start-line="88" selection-start-column="29" selection-end-line="88" selection-end-column="29" />
+              <caret line="288" column="20" selection-start-line="288" selection-start-column="20" selection-end-line="288" selection-end-column="20" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -52,8 +51,8 @@
       <file leaf-file-name="world.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ld34-js/world.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.09879518">
-              <caret line="37" column="23" selection-start-line="37" selection-start-column="23" selection-end-line="37" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.65180725">
+              <caret line="79" column="25" selection-start-line="79" selection-start-column="25" selection-end-line="79" selection-end-column="25" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -131,8 +130,8 @@
         <option value="$PROJECT_DIR$/ld34-js/drawing-utilities.js" />
         <option value="$PROJECT_DIR$/ld34-js/runner.js" />
         <option value="$PROJECT_DIR$/ld34-js/game-init.js" />
-        <option value="$PROJECT_DIR$/ld34-js/collisions.js" />
         <option value="$PROJECT_DIR$/ld34-js/player.js" />
+        <option value="$PROJECT_DIR$/ld34-js/collisions.js" />
         <option value="$PROJECT_DIR$/ld34-js/world.js" />
       </list>
     </option>
@@ -549,16 +548,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ld34-js/collisions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="88" column="29" selection-start-line="88" selection-start-column="29" selection-end-line="88" selection-end-column="29" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ld34-js/player.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -569,10 +558,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ld34-js/collisions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="288" column="20" selection-start-line="288" selection-start-column="20" selection-end-line="288" selection-end-column="20" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ld34-js/world.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09879518">
-          <caret line="37" column="23" selection-start-line="37" selection-start-column="23" selection-end-line="37" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.65180725">
+          <caret line="79" column="25" selection-start-line="79" selection-start-column="25" selection-end-line="79" selection-end-column="25" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>

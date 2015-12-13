@@ -88,8 +88,8 @@ function World(){
 		
 		// "SECOND FLOOR"
 		var bridge1 = new Drawable();
-		bridge1.x = 65;
-		bridge1.y = 342;
+		bridge1.x = 66;
+		bridge1.y = 356;
 		bridge1.z = 0;
 		
 		bridge1.image = loadImage("ld34-images/map1/bridge1.png");
@@ -113,17 +113,6 @@ function World(){
 		
 		this.addDrawableObject(bridge2);
 		
-		var overhang1 = new Drawable();
-		overhang1.x = 137;
-		overhang1.y = 356;
-		overhang1.z = 0;
-		
-		overhang1.image = loadImage("ld34-images/map1/overhang1.png");
-		overhang1.setDrawBasedOnOrigin(overhang1.bottomLeft);
-		addColliderToObjectBasedOnSprite(overhang1);
-		
-		this.addDrawableObject(overhang1);
-		
 		var floor1 = new Drawable();
 		floor1.x = 162;
 		floor1.y = 356;
@@ -145,6 +134,17 @@ function World(){
 		addColliderToObjectBasedOnSprite(bigwall2);
 		
 		this.addDrawableObject(bigwall2);
+		
+		var mediumwall1 = new Drawable();
+		mediumwall1.x = 403;
+		mediumwall1.y = 261;
+		mediumwall1.z = 0;
+		
+		mediumwall1.image = loadImage("ld34-images/map1/mediumwall1.png");
+		mediumwall1.setDrawBasedOnOrigin(mediumwall1.bottomLeft);
+		addColliderToObjectBasedOnSprite(mediumwall1);
+		
+		this.addDrawableObject(mediumwall1);
 		
 		// Next, add scenery objects and lighting
 		var lighting1 = new Drawable();

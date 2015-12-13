@@ -11,7 +11,7 @@ var keyboard = {};
 
 var images = {};
 var allImagesLoaded = false;
-var imageMax = 15;
+var imageMax = 16;
 var imageCount = 0;
 function loadImage(imageFileName){ //call this to load image files- prevent loading same image more than once
     if(imageFileName in images)
@@ -91,6 +91,7 @@ function preloadStuff(){
     loadImage("ld34-images/protag_stand_left.png");
     loadImage("ld34-images/UGLYTESTRAMP.png");
     loadImage("ld34-images/UGLYTESTRAMP2.png");
+    loadImage("ld34-images/UGLYTESTRAMP3.png");
 	// load music + SFX
 	loadSound("ld34-sound/bgm/Rainy Place.mp3");
 	loadSound("ld34-sound/bgm/Solitude.mp3");

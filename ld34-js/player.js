@@ -7,8 +7,8 @@ Coded by: Max (physics, input, animation implementation/tweaks, sound),
 function Player()
 {
 	// Movement/location-related things
-	this.x = 24;
-	this.y = 24;
+	this.x = 400;
+	this.y = 70;
 	this.z = 5;
 	this.xSpeed = 3.75;
 	this.yVelocity = 0;
@@ -160,9 +160,9 @@ function Player()
 		} */
 	}
 	this.isColliding = function(){
-		for(i=0;i < mainWorld.colliders.length; i++)
+		for(playerCollisionLoopCounter=0;playerCollisionLoopCounter < mainWorld.colliders.length; playerCollisionLoopCounter++)
 		{
-			var o2 = mainWorld.colliders[i];
+			var o2 = mainWorld.colliders[playerCollisionLoopCounter];
 			if(o2 != this && this.isCollidingWith(o2))
 			{
 				return o2;

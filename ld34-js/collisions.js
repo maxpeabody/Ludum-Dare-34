@@ -63,7 +63,6 @@ function addColliderToObject(object,width,height,offsetcode){
         }
     }
     object.isRectangleCollidingWith = function(o2){
-        window.console.log("are we getting in here");
         if(o2.hasCollider){
             var left1 = object.x + object.cX;
             var right1 = object.x + object.cX + object.cW
@@ -84,8 +83,8 @@ function addColliderToObject(object,width,height,offsetcode){
             return false;
     }
     object.getFirstCollision = function(){
-        for(i=0;i<mainWorld.colliders.length;i++){
-            var o2 = mainWorld.colliders[i];
+        for(firstColCounter=0;firstColCounter<mainWorld.colliders.length;firstColCounter++){
+            var o2 = mainWorld.colliders[firstColCounter];
             if(o2 != this && this.isCollidingWith(o2)){
                 return o2;
             }
@@ -94,10 +93,10 @@ function addColliderToObject(object,width,height,offsetcode){
     }
     object.getAllCollisions = function(){
         var cols = [];
-        for(i=0;i<mainWorld.colliders.length;i++){
-            var o2 = mainWorld.colliders[i];
+        for(allColCounter=0;allColCounter<mainWorld.colliders.length;allColCounter++){
+            var o2 = mainWorld.colliders[allColCounter];
             if(o2 != this && this.isCollidingWith(o2)){
-                cols.push(o2);
+                cols.push(o2.image.src);
             }
         }
         return cols;
@@ -154,27 +153,26 @@ function addColliderToObject(object,width,height,offsetcode){
                 var lowerRight = {x:right1,y:bottom1};
                 var rectPoints = [upperLeft,upperRight,lowerLeft,lowerRight];
 
-                var lineVector = {x:o2.rightPoint.x-o2.leftPoint.x,y:o2.rightPoint.y-o2.leftPoint.y};
-                for(i=0;i<rectPoints.length;i++){
-                    var point = rectPoints[i];
-                    var pointVector = {x:o2.rightPoint.x-point.x,y:o2.rightPoint.y-point.y};
-                    var scalarCrossProd = (lineVector.x*pointVector.y) - (lineVector.y*pointVector.x);
-                    if(scalarCrossProd > 0){
-                        if(o2.solidAbove){
-                            return true;
-                        }
-                    }else if(scalarCrossProd < 0){
-                        if(!o2.solidAbove){
-                            return true;
-                        }
-                    }else{
+                for(intersectionCounter=0;intersectionCounter<rectPoints.length;intersectionCounter++){
+                    var rpoint = rectPoints[intersectionCounter];
+                    if(o2.pointIsInTriangle(rpoint))
                         return true;
-                    }
+                }
+                //we've checked if the rectangle has points in triangle- now vice versa
+                if(o2.leftPoint.x >= left1 && o2.leftPoint.x <= right1
+                        &&o2.leftPoint.y >= top1 && o2.leftPoint.y <= bottom1){
+                    return true;
+                }else if(o2.rightPoint.x >= left1 && o2.rightPoint.x <= right1
+                        &&o2.rightPoint.y >= top1 && o2.rightPoint.y <= bottom1) {
+                    return true;
+                }else{
+                    return false;
                 }
 
+            }else{
+                return false;
             }
-        }
-        else
+        }else
             return false;
     }
     object.triangleHFTMTGO = function(o2){
@@ -192,7 +190,7 @@ function addColliderToObject(object,width,height,offsetcode){
 
         //figure out what shape of triangle this is
         if(!o2.solidAbove){
-            if(o2.leftPoint.y > o2.rightPoint.y){ //|_
+            if(o2.leftPoint.y > o2.rightPoint.y){ //L
                 dirs.left = right1-left2;
                 dirs.down = bottom2-top1;
                 if(bottom1 >= bottom2){
@@ -209,14 +207,59 @@ function addColliderToObject(object,width,height,offsetcode){
                     var verticalDistance = percentToTheLeft*(bottom2-top2);
                     dirs.up = verticalDistance-(bottom2-bottom1);
                 }
-            }else{ //_|
-
+            }else{ //J
+                dirs.right = right2-left1;
+                dirs.down = bottom2-top1;
+                if(bottom1 >= bottom2){
+                    dirs.left = right1-left2;
+                }else{
+                    var percentTowardsBottom = 1-((bottom2-bottom1)/(bottom2-top2));
+                    var horizontalDistance = percentTowardsBottom*(right2-left2);
+                    dirs.left = horizontalDistance-(right2-right1);
+                }
+                if(right1 >= right2){
+                    dirs.up = bottom1-top2;
+                }else{
+                    var percentToTheRight = 1-((right2-right1)/(right2-left2));
+                    var verticalDistance = percentToTheRight*(bottom2-top2);
+                    dirs.up = verticalDistance-(bottom2-bottom1);
+                }
             }
         }else{
             if(o2.leftPoint.y > o2.rightPoint.y){ //7
-
+                dirs.right = right2-left1;
+                dirs.up = bottom1-top2;
+                if(top1 <= top2){
+                    dirs.left = right1-left2;
+                }else{
+                    var percentTowardsTop = (bottom2-top1)/(bottom2-top2);
+                    var horizontalDistance = percentTowardsTop*(right2-left2);
+                    dirs.left = horizontalDistance-(right2-right1);
+                }
+                if(right1 >= right2){
+                    dirs.down = bottom1-top2;
+                }else{
+                    var percentToTheLeft = (right2-left1)/(right2-left2);
+                    var verticalDistance = percentToTheLeft*(bottom2-top2);
+                    dirs.down = verticalDistance-(top1-top2);
+                }
             }else{ //P
-
+                dirs.left = right1-left2;
+                dirs.up = bottom1-top2;
+                if(top1 <= top2){
+                    dirs.right = right2-left1;
+                }else{
+                    var percentTowardsTop = (bottom2-top1)/(bottom2-top2);
+                    var horizontalDistance = percentTowardsTop*(right2-left2);
+                    dirs.right = horizontalDistance-(left2-left1);
+                }
+                if(left1 <= left2){
+                    dirs.down = bottom1-top2;
+                }else{
+                    var percentToTheRight = (left1-right2)/(right2-left2);
+                    var verticalDistance = percentToTheRight*(bottom2-top2);
+                    dirs.down = verticalDistance-(top1-top2);
+                }
             }
         }
 
@@ -240,21 +283,7 @@ function addTriangleCollider(object,above,leftX,leftY,rightX,rightY,offsetcode){
     object.tcH = Math.abs(rightY-leftY);
     object.tcX = 0;
     object.tcY = 0;
-    object.leftPoint = {x:leftX,y:leftY};
-    object.rightPoint = {x:rightX,y:rightY};
-    if(object.leftPoint.y > object.rightPoint.y){
-        if(above){
-            object.thirdPoint = {x:leftX,y:rightY};
-        }else{
-            object.thirdPoint = {x:rightX,y:leftY};
-        }
-    }else{
-        if(above){
-            object.thirdPoint = {x:rightX,y:leftY};
-        }else{
-            object.thirdPoint = {x:leftX,y:rightY};
-        }
-    }
+
 
     object.hasTriangleCollider = true;
     object.solidAbove = above;
@@ -296,6 +325,57 @@ function addTriangleCollider(object,above,leftX,leftY,rightX,rightY,offsetcode){
     }else{//offsetcode == var bottomRight
         object.tcX = -object.tcW;
         object.tcY = -object.tcH;
+    }
+
+    object.leftPoint = {x:object.x+leftX+object.tcX,y:object.y+leftY+object.tcY};
+    object.rightPoint = {x:object.x+rightX+object.tcX,y:object.y+rightY+object.tcY};
+    if(object.leftPoint.y > object.rightPoint.y){
+        if(!above){
+            object.thirdPoint = {x:object.x+leftX+object.tcX,y:object.y+rightY+object.tcY};
+            object.shape = "L";
+        }else{
+            object.thirdPoint = {x:object.x+rightX+object.tcX,y:object.y+leftY+object.tcY};
+            object.shape = "7";
+        }
+    }else{
+        if(!above){
+            object.thirdPoint = {x:object.x+rightX+object.tcX,y:object.y+leftY+object.tcY};
+            object.shape = "J";
+        }else{
+            object.thirdPoint = {x:object.x+leftX+object.tcX,y:object.y+rightY+object.tcY};
+            object.shape = "P";
+        }
+    }
+
+    object.pointIsInTriangle = function(point){
+        //window.console.log(point.x + "," + point.y);
+        var tLeft2 = this.x + this.tcX;
+        var tRight2 = this.x + this.tcX + this.tcW
+        var tTop2 = this.y + this.tcY;
+        var tBottom2 = this.y + this.tcY + this.tcH;
+        //window.console.log("bottom left corner: " + tLeft2 + "," + tBottom2);
+
+        if(point.x < tLeft2 || point.x > tRight2 || point.y < tTop2 || point.y > tBottom2){
+            return false; //this point isn't in the rectangle even
+        }
+
+
+        if(!this.solidAbove){
+            var rightness = (1-((tBottom2-point.y)/(this.tcH)))*this.tcW;
+            if(this.leftPoint.y > this.rightPoint.y){ //L
+                return (this.x+rightness) > point.x;
+            }else{ //J
+                return (this.x+this.tcW-rightness) < point.x;
+            }
+        }else{
+            var rightness = (1-((point.y-tBottom2)/(this.tcH)))*this.tcW;
+            if(this.leftPoint.y > this.rightPoint.y){ //7
+                return (this.x+this.tcW-rightness) < point.x;
+            }else{ //P
+                return (this.x+rightness) > point.x;
+            }
+        }
+
     }
 
     mainWorld.colliders.push(object);

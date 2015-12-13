@@ -43,6 +43,7 @@ function Player()
 	// Set up collision detection
 	var pboxheight = Math.floor(this.image.naturalHeight *.55);
 	addColliderToObject(this,20,pboxheight,this.bottom);
+	this.trigger = true;
 	// window.console.log(this.image.naturalHeight + " is player natural height");
 	this.footwatch = new Located();
 	this.footwatch.x = this.x;
@@ -241,9 +242,9 @@ function Player()
 		this.footwatch.y = this.y;
 		var footsteps = this.footwatch.getAllCollisions();
 		if(!this.inAir && footsteps.length == 1){
-
 			this.fall();
-		}else if(!this.inAir && footsteps.length > 1){
+		}
+		else if(!this.inAir && footsteps.length > 1){
 			if(footsteps[1].oneWay && this.dropTimer.timeElapsedMillis() < 200){
 				this.fall();
 			}

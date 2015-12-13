@@ -11,7 +11,7 @@ var keyboard = {};
 
 var images = {};
 var allImagesLoaded = false;
-var imageMax = 43;
+var imageMax = 44;
 var imageCount = 0;
 function loadImage(imageFileName){ //call this to load image files- prevent loading same image more than once
     if(imageFileName in images)
@@ -118,6 +118,9 @@ function preloadStuff(){
 	// Load images: Scenery and lighting
 	loadImage("ld34-images/map1/lighting1.png");
 	loadImage("ld34-images/map1/scenery1.png");
+
+	// Load images: Plant parts
+	loadImage("ld34-images/plants/beanstalk_trunk.png");
 	
 	// Load images: Player sprites
     loadImage("ld34-images/protag_fall_left.png");

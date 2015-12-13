@@ -259,18 +259,55 @@ function World(){
 		
 		this.addDrawableObject(bigwall3);
 		
-		var overhang3 = new Drawable();
+		/* var overhang3 = new Drawable();
 		overhang3.x = 198;
-		overhang3.y = 165;
+		overhang3.y = 115;
 		overhang3.z = 0;
 		
 		overhang3.image = loadImage("ld34-images/map1/overhang3.png");
 		overhang3.setDrawBasedOnOrigin(overhang3.bottomLeft);
 		addColliderToObjectBasedOnSprite(overhang3);
 		
-		// overhang3.oneWay = true;
+		overhang3.oneWay = true;
 		
-		this.addDrawableObject(overhang3);
+		this.addDrawableObject(overhang3); */
+		
+		var overhang4 = new Drawable();
+		overhang4.x = 182;
+		overhang4.y = 115;
+		overhang4.z = 0;
+		
+		overhang4.image = loadImage("ld34-images/map1/overhang4.png");
+		overhang4.setDrawBasedOnOrigin(overhang4.bottomLeft);
+		addColliderToObjectBasedOnSprite(overhang4);
+		
+		overhang4.oneWay = true;
+		
+		this.addDrawableObject(overhang4);
+		
+		var overhang5 = new Drawable();
+		overhang5.x = -62;
+		overhang5.y = 104;
+		overhang5.z = 0;
+		
+		overhang5.image = loadImage("ld34-images/map1/overhang5.png");
+		overhang5.setDrawBasedOnOrigin(overhang5.bottomLeft);
+		addColliderToObjectBasedOnSprite(overhang5);
+		
+		overhang5.oneWay = true;
+		
+		this.addDrawableObject(overhang5);
+		
+		var overhang_thick1 = new Drawable();
+		overhang_thick1.x = 217;
+		overhang_thick1.y = 128;
+		overhang_thick1.z = 0;
+		
+		overhang_thick1.image = loadImage("ld34-images/map1/overhang_thick1.png");
+		overhang_thick1.setDrawBasedOnOrigin(overhang_thick1.bottomLeft);
+		addColliderToObjectBasedOnSprite(overhang_thick1);
+		
+		this.addDrawableObject(overhang_thick1);
 		
 		var mediumwall2 = new Drawable();
 		mediumwall2.x = -185;
@@ -306,7 +343,7 @@ function World(){
 		this.addDrawableObject(tinywall1);
 		
 		var bridge3 = new Drawable();
-		bridge3.x = -42;
+		bridge3.x = -43;
 		bridge3.y = 103;
 		bridge3.z = 0;
 		
@@ -362,6 +399,17 @@ function World(){
 		
 		this.addDrawableObject(block_tinysandy1);
 		
+		var smallwall1 = new Drawable();
+		smallwall1.x = -268;
+		smallwall1.y = 260;
+		smallwall1.z = 0;
+		
+		smallwall1.image = loadImage("ld34-images/map1/smallwall1.png");
+		smallwall1.setDrawBasedOnOrigin(smallwall1.bottomLeft);
+		addColliderToObjectBasedOnSprite(smallwall1);
+		
+		this.addDrawableObject(smallwall1);
+		
 		/* var ramp_sandy1 = new Drawable();
 		ramp_sandy1.x = -108;
 		ramp_sandy1.y = 92;
@@ -412,6 +460,45 @@ function World(){
 		island3.oneWay = true;
 		
 		this.addDrawableObject(island3);
+		
+		var island4 = new Drawable();
+		island4.x = 118;
+		island4.y = 30;
+		island4.z = 0;
+		
+		island4.image = loadImage("ld34-images/generic/island_large1.png");
+		island4.setDrawBasedOnOrigin(island4.bottomLeft);
+		addColliderToObjectBasedOnSprite(island4);
+		
+		island4.oneWay = true;
+		
+		this.addDrawableObject(island4);
+		
+		var island5 = new Drawable();
+		island5.x = -340;
+		island5.y = 140;
+		island5.z = 0;
+		
+		island5.image = loadImage("ld34-images/generic/island_medium1.png");
+		island5.setDrawBasedOnOrigin(island5.bottomLeft);
+		addColliderToObjectBasedOnSprite(island5);
+		
+		island5.oneWay = true;
+		
+		this.addDrawableObject(island5);
+		
+		var easterisland = new Drawable();
+		easterisland.x = -203;
+		easterisland.y = 385;
+		easterisland.z = -1;
+		
+		easterisland.image = loadImage("ld34-images/generic/island_mysterious.png");
+		easterisland.setDrawBasedOnOrigin(easterisland.bottomLeft);
+		addColliderToObjectBasedOnSprite(easterisland);
+		
+		easterisland.oneWay = true;
+		
+		this.addDrawableObject(easterisland);
 		
 		// Scenery and lighting
 		var lighting1 = new Drawable();

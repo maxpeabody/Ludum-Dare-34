@@ -11,7 +11,7 @@ var keyboard = {};
 
 var images = {};
 var allImagesLoaded = false;
-var imageMax = 43;
+var imageMax = 50;
 var imageCount = 0;
 function loadImage(imageFileName){ //call this to load image files- prevent loading same image more than once
     if(imageFileName in images)
@@ -82,6 +82,8 @@ function preloadStuff(){
 	loadImage("ld34-images/generic/island_small.png");
 	loadImage("ld34-images/generic/island_medium1.png");
 	loadImage("ld34-images/generic/island_medium2.png");
+	loadImage("ld34-images/generic/island_large1.png");
+	loadImage("ld34-images/generic/island_mysterious.png");
 	
 	loadImage("ld34-images/map1/ground_start.png");
 	loadImage("ld34-images/map1/ground1.png");
@@ -97,6 +99,7 @@ function preloadStuff(){
 	loadImage("ld34-images/map1/block_tinysandy1.png");
 	
 	loadImage("ld34-images/map1/tinywall1.png");
+	loadImage("ld34-images/map1/smallwall1.png");
 	loadImage("ld34-images/map1/bigwall1.png");
 	loadImage("ld34-images/map1/bigwall2.png");
 	loadImage("ld34-images/map1/bigwall3.png");
@@ -107,10 +110,14 @@ function preloadStuff(){
 	loadImage("ld34-images/map1/tallwall2_chunk1.png");
 	loadImage("ld34-images/map1/tallwall2_chunk2.png");
 	loadImage("ld34-images/map1/tallwall2_chunk3.png");
+	loadImage("ld34-images/map1/tallwall3.png");
 	
 	loadImage("ld34-images/map1/overhang1.png");
 	loadImage("ld34-images/map1/overhang2.png");
 	loadImage("ld34-images/map1/overhang3.png");
+	loadImage("ld34-images/map1/overhang4.png");
+	loadImage("ld34-images/map1/overhang5.png");
+	loadImage("ld34-images/map1/overhang_thick1.png");
 	loadImage("ld34-images/map1/landbridge1.png");
 	loadImage("ld34-images/map1/tinyslope_ceiling1.png");
 	loadImage("ld34-images/map1/small_ceiling1.png");

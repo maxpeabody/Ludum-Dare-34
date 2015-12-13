@@ -11,7 +11,7 @@ var keyboard = {};
 
 var images = {};
 var allImagesLoaded = false;
-var imageMax = 50;
+var imageMax = 54;
 var imageCount = 0;
 function loadImage(imageFileName){ //call this to load image files- prevent loading same image more than once
     if(imageFileName in images)
@@ -96,10 +96,14 @@ function preloadStuff(){
 	loadImage("ld34-images/map1/ramp_grassy2.png");
 	loadImage("ld34-images/map1/ramp_sandy1.png");
 	loadImage("ld34-images/map1/ramp_tinysandy1.png");
+	loadImage("ld34-images/map1/ramp_tinysandy2.png");
+	loadImage("ld34-images/map1/ramp_tinygrassy1.png");
 	loadImage("ld34-images/map1/block_tinysandy1.png");
+	loadImage("ld34-images/map1/block_tinygrassy1.png");
 	
 	loadImage("ld34-images/map1/tinywall1.png");
 	loadImage("ld34-images/map1/smallwall1.png");
+	loadImage("ld34-images/map1/smallwall2.png");
 	loadImage("ld34-images/map1/bigwall1.png");
 	loadImage("ld34-images/map1/bigwall2.png");
 	loadImage("ld34-images/map1/bigwall3.png");
@@ -156,6 +160,8 @@ document.addEventListener("keydown",function(event){
         keyboard["right"] = true;
     if(event.keyCode == 40)
         keyboard["down"] = true;
+	if(event.keyCode == 82)
+		keyboard["r"] = true;
 	if(event.keyCode == 83)
 		keyboard["s"] = true;
 });
@@ -168,6 +174,8 @@ document.addEventListener("keyup",function(event){
         keyboard["right"] = false;
     if(event.keyCode == 40)
         keyboard["down"] = false;
+	if(event.keyCode == 82)
+		keyboard["r"] = false;
 	if(event.keyCode == 83)
 		keyboard["s"] = false;
 });

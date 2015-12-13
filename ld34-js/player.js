@@ -51,8 +51,13 @@ function Player()
 	this.footwatch.trigger = true;
 
 	this.update = function() {
-		window.console.log(this.downHeldDown);
+		// window.console.log(this.downHeldDown);
 		// HANDLING PLAYER INPUT
+		if(keyboard["r"] || this.y > 600)
+		{
+			this.x = 430; 
+			this.y = 428;
+		}
 
 		if (keyboard["left"] && !keyboard["right"]) {
 			this.vx = -this.xSpeed;

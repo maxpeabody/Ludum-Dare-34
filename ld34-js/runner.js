@@ -20,8 +20,9 @@ Game.prototype = new Updateable();
 
 function animate() {
     requestAnimFrame( animate );
-    context.clearRect(0, 0, canvas.width,canvas.height);
-
+	context.fillStyle = 'rgb(31, 39, 50)';
+    context.fillRect(0, 0, canvas.width,canvas.height);
+	
     //here's where you do all the draw and update calls to whatever's in the game!
     game.update();
 }
@@ -44,6 +45,8 @@ window.requestAnimFrame = (function(){
 var mainWorld;
 var mainCamera;
 var game;
+var lighting;
+
 function init()
 {
     preloadStuff();

@@ -12,6 +12,7 @@ function World(){
             this.drawables[i].drawImage(mainCamera);
         }
     }
+	
     this.update = function(){
         for(i=0;i<this.updateables.length;i++){
             this.updateables[i].update();
@@ -33,24 +34,74 @@ function World(){
         }
     }
 
-    this.buildWorld = function(){
-        var wiggles = new Animation();
-        wiggles.x = 150;
-        wiggles.y = 200;
-        wiggles.z = 1;
-        wiggles.setSheet("ld34-images/arrow_left_strip.png",32,100);
-        wiggles.setDrawBasedOnOrigin(wiggles.center);
-        addColliderToObjectBasedOnSprite(wiggles);
-
-        var firstThing = new Drawable();
-        firstThing.x = 250;
-        firstThing.y = 250;
-        firstThing.z = 0;
-        firstThing.image = loadImage("ld34-images/testwhatsit.png");
-        firstThing.setDrawBasedOnOrigin(firstThing.bottom);
-        addColliderToObjectBasedOnSprite(firstThing);
-
-        var secondThing = new Drawable();
+    this.buildWorld = function()
+	{
+		// First, build the basic map + set up its colliders
+		var startFloor = new Drawable();
+		startFloor.x = 150;
+		startFloor.y = 500;
+		startFloor.z = 0;
+		
+		startFloor.image = loadImage("ld34-images/map1/ground_start.png");
+		startFloor.setDrawBasedOnOrigin(startFloor.bottomLeft);
+		addColliderToObjectBasedOnSprite(startFloor);
+		
+		this.addDrawableObject(startFloor);
+		
+		var valley1 = new Drawable();
+		valley1.x = 29;
+		valley1.y = 500;
+		valley1.z = 0;
+		
+		valley1.image = loadImage("ld34-images/map1/valley1.png");
+		valley1.setDrawBasedOnOrigin(valley1.bottomLeft);
+		addColliderToObjectBasedOnSprite(valley1);
+		
+		this.addDrawableObject(valley1);
+		
+		var bigwall1 = new Drawable();
+		bigwall1.x = -260;
+		bigwall1.y = 500;
+		bigwall1.z = 0;
+		
+		bigwall1.image = loadImage("ld34-images/map1/bigwall1.png");
+		bigwall1.setDrawBasedOnOrigin(bigwall1.bottomLeft);
+		addColliderToObjectBasedOnSprite(bigwall1);
+		
+		this.addDrawableObject(bigwall1);
+		
+		// Next, add scenery objects and lighting
+		var lighting1 = new Drawable();
+		lighting1.x = -260;
+		lighting1.y = 775;
+		lighting1.z = 2;
+		
+		lighting1.image = loadImage("ld34-images/map1/lighting1.png");
+		lighting1.setDrawBasedOnOrigin(lighting1.bottomLeft);
+		
+		this.addDrawableObject(lighting1);
+		
+		var cactus1 = new Drawable();
+		cactus1.x = 252;
+		cactus1.y = 428;
+		cactus1.z = 1;
+		
+		cactus1.image = loadImage("ld34-images/scenery/tsundere.png");
+		cactus1.setDrawBasedOnOrigin(cactus1.bottomLeft);
+		
+		this.addDrawableObject(cactus1);
+		
+		var grass1 = new Drawable();
+		grass1.x = 106;
+		grass1.y = 452;
+		grass1.z = 1;
+		
+		grass1.image = loadImage("ld34-images/scenery/grass_patch_big.png");
+		grass1.setDrawBasedOnOrigin(grass1.bottomLeft);
+		
+		this.addDrawableObject(grass1);
+		
+        /* var secondThing = new Drawable();
         secondThing.x = 150;
         secondThing.y = 400;
         secondThing.z = 0;
@@ -98,14 +149,12 @@ function World(){
         floor.setDrawBasedOnOrigin(floor.topLeft);
         addColliderToObjectBasedOnSprite(floor);
 
-        this.addDrawableObject(wiggles);
-        this.addDrawableObject(firstThing);
         this.addDrawableObject(secondThing);
         this.addDrawableObject(floor);
         this.addDrawableObject(triangle);
         this.addDrawableObject(triangle2);
         this.addDrawableObject(triangle3);
-        this.addDrawableObject(secondThing2);
+        this.addDrawableObject(secondThing2); */
     }
 }
 World.prototype = new Updateable();

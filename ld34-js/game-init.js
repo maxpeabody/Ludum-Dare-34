@@ -11,7 +11,7 @@ var keyboard = {};
 
 var images = {};
 var allImagesLoaded = false;
-var imageMax = 16;
+var imageMax = 13;
 var imageCount = 0;
 function loadImage(imageFileName){ //call this to load image files- prevent loading same image more than once
     if(imageFileName in images)
@@ -72,13 +72,29 @@ function loadSound(soundFileName)
 function preloadStuff(){
     window.console.log("we're calling the preloader");
    
-	// load images
-    loadImage("ld34-images/arrow_right_strip.png");
+	// Load images: Testing stuff
+    /* loadImage("ld34-images/arrow_right_strip.png");
     loadImage("ld34-images/arrow_left_strip.png");
     loadImage("ld34-images/arrow_idle.png");
     loadImage("ld34-images/testdoohickey.png");
     loadImage("ld34-images/testwhatsit.png");
     loadImage("ld34-images/big_long_floor.png");
+    loadImage("ld34-images/UGLYTESTRAMP.png");
+    loadImage("ld34-images/UGLYTESTRAMP2.png");
+    loadImage("ld34-images/UGLYTESTRAMP3.png"); */
+	
+	// Load images: Collision objects
+	loadImage("ld34-images/map1/ground_start.png");
+	loadImage("ld34-images/map1/valley1.png");
+	loadImage("ld34-images/map1/bigwall1.png");
+	
+	// Load images: Scenery and lighting
+	loadImage("ld34-images/map1/lighting1.png");
+	loadImage("ld34-images/scenery/grass_patch_small.png");
+	loadImage("ld34-images/scenery/grass_patch_big.png");
+	loadImage("ld34-images/scenery/tsundere.png");
+	
+	// Load images: Player sprites
 	loadImage("ld34-images/protag_fall_left.png");
 	loadImage("ld34-images/protag_fall_right.png");
     loadImage("ld34-images/protag_fall_left.png");
@@ -89,10 +105,8 @@ function preloadStuff(){
     loadImage("ld34-images/protag_run_right.png");
     loadImage("ld34-images/protag_stand_left.png");
     loadImage("ld34-images/protag_stand_left.png");
-    loadImage("ld34-images/UGLYTESTRAMP.png");
-    loadImage("ld34-images/UGLYTESTRAMP2.png");
-    loadImage("ld34-images/UGLYTESTRAMP3.png");
-	// load music + SFX
+	
+	// Load music and SFX
 	loadSound("ld34-sound/bgm/Rainy Place.mp3");
 	loadSound("ld34-sound/bgm/Solitude.mp3");
 	loadSound("ld34-sound/sfx/Jump.wav");

@@ -2,14 +2,14 @@
 Defined as a singleton object.
 
 Coded by: Max (physics, input, animation implementation/tweaks, sound), 
-	Benedict (majority of animation stuff, collisions),
+	Benedict (majority of animation stuff, collisions, physics tweaks),
 	Not The Author (animation implementation/tweaks, seed management implementation) */
 
 function Player()
 {
 	// Movement/location-related things
-	this.x = 430;
-	this.y = 428;
+	this.x = 31; //this.x = 430;
+	this.y = 212; //this.y = 428;
 	this.z = 5;
 
 	this.vx = 0;
@@ -40,7 +40,7 @@ function Player()
 	// Set up collision detection
 	var pboxheight = Math.floor(this.image.naturalHeight *.6);
 	addColliderToObject(this,20,pboxheight,this.bottom);
-	window.console.log(this.image.naturalHeight + " is player natural height");
+	// window.console.log(this.image.naturalHeight + " is player natural height");
 	this.footwatch = new Located();
 	this.footwatch.x = this.x;
 	this.footwatch.y = this.y;
@@ -241,10 +241,10 @@ function Player()
 				newSeed.pickUp();
 			}
 		}else if(this.sHeldDown && !keyboard["s"]){
-			window.console.log("we're trying to false it");
+			// window.console.log("we're trying to false it");
 			this.sHeldDown = false;
 		}
-		window.console.log("s held down: "+ this.sHeldDown);
+		// window.console.log("s held down: "+ this.sHeldDown);
 		
 		// Handles seed planting.
 		// Could be added to pickup/dropoff to handle all seed functions with 1 button,

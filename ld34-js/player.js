@@ -22,7 +22,10 @@ function Player()
 	
 	this.upButtonReleased = true;
 	this.landingCooldown = 0;
-	
+
+	this.downHeldDown = false;
+	this.dropTimer = new Timer();
+
 	this.heldSeed = false; // Stores the currently-held seed object.
 	this.sHeldDown = false;
 	
@@ -48,6 +51,7 @@ function Player()
 	this.footwatch.trigger = true;
 
 	this.update = function() {
+		window.console.log(this.downHeldDown);
 		// HANDLING PLAYER INPUT
 
 		if (keyboard["left"] && !keyboard["right"]) {
@@ -108,6 +112,20 @@ function Player()
 		}
 		else if (!this.inAir && !keyboard["up"])
 			this.upButtonReleased = true;
+
+		if(!this.inAir){
+			if(keyboard["down"]){
+				if(!this.downHeldDown){
+					this.dropTimer.restart();
+					this.downHeldDown = true;
+				}
+			}
+		}
+		if(this.downHeldDown){
+			if(!keyboard["down"]){
+				this.downHeldDown =false;
+			}
+		}
 
 		//we've done all velocity setting
 		//now we handle collisions
@@ -198,11 +216,13 @@ function Player()
 						this.y += colDirs1.down;
 					}
 				} else { //one-way platform
-					if (this.vy > 0) {
-						if (colDirs1.up <= this.terminalVelocity) {
-							this.y -= colDirs1.up;
-							if (this.inAir)
-								this.land();
+					if(this.dropTimer.timeElapsedMillis() > 200) {
+						if (this.vy > 0) {
+							if (colDirs1.up <= this.terminalVelocity) {
+								this.y -= colDirs1.up;
+								if (this.inAir)
+									this.land();
+							}
 						}
 					}
 				}
@@ -214,8 +234,14 @@ function Player()
 		//handle anything attached to the player that needs to move with it
 		this.footwatch.x = this.x;
 		this.footwatch.y = this.y;
-		if(!this.inAir && this.footwatch.getAllCollisions().length == 1){
+		var footsteps = this.footwatch.getAllCollisions();
+		if(!this.inAir && footsteps.length == 1){
+
 			this.fall();
+		}else if(!this.inAir && footsteps.length > 1){
+			if(footsteps[1].oneWay && this.dropTimer.timeElapsedMillis() < 200){
+				this.fall();
+			}
 		}
 		if(this.heldSeed){
 			var newSeedX = this.x;

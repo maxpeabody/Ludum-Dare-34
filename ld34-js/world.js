@@ -38,7 +38,7 @@ function World(){
     this.buildWorld = function()
 	{
 		// First, build the basic map + set up its colliders
-		var startFloor = new Drawable();
+		var startFloor = new Drawable(); // this, as the name implies, is where the player starts
 		startFloor.x = 150;
 		startFloor.y = 500;
 		startFloor.z = 0;
@@ -48,6 +48,22 @@ function World(){
 		addColliderToObjectBasedOnSprite(startFloor);
 		
 		this.addDrawableObject(startFloor);
+		
+		/* Walls to prevent the player going out of bounds and seeing the cracks.
+		
+		This is a TEMPORARY MEASURE - at some point, we should look into making everything out of
+		bounds black (or, at least, ENOUGH of it black that the player will never notice the seams
+		before they respawn or something... */
+		var boundaryRight = new Drawable();
+		boundaryRight.x = 462;
+		boundaryRight.y = 500;
+		boundaryRight.z = 0;
+		
+		boundaryRight.image = loadImage("ld34-images/map1/tallwall1.png");
+		boundaryRight.setDrawBasedOnOrigin(boundaryRight.bottomLeft);
+		addColliderToObjectBasedOnSprite(boundaryRight);
+		
+		this.addDrawableObject(boundaryRight);
 		
 		var valley1 = new Drawable();
 		valley1.x = 29;
@@ -70,6 +86,66 @@ function World(){
 		addColliderToObjectBasedOnSprite(bigwall1);
 		
 		this.addDrawableObject(bigwall1);
+		
+		// "SECOND FLOOR"
+		var bridge1 = new Drawable();
+		bridge1.x = 66;
+		bridge1.y = 356;
+		bridge1.z = 0;
+		
+		bridge1.image = loadImage("ld34-images/map1/bridge1.png");
+		bridge1.setDrawBasedOnOrigin(bridge1.bottomLeft);
+		addColliderToObjectBasedOnSprite(bridge1);
+		
+		bridge1.oneWay = true;
+		
+		this.addDrawableObject(bridge1);
+		
+		var bridge2 = new Drawable();
+		bridge2.x = 77;
+		bridge2.y = 292;
+		bridge2.z = 0;
+		
+		bridge2.image = loadImage("ld34-images/map1/bridge2.png");
+		bridge2.setDrawBasedOnOrigin(bridge2.bottomLeft);
+		addColliderToObjectBasedOnSprite(bridge2);
+		
+		bridge2.oneWay = true;
+		
+		this.addDrawableObject(bridge2);
+		
+		var floor1 = new Drawable();
+		floor1.x = 162;
+		floor1.y = 356;
+		floor1.z = 0;
+		
+		floor1.image = loadImage("ld34-images/map1/ground1.png");
+		floor1.setDrawBasedOnOrigin(floor1.bottomLeft);
+		addColliderToObjectBasedOnSprite(floor1);
+		
+		this.addDrawableObject(floor1);
+		
+		var bigwall2 = new Drawable();
+		bigwall2.x = 307;
+		bigwall2.y = 356;
+		bigwall2.z = 0;
+		
+		bigwall2.image = loadImage("ld34-images/map1/bigwall2.png");
+		bigwall2.setDrawBasedOnOrigin(bigwall2.bottomLeft);
+		addColliderToObjectBasedOnSprite(bigwall2);
+		
+		this.addDrawableObject(bigwall2);
+		
+		var mediumwall1 = new Drawable();
+		mediumwall1.x = 403;
+		mediumwall1.y = 261;
+		mediumwall1.z = 0;
+		
+		mediumwall1.image = loadImage("ld34-images/map1/mediumwall1.png");
+		mediumwall1.setDrawBasedOnOrigin(mediumwall1.bottomLeft);
+		addColliderToObjectBasedOnSprite(mediumwall1);
+		
+		this.addDrawableObject(mediumwall1);
 		
 		// Next, add scenery objects and lighting
 		var lighting1 = new Drawable();
@@ -102,60 +178,51 @@ function World(){
 		
 		this.addDrawableObject(grass1);
 		
-        /* var secondThing = new Drawable();
-        secondThing.x = 150;
-        secondThing.y = 400;
-        secondThing.z = 0;
-        secondThing.image = loadImage("ld34-images/testdoohickey.png");
-        secondThing.setDrawBasedOnOrigin(secondThing.bottomLeft);
-        addColliderToObject(secondThing,270,22,secondThing.origin);
-        secondThing.oneWay = true;
-
-        var secondThing2 = new Drawable();
-        secondThing2.x = -110;
-        secondThing2.y = 332;
-        secondThing2.z = 0;
-        secondThing2.image = loadImage("ld34-images/testdoohickey.png");
-        secondThing2.setDrawBasedOnOrigin(secondThing2.bottomLeft);
-        addColliderToObject(secondThing2,270,22,secondThing2.origin);
-
-        var triangle = new Drawable();
-        triangle.x = 160;
-        triangle.y = 380;
-        triangle.z = 1;
-        triangle.image = loadImage("ld34-images/UGLYTESTRAMP.png");
-        triangle.setDrawBasedOnOrigin(triangle.bottomLeft);
-        addTriangleCollider(triangle,false,0,70,141,0,triangle.origin);
-
-        var triangle2 = new Drawable();
-        triangle2.x = 500;
-        triangle2.y = 451;
-        triangle2.z = 1;
-        triangle2.image = loadImage("ld34-images/UGLYTESTRAMP2.png");
-        triangle2.setDrawBasedOnOrigin(triangle2.bottomLeft);
-        addTriangleCollider(triangle2,false,0,0,141,70,triangle2.origin);
-
-        var triangle3 = new Drawable();
-        triangle3.x = 408;
-        triangle3.y = 270;
-        triangle3.z = 1;
-        triangle3.image = loadImage("ld34-images/UGLYTESTRAMP2.png");
-        triangle3.setDrawBasedOnOrigin(triangle3.bottomLeft);
-        addTriangleCollider(triangle3,false,0,0,141,70,triangle3.origin);
-
-        var floor = new Drawable();
-        floor.x = -100;
-        floor.y = 450;
-        floor.image = loadImage("ld34-images/big_long_floor.png");
-        floor.setDrawBasedOnOrigin(floor.topLeft);
-        addColliderToObjectBasedOnSprite(floor);*/
-		
 		var testSeed = new TestSeed();
 		testSeed.x = 320;
 		testSeed.y = 395;
         testSeed.trigger = true;
 
         this.addDrawableObject(testSeed);
+        var cattail1 = new Drawable();
+		cattail1.x = 142;
+		cattail1.y = 332;
+		cattail1.z = 1;
+		
+		cattail1.image = loadImage("ld34-images/scenery/cattail_twins.png");
+		cattail1.setDrawBasedOnOrigin(cattail1.bottomLeft);
+		
+		this.addDrawableObject(cattail1);
+		
+		var cattail2 = new Drawable();
+		cattail2.x = 156;
+		cattail2.y = 332;
+		cattail2.z = 1;
+		
+		cattail2.image = loadImage("ld34-images/scenery/cattail_lone.png");
+		cattail2.setDrawBasedOnOrigin(cattail2.bottomLeft);
+		
+		this.addDrawableObject(cattail2);
+		
+		var redreeds1 = new Drawable();
+		redreeds1.x = 267;
+		redreeds1.y = 332;
+		redreeds1.z = 1;
+		
+		redreeds1.image = loadImage("ld34-images/scenery/red_reeds_small.png");
+		redreeds1.setDrawBasedOnOrigin(redreeds1.bottomLeft);
+		
+		this.addDrawableObject(redreeds1);
+		
+		var redreeds2 = new Drawable();
+		redreeds2.x = 283;
+		redreeds2.y = 332;
+		redreeds2.z = 1;
+		
+		redreeds2.image = loadImage("ld34-images/scenery/red_reeds_big.png");
+		redreeds2.setDrawBasedOnOrigin(redreeds2.bottomLeft);
+		
+		this.addDrawableObject(redreeds2);
     }
 }
 World.prototype = new Updateable();

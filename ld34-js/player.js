@@ -8,8 +8,8 @@ Coded by: Max (physics, input, animation implementation/tweaks, sound),
 function Player()
 {
 	// Movement/location-related things
-	this.x = 400;
-	this.y = 70;
+	this.x = 430;
+	this.y = 428;
 	this.z = 5;
 
 	this.vx = 0;
@@ -24,11 +24,12 @@ function Player()
 	this.landingCooldown = 0;
 	
 	this.heldSeed = false; // Stores the currently-held seed object.
+	this.sHeldDown = false;
 	
 	// SFX stuff
 	this.isRunning = false;
 	this.runSFXStarted = false;
-	this.runSFX = createjs.Sound.play("ld34-sound/sfx/StepBoth.wav", {loop: -1, volume: 0});
+	// this.runSFX = createjs.Sound.play("ld34-sound/sfx/StepBoth.wav", {loop: -1, volume: 0});
 	
 	// Animation stuff
 	this.facing = "right";
@@ -37,7 +38,8 @@ function Player()
 	this.setDrawBasedOnOrigin(this.bottom);
 	
 	// Set up collision detection
-	addColliderToObject(this,20,this.image.naturalHeight,this.bottom);
+	var pboxheight = Math.floor(this.image.naturalHeight *.6);
+	addColliderToObject(this,20,pboxheight,this.bottom);
 	window.console.log(this.image.naturalHeight + " is player natural height");
 	this.footwatch = new Located();
 	this.footwatch.x = this.x;
@@ -96,6 +98,9 @@ function Player()
 			else // etc.
 				this.setStatic("ld34-images/protag_fall_right.png");
 			this.setDrawBasedOnOrigin(this.origin);
+			if(!keyboard["up"] && this.vy < -2){
+				this.vy = -2;
+			}
 		}
 
 		if (keyboard["up"] && !this.inAir && this.upButtonReleased) {
@@ -113,7 +118,6 @@ function Player()
 		this.y += this.vy;
 		var firstCollision = this.getFirstNontriggerCollision();
 		if(firstCollision && !firstCollision.trigger) {
-			window.console.log("we're at least trying");
 			var colDirs1 = this.howFarToMoveToGetOut(firstCollision);
 			if (firstCollision.hasTriangleCollider) {
 				if (this.vx < 0) {//we're moving left
@@ -192,9 +196,11 @@ function Player()
 					}
 				} else { //one-way platform
 					if (this.vy > 0) {
-						this.y -= colDirs1.up;
-						if (this.inAir)
-							this.land();
+						if (colDirs1.up <= this.terminalVelocity) {
+							this.y -= colDirs1.up;
+							if (this.inAir)
+								this.land();
+						}
 					}
 				}
 			}
@@ -211,9 +217,9 @@ function Player()
 		if(this.heldSeed){
 			var newSeedX = this.x;
 			if(this.facing == "right"){
-				newSeedX +=10;
+				newSeedX +=15;
 			}else{
-				newSeedX -=10;
+				newSeedX -=15;
 			}
 			this.heldSeed.x = newSeedX;
 			this.heldSeed.y = this.y-20;
@@ -221,7 +227,8 @@ function Player()
 
 		// Handles seed pickup and dropoff.
 		// May break if more than one seed is collided with at a time.
-		if (!this.inAir && keyboard["s"]) {
+		if (keyboard["s"] && !this.sHeldDown) {
+			this.sHeldDown = true;
 			var seedCols = this.getSeedCollisions();
 			window.console.log("number of seed collisions: " + seedCols.length);
 			if(seedCols.length == 0){
@@ -233,7 +240,11 @@ function Player()
 					this.heldSeed.putDown(newSeed); // Swap held seed with unheld seed
 				newSeed.pickUp();
 			}
+		}else if(this.sHeldDown && !keyboard["s"]){
+			window.console.log("we're trying to false it");
+			this.sHeldDown = false;
 		}
+		window.console.log("s held down: "+ this.sHeldDown);
 		
 		// Handles seed planting.
 		// Could be added to pickup/dropoff to handle all seed functions with 1 button,
@@ -245,25 +256,11 @@ function Player()
 
 
 		// Turn running SFX on if the player is running, off if they aren't.
-		// This solution... isn't great, but it's functional and doesn't seem to harm performance.
-		if(this.isRunning)
+		// At some point this stopped working entirely. Whatever. It's not a huge priority.
+		/* if(this.isRunning)
 			this.runSFX.volume = 0.12;
 		else
-			this.runSFX.volume = 0;
-		
-		/* if(this.isRunning == true)
-		{
-			console.log("Start Running!");
-			this.runSFXStarted = true;
-			this.runSFX.play();
-		}
-		else if(this.runSFXStarted);
-		{
-			console.log("STOP RUNNING!");
-			
-			this.runSFXStarted = false;
-			this.runSFX.pause();
-		} */
+			this.runSFX.volume = 0; */
 	}
 
 	this.jump = function(){

@@ -78,6 +78,13 @@ function Drawable(){
 
     };
 
+    this.setZCoordinate = function(newz){
+        var currentIndexOfSelf = mainWorld.drawables.indexOf(this);
+        mainWorld.drawables.splice(currentIndexOfSelf,1);
+        this.z = newz;
+        mainWorld.addDrawableObject(this);
+    }
+
 }
 Drawable.prototype = new Located();
 

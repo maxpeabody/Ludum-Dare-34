@@ -52,9 +52,9 @@ function addColliderToObject(object,width,height,offsetcode){
         object.cY += 1;
         object.cH -= 1;
     }
-    window.console.log("object xy: " + object.x + "," + object.y + "\n" +
+    /* window.console.log("object xy: " + object.x + "," + object.y + "\n" +
                 "colx: " + (object.x+object.cX) + " to " + (object.x+object.cX+object.cW) + "\n" +
-                "coly: " + (object.y+object.cY) + " to " + (object.y+object.cY+object.cH) + "\n");
+                "coly: " + (object.y+object.cY) + " to " + (object.y+object.cY+object.cH) + "\n"); */
 
 
     object.isCollidingWith = function(o2){
@@ -295,11 +295,11 @@ function addColliderToObject(object,width,height,offsetcode){
             if(shortDist > 0 && shortDist <= shortestDist){
                 shortestDist = shortDist;
                 best = smallColCount;
-                window.console.log("new best is: " + best);
+                // window.console.log("new best is: " + best);
             }
         }
-        window.console.log(distString);
-        window.console.log("shortest distance: " + shortestDist + " on " + best);
+        // window.console.log(distString);
+        // window.console.log("shortest distance: " + shortestDist + " on " + best);
         return best;
     }
 

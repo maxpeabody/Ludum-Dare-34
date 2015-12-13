@@ -18,13 +18,14 @@ function Seed()
 		this.isHeld = true;
 		this.isPlanted = false;
 		game.player.heldSeed = this;
+		this.setZCoordinate(6);
 	}
 	this.putDown = function(located){ // Needs position to be put down to
 		this.isHeld = false;
 		this.isPlanted = false;
 		game.player.heldSeed = false;
-		this.x = located.x;
 		this.y = located.y;
+		this.setZCoordinate(3);
 	}
 	this.plant = function(located){
 		this.isHeld = false;
@@ -32,6 +33,7 @@ function Seed()
 		game.player.heldSeed = false;
 		this.x = located.x;
 		this.y = located.y;
+		this.setZCoordinate(3);
 	}
 	
 	this.update = function(){

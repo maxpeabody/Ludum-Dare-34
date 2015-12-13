@@ -29,7 +29,8 @@ Game.prototype = new Updateable();
 
 function animate() {
     requestAnimFrame( animate );
-	context.fillStyle = 'rgb(31, 39, 50)';
+	var bgpattern = context.createPattern(loadImage("ld34-images/bgtile.png"), 'repeat');
+	context.fillStyle = bgpattern;
     context.fillRect(0, 0, canvas.width,canvas.height);
 	
     //here's where you do all the draw and update calls to whatever's in the game!
@@ -63,7 +64,7 @@ function init()
     preloadStuff();
 	
 	// start the soundtrack
-	createjs.Sound.play("ld34-sound/bgm/Solitude.mp3", {loop: -1, volume: 0.4});
+	// createjs.Sound.play("ld34-sound/bgm/Solitude.mp3", {loop: -1, volume: 0.4});
 }
 function afterLoad(){
     window.console.log("did we call afterload");

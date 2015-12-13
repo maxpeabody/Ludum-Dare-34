@@ -1,4 +1,6 @@
+/* Methods for drawing things, setting up bounding, moving the camera, etc.
 
+Coded by Benedict. */
 
 function Located(){
     this.x = 0;

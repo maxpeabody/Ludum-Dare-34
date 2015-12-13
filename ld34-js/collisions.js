@@ -1,3 +1,7 @@
+/* Handles collision detection. 
+
+Coded by Benedict. */
+
 function addColliderToObject(object,width,height,offsetcode){
     object.cW = width;
     object.cH = height;

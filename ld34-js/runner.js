@@ -24,7 +24,6 @@ function animate() {
 
     //here's where you do all the draw and update calls to whatever's in the game!
     game.update();
-    //context.drawImage(loadImage("ld34-images/arrow_idle.png"),150-mainCamera.x,400-mainCamera.y); //test image
 }
 
 //don't ask me how this works- it pretty much just sets up an animation context
@@ -48,6 +47,9 @@ var game;
 function init()
 {
     preloadStuff();
+	
+	// start the soundtrack
+	createjs.Sound.play("ld34-sound/bgm/Rainy Place.mp3", {loop: -1, volume: 0.4});
 }
 function afterLoad(){
     mainWorld = new World();

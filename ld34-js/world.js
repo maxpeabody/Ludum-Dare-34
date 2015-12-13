@@ -8,6 +8,10 @@ function World(){
     this.updateables = [];
     this.seeds = [];
 
+	this.worldBuilt = false;
+
+	this.lightingInFront = true;
+
     this.drawAll = function(){
         for(i=0;i<this.drawables.length;i++){
             this.drawables[i].drawImage(mainCamera);
@@ -37,7 +41,11 @@ function World(){
 
     this.buildWorld = function()
 	{
-		// First, build the basic map + set up its colliders
+		if(this.worldBuilt){
+			window.console.log("world's built already!");
+			return;
+		}
+		// "GROUND FLOOR"
 		var startFloor = new Drawable(); // this, as the name implies, is where the player starts
 		startFloor.x = 150;
 		startFloor.y = 500;
@@ -77,7 +85,7 @@ function World(){
 		this.addDrawableObject(valley1);
 		
 		var bigwall1 = new Drawable();
-		bigwall1.x = -260;
+		bigwall1.x = -258;
 		bigwall1.y = 500;
 		bigwall1.z = 0;
 		
@@ -88,6 +96,39 @@ function World(){
 		this.addDrawableObject(bigwall1);
 		
 		// "SECOND FLOOR"
+		var tallwall2_chunk1 = new Drawable();
+		tallwall2_chunk1.x = 31;
+		tallwall2_chunk1.y = 381;
+		tallwall2_chunk1.z = 0;
+		
+		tallwall2_chunk1.image = loadImage("ld34-images/map1/tallwall2_chunk1.png");
+		tallwall2_chunk1.setDrawBasedOnOrigin(tallwall2_chunk1.bottomLeft);
+		addColliderToObjectBasedOnSprite(tallwall2_chunk1);
+		
+		this.addDrawableObject(tallwall2_chunk1);
+		
+		var tallwall2_chunk2 = new Drawable();
+		tallwall2_chunk2.x = 54;
+		tallwall2_chunk2.y = 344;
+		tallwall2_chunk2.z = 0;
+		
+		tallwall2_chunk2.image = loadImage("ld34-images/map1/tallwall2_chunk2.png");
+		tallwall2_chunk2.setDrawBasedOnOrigin(tallwall2_chunk2.bottomLeft);
+		addColliderToObjectBasedOnSprite(tallwall2_chunk2);
+		
+		this.addDrawableObject(tallwall2_chunk2);
+		
+		var tallwall2_chunk3 = new Drawable();
+		tallwall2_chunk3.x = 66;
+		tallwall2_chunk3.y = 296;
+		tallwall2_chunk3.z = 0;
+		
+		tallwall2_chunk3.image = loadImage("ld34-images/map1/tallwall2_chunk3.png");
+		tallwall2_chunk3.setDrawBasedOnOrigin(tallwall2_chunk3.bottomLeft);
+		addColliderToObjectBasedOnSprite(tallwall2_chunk3);
+		
+		this.addDrawableObject(tallwall2_chunk3);
+		
 		var bridge1 = new Drawable();
 		bridge1.x = 66;
 		bridge1.y = 356;
@@ -103,7 +144,7 @@ function World(){
 		
 		var bridge2 = new Drawable();
 		bridge2.x = 77;
-		bridge2.y = 292;
+		bridge2.y = 285;
 		bridge2.z = 0;
 		
 		bridge2.image = loadImage("ld34-images/map1/bridge2.png");
@@ -137,7 +178,7 @@ function World(){
 		this.addDrawableObject(tinyslope_ceiling1);
 		
 		var bigwall2 = new Drawable();
-		bigwall2.x = 307;
+		bigwall2.x = 268;
 		bigwall2.y = 332;
 		bigwall2.z = 0;
 		
@@ -148,7 +189,7 @@ function World(){
 		this.addDrawableObject(bigwall2);
 		
 		var mediumwall1 = new Drawable();
-		mediumwall1.x = 403;
+		mediumwall1.x = 364;
 		mediumwall1.y = 237;
 		mediumwall1.z = 0;
 		
@@ -158,7 +199,56 @@ function World(){
 		
 		this.addDrawableObject(mediumwall1);
 		
-		// Next, add scenery and lighting
+		// "THIRD FLOOR"
+		var overhang1 = new Drawable();
+		overhang1.x = 78;
+		overhang1.y = 236;
+		overhang1.z = 0;
+		
+		overhang1.image = loadImage("ld34-images/map1/overhang1.png");
+		overhang1.setDrawBasedOnOrigin(overhang1.bottomLeft);
+		addColliderToObjectBasedOnSprite(overhang1);
+		
+		overhang1.oneWay = true;
+		
+		this.addDrawableObject(overhang1);
+		
+		var overhang2 = new Drawable();
+		overhang2.x = 168;
+		overhang2.y = 236;
+		overhang2.z = 0;
+		
+		overhang2.image = loadImage("ld34-images/map1/overhang2.png");
+		overhang2.setDrawBasedOnOrigin(overhang2.bottomLeft);
+		addColliderToObjectBasedOnSprite(overhang2);
+		
+		overhang2.oneWay = true;
+		
+		this.addDrawableObject(overhang2);
+		
+		var small_ceiling1 = new Drawable();
+		small_ceiling1.x = 201;
+		small_ceiling1.y = 242;
+		small_ceiling1.z = 0;
+		
+		small_ceiling1.image = loadImage("ld34-images/map1/small_ceiling1.png");
+		small_ceiling1.setDrawBasedOnOrigin(small_ceiling1.bottomLeft);
+		addColliderToObjectBasedOnSprite(small_ceiling1);
+		
+		this.addDrawableObject(small_ceiling1);
+		
+		var ramp_grassy1 = new Drawable();
+		ramp_grassy1.x = 201;
+		ramp_grassy1.y = 212;
+		ramp_grassy1.z = 0;
+		
+		ramp_grassy1.image = loadImage("ld34-images/map1/ramp_grassy1.png");
+		ramp_grassy1.setDrawBasedOnOrigin(ramp_grassy1.bottomLeft);
+		addTriangleCollider(ramp_grassy1, false, 0, 0, 47, 24, ramp_grassy1.origin);
+		
+		this.addDrawableObject(ramp_grassy1);
+		
+		// Scenery and lighting
 		var lighting1 = new Drawable();
 		lighting1.x = -260;
 		lighting1.y = 775;
@@ -166,65 +256,12 @@ function World(){
 		
 		lighting1.image = loadImage("ld34-images/map1/lighting1.png");
 		lighting1.setDrawBasedOnOrigin(lighting1.bottomLeft);
-		lighting = lighting1;
-		//this.addDrawableObject(lighting1);
-		
-/*
-		var cactus1 = new Drawable();
-		cactus1.x = 252;
-		cactus1.y = 428;
-		cactus1.z = 1;
-		
-		cactus1.image = loadImage("ld34-images/scenery/tsundere.png");
-		cactus1.setDrawBasedOnOrigin(cactus1.bottomLeft);
-		
-		this.addDrawableObject(cactus1);
-		
-		var grass1 = new Drawable();
-		grass1.x = 106;
-		grass1.y = 452;
-		grass1.z = 1;
-		
-		grass1.image = loadImage("ld34-images/scenery/grass_patch_big.png");
-		grass1.setDrawBasedOnOrigin(grass1.bottomLeft);
-		
-		this.addDrawableObject(grass1);
-		
 
-        var cattail1 = new Drawable();
-		cattail1.x = 142;
-		cattail1.y = 332;
-		cattail1.z = 1;
-		
-		cattail1.image = loadImage("ld34-images/scenery/cattail_twins.png");
-		cattail1.setDrawBasedOnOrigin(cattail1.bottomLeft);
-		
-		this.addDrawableObject(cattail1);
-		
-		var cattail2 = new Drawable();
-		cattail2.x = 156;
-		cattail2.y = 332;
-		cattail2.z = 1;
-		
-		cattail2.image = loadImage("ld34-images/scenery/cattail_lone.png");
-		cattail2.setDrawBasedOnOrigin(cattail2.bottomLeft);
-		
-		this.addDrawableObject(cattail2);
-		
-		var redreeds1 = new Drawable();
-		redreeds1.x = 267;
-		redreeds1.y = 332;
-		redreeds1.z = 1;
-		
-		redreeds1.image = loadImage("ld34-images/scenery/red_reeds_small.png");
-		redreeds1.setDrawBasedOnOrigin(redreeds1.bottomLeft);
-		
-		this.addDrawableObject(redreeds1);
-		
-		var redreeds2 = new Drawable();
-		redreeds2.x = 283;
-		redreeds2.y = 332;
-		redreeds2.z = 1;*/
+		if(this.lightingInFront){
+			lighting = lighting1;
+		}else {
+			this.addDrawableObject(lighting1);
+		}
 
 		var testSeed = new TestSeed();
 		testSeed.x = 320;
@@ -241,6 +278,8 @@ function World(){
 		scenery1.setDrawBasedOnOrigin(scenery1.bottomLeft);
 		
 		this.addDrawableObject(scenery1);
+
+		this.worldBuilt = true;
     }
 }
 World.prototype = new Updateable();

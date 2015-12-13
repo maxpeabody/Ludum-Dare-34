@@ -27,14 +27,13 @@ function Drawable(){
     this.xoffset = 0;
     this.yoffset = 0;
     this.setDrawBasedOnOrigin = function(originCode){
+        this.origin = originCode;
         if(this.image){
             var imgWid = this.image.naturalWidth;
             if(this.animated){
                 imgWid = this.slicewidth;
             }
             var imgHi = this.image.naturalHeight;
-
-            this.origin = originCode;
 
             if(originCode == this.topLeft){
                 this.xoffset = 0;

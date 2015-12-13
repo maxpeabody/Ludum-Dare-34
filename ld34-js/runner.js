@@ -4,6 +4,13 @@ Coded by: Benedict, Max */
 
 function Game(){
 
+
+    this.testDrawable = new Drawable();
+    this.testDrawable.x = 201;
+    this.testDrawable.y = 189;
+    this.testDrawable.image = loadImage("ld34-images/arrow_idle.png");
+    this.testDrawable.setDrawBasedOnOrigin(this.testDrawable.center);
+
     //this.zoom = 2;
 
 	this.player = new Player();
@@ -27,6 +34,8 @@ function animate() {
 	
     //here's where you do all the draw and update calls to whatever's in the game!
     game.update();
+    game.testDrawable.drawImage(mainCamera);
+
 }
 
 //don't ask me how this works- it pretty much just sets up an animation context
@@ -54,9 +63,10 @@ function init()
     preloadStuff();
 	
 	// start the soundtrack
-	createjs.Sound.play("ld34-sound/bgm/Rainy Place.mp3", {loop: -1, volume: 0.4});
+	createjs.Sound.play("ld34-sound/bgm/Solitude.mp3", {loop: -1, volume: 0.4});
 }
 function afterLoad(){
+    window.console.log("did we call afterload");
     mainWorld = new World();
     mainCamera = new PlayerCamera();
     game = new Game();

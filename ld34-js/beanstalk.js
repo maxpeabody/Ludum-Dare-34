@@ -11,7 +11,7 @@ Beanstalk.prototype = new Located();
 
 function BeanTrunk(){
     this.percentExtruded = 0;
-    
+
 }
 BeanTrunk.prototype = new Drawable()
 function BeanLeaf(){

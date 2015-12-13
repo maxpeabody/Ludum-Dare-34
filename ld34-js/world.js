@@ -35,19 +35,20 @@ function World(){
 
     this.buildWorld = function(){
         var wiggles = new Animation();
-        wiggles.x = 200;
-        wiggles.y = 180;
+        wiggles.x = 150;
+        wiggles.y = 200;
         wiggles.z = 1;
         wiggles.setSheet("ld34-images/arrow_left_strip.png",32,100);
         wiggles.setDrawBasedOnOrigin(wiggles.center);
+        addColliderToObjectBasedOnSprite(wiggles);
 
         var firstThing = new Drawable();
-        firstThing.x = 200;
-        firstThing.y = 200;
+        firstThing.x = 250;
+        firstThing.y = 250;
         firstThing.z = 0;
         firstThing.image = loadImage("ld34-images/testwhatsit.png");
         firstThing.setDrawBasedOnOrigin(firstThing.bottom);
-
+        addColliderToObjectBasedOnSprite(firstThing);
 
         var secondThing = new Drawable();
         secondThing.x = 150;
@@ -55,7 +56,15 @@ function World(){
         secondThing.z = 0;
         secondThing.image = loadImage("ld34-images/testdoohickey.png");
         secondThing.setDrawBasedOnOrigin(secondThing.bottomLeft);
-        addColliderToObject(secondThing,270,23,secondThing.origin);
+        addColliderToObject(secondThing,270,22,secondThing.origin);
+
+        var secondThing2 = new Drawable();
+        secondThing2.x = -110;
+        secondThing2.y = 332;
+        secondThing2.z = 0;
+        secondThing2.image = loadImage("ld34-images/testdoohickey.png");
+        secondThing2.setDrawBasedOnOrigin(secondThing2.bottomLeft);
+        addColliderToObject(secondThing2,270,22,secondThing2.origin);
 
         var triangle = new Drawable();
         triangle.x = 160;
@@ -74,19 +83,19 @@ function World(){
         addTriangleCollider(triangle2,false,0,0,141,70,triangle2.origin);
 
         var triangle3 = new Drawable();
-        triangle3.x = 700;
-        triangle3.y = 450;
+        triangle3.x = 408;
+        triangle3.y = 270;
         triangle3.z = 1;
-        triangle3.image = loadImage("ld34-images/UGLYTESTRAMP3.png");
+        triangle3.image = loadImage("ld34-images/UGLYTESTRAMP2.png");
         triangle3.setDrawBasedOnOrigin(triangle3.bottomLeft);
-        addTriangleCollider(triangle3,true,0,70,141,0,triangle3.origin);
+        addTriangleCollider(triangle3,false,0,0,141,70,triangle3.origin);
 
         var floor = new Drawable();
         floor.x = -100;
         floor.y = 450;
         floor.image = loadImage("ld34-images/big_long_floor.png");
         floor.setDrawBasedOnOrigin(floor.topLeft);
-        addColliderToObject(floor,floor.image.naturalWidth,floor.image.naturalHeight,floor.origin);
+        addColliderToObjectBasedOnSprite(floor);
 
         this.addDrawableObject(wiggles);
         this.addDrawableObject(firstThing);
@@ -95,6 +104,7 @@ function World(){
         this.addDrawableObject(triangle);
         this.addDrawableObject(triangle2);
         this.addDrawableObject(triangle3);
+        this.addDrawableObject(secondThing2);
     }
 }
 World.prototype = new Updateable();

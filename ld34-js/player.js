@@ -10,9 +10,13 @@ function Player()
 	this.x = 400;
 	this.y = 70;
 	this.z = 5;
+
+	this.vx = 0;
+	this.vy = 0;
+
 	this.xSpeed = 3.75;
-	this.yVelocity = 0;
 	this.jumpVelocity = 9;
+	this.terminalVelocity = 10.5; //just under half the width of a tile, so it doesn't just clip through
 	this.inAir = false;
 	
 	this.upButtonReleased = true;
@@ -30,113 +34,176 @@ function Player()
 	this.setDrawBasedOnOrigin(this.bottom);
 
 	// Set up collision detection
-	addColliderToObject(this,20,this.image.naturalHeight,this.origin);
+	addColliderToObject(this,20,this.image.naturalHeight,this.bottom);
+	this.footwatch = new Located();
+	this.footwatch.x = this.x;
+	this.footwatch.y = this.y;
+	addColliderToObject(this.footwatch,this.cW,3,this.top);
+	this.footwatch.trigger = true;
 
-	this.update = function() 
-	{
+	this.update = function() {
 		// HANDLING PLAYER INPUT
-		if (keyboard["left"] && !keyboard["right"]) 
-		{
-			this.x -= this.xSpeed;
+
+		if (keyboard["left"] && !keyboard["right"]) {
+			this.vx = -this.xSpeed;
 			this.facing = "left";
-			
-			if(!this.inAir)
-			{
-				this.isRunning = true;
+
+			this.isRunning = true;
+			if (this.image.src != "ld34-images/protag_run_left.png") { //a string comparison's faster than setSheet
 				this.setSheet("ld34-images/protag_run_left.png", 64, 100);
 				this.setDrawBasedOnOrigin(this.origin);
 			}
-			else
-				this.isRunning = false;
 		}
-		else if (keyboard["right"] && !keyboard["left"]) 
-		{
-			this.x += this.xSpeed;
-			
+		else if (keyboard["right"] && !keyboard["left"]) {
+			this.vx = this.xSpeed;
 			this.facing = "right";
-			if(!this.inAir)
-			{
-				this.isRunning = true;
+
+			this.isRunning = true;
+			if (this.image.src != "ld34-images/protag_run_right.png") {
 				this.setSheet("ld34-images/protag_run_right.png", 64, 100);
 				this.setDrawBasedOnOrigin(this.origin);
 			}
-			else
-				this.isRunning = false;
-		}
-		else if (this.facing == "left" && !this.inAir) 
-		{
-			this.setSheet("ld34-images/protag_stand_left.png", 64, 100);
-			this.setDrawBasedOnOrigin(this.origin);
-			
+		} else {
+			this.vx = 0;
 			this.isRunning = false;
+			if (this.facing == "left") {
+				this.setStatic("ld34-images/protag_stand_left.png");
+				this.setDrawBasedOnOrigin(this.origin);
+			} else {
+				this.setStatic("ld34-images/protag_stand_right.png");
+				this.setDrawBasedOnOrigin(this.origin);
+			}
 		}
-		else if(!this.inAir) // facing right is implicit
-		{
-			this.setSheet("ld34-images/protag_stand_right.png", 64, 100);
-			this.setDrawBasedOnOrigin(this.origin);
-			
-			this.isRunning = false;
-		}
-		
+
 		// if in the air, "overwrite" whatever spriteSheet WOULD be used
 		// This probably isn't the MOST efficient way to do it, but it should be fine.
-		if(this.inAir)
-		{
-			if(this.facing == "left" && this.yVelocity < 0)
-				this.setSheet("ld34-images/protag_jump_left.png", 64, 100);
-			else if(this.facing == "right" && this.yVelocity < 0)
-				this.setSheet("ld34-images/protag_jump_right.png", 64, 100);
-			else if(this.facing == "left") // velocity >= 0 implicit
-				this.setSheet("ld34-images/protag_fall_left.png", 64, 100);
+		if (this.inAir) {
+			this.isRunning = false;
+			this.vy += .32;
+			if(this.vy > this.terminalVelocity)
+				this.vy = this.terminalVelocity;
+
+			if (this.facing == "left" && this.vy < 0)
+				this.setStatic("ld34-images/protag_jump_left.png");
+			else if (this.facing == "right" && this.vy < 0)
+				this.setStatic("ld34-images/protag_jump_right.png");
+			else if (this.facing == "left") // velocity >= 0 implicit
+				this.setStatic("ld34-images/protag_fall_left.png");
 			else // etc.
-				this.setSheet("ld34-images/protag_fall_right.png", 64, 100);
-				
+				this.setStatic("ld34-images/protag_fall_right.png");
 			this.setDrawBasedOnOrigin(this.origin);
 		}
-		
-		if (keyboard["up"] && !this.inAir && this.upButtonReleased) 
-		{
-			this.yVelocity = -1 * this.jumpVelocity;
-			this.inAir = true; // Can't jump again until they hit the ground.
-			this.upButtonReleased = false; // No jumping repeatedly by holding it down.
-			
-			createjs.Sound.play("ld34-sound/sfx/Jump.wav", {loop: 0, volume: 0.35});
-			this.isRunning = false;
+
+		if (keyboard["up"] && !this.inAir && this.upButtonReleased) {
+			this.jump();
 		}
-		else if(!this.inAir && !keyboard["up"])
+		else if (!this.inAir && !keyboard["up"])
 			this.upButtonReleased = true;
 
-		this.y += this.yVelocity;
+		//we've done all velocity setting
+		//now we handle collisions
 
-		// effect of gravity on player
-		if (!this.isColliding()) // Later, replace this with "if the player isn't colliding on the bottom"
-			this.yVelocity += .42;
-		// add conditional for player "hitting their head" here (or maybe before "hitting the ground?")
-		// When player hits the ground, stop their movement + allow them to jump again
-		else if (this.yVelocity > 0) 
-		{
-			var collidedObject = this.isColliding();
-			if(collidedObject){
-				this.y -= this.howFarToMoveToGetOut(collidedObject).up;
-				window.console.log("player xy: " + this.x + "," + this.y + "\n" +
-					"colx: " + (this.x+this.cX) + " to " + (this.x+this.cX+this.cW) + "\n" +
-					"coly: " + (this.y+this.cY) + " to " + (this.y+this.cY+this.cH) + "\n");
+		var originalX = this.x;
+		var originalY = this.y;
+		this.x += this.vx;
+		this.y += this.vy;
+		var firstCollision = this.getFirstNontriggerCollision();
+		if(firstCollision && !firstCollision.trigger) {
+			window.console.log("we're at least trying");
+			var colDirs1 = this.howFarToMoveToGetOut(firstCollision);
+			if (firstCollision.hasTriangleCollider) {
+				if (this.vx < 0) {//we're moving left
+					var dir = this.smallestCollisionEscapeLRUD(colDirs1);
+					if (dir == 0) {//left
+						this.x -= colDirs1.left;
+						this.y += 1;
+					} else if (dir == 1) {//right
+						this.x += colDirs1.right;
+					} else if (dir == 2) {
+						this.y -= colDirs1.up;
+						this.land();
+					} else {//down
+						this.y += colDirs1.down;
+					}
+					/*if (firstCollision.shape == "J" || firstCollision.shape == "7") {
+						if (colDirs1.right < colDirs1.left) {
+							this.x += colDirs1.right;
+						} else {
+							this.x -= colDirs1.left;
+						}
+					} else if (firstCollision.shape == "L") {
+						this.y -= colDirs1.up;
+						if (this.inAir)
+							this.land();
+					} else { //P
+						this.y += colDirs1.down;
+					}*/
+				} else if (this.vx > 0) {//we're moving right
+					var dir = this.smallestCollisionEscapeLRUD(colDirs1);
+					if (dir == 0) {//left
+						this.x -= colDirs1.left;
+						this.y += 1;
+					} else if (dir == 1) {//right
+						this.x += colDirs1.right;
+					} else if (dir == 2) {
+						this.y -= colDirs1.up;
+						this.land();
+					} else {//down
+						this.y += colDirs1.down;
+					}
+					/*if (firstCollision.shape == "L" || firstCollision.shape == "P") {
+						if (colDirs1.right < colDirs1.left) {
+							this.x += colDirs1.right;
+						} else {
+							this.x -= colDirs1.left;
+						}
+					} else if (firstCollision.shape == "J") {
+						this.y -= colDirs1.up;
+						if (this.inAir)
+							this.land();
+					} else { //7
+						this.y += colDirs1.down;
+					}*/
+				}
+				//horizontal checks take priority over vertical ones
+				else if (this.vy > 0) { //we're moving straight down
+					this.y -= colDirs1.up;
+					if (this.inAir)
+						this.land();
+				} else if (this.vy < 0) {//we're moving straight up
+					this.y += colDirs1.down;
+				}
+			} else {//rectangular collision
+				if (!firstCollision.oneWay) {
+					var dir = this.smallestCollisionEscapeLRUD(colDirs1);
+					if (dir == 0) {//left
+						this.x -= colDirs1.left;
+					} else if (dir == 1) {//right
+						this.x += colDirs1.right;
+					} else if (dir == 2) {
+						this.y -= colDirs1.up;
+						this.land();
+					} else {//down
+						this.y += colDirs1.down;
+					}
+				} else { //one-way platform
+					if (this.vy > 0) {
+						this.y -= colDirs1.up;
+						if (this.inAir)
+							this.land();
+					}
+				}
 			}
-			this.yVelocity = 0;
-			this.inAir = false;
-			
-			createjs.Sound.play("ld34-sound/sfx/Land.wav", {loop: 0, volume: 0.35});
-			
-			// Animates the player landing
-			// ...There isn't a GREAT way to implement this, yet.
-			/* if(this.facing == "left")
-				this.setSheet("ld34-images/protag_land_left.png", 64, 100);
-			else
-				this.setSheet("ld34-images/protag_land_right.png", 64, 100);
-			
-			this.setDrawBasedOnOrigin(this.origin);
-			this.landingCooldown = 10; */
 		}
+		//after you've done all that, get a second opinion on collisions by calling the get-first thing again
+		//if you're still colliding with something, reset to your original xy and land
+
+		this.footwatch.x = this.x;
+		this.footwatch.y = this.y;
+		if(!this.inAir && this.footwatch.getAllCollisions().length == 1){
+			this.fall();
+		}
+
 
 		// Turn running SFX on if the player is running, off if they aren't.
 		// This solution... isn't great, but it's functional and doesn't seem to harm performance.
@@ -159,17 +226,25 @@ function Player()
 			this.runSFX.pause();
 		} */
 	}
-	this.isColliding = function(){
-		for(playerCollisionLoopCounter=0;playerCollisionLoopCounter < mainWorld.colliders.length; playerCollisionLoopCounter++)
-		{
-			var o2 = mainWorld.colliders[playerCollisionLoopCounter];
-			if(o2 != this && this.isCollidingWith(o2))
-			{
-				return o2;
-			}
-		}
-		this.inAir = true; // If there's nothing underfoot, you must be falling!
-		return false;
+
+	this.jump = function(){
+		this.vy = -1 * this.jumpVelocity;
+		this.inAir = true; // Can't jump again until they hit the ground.
+		this.upButtonReleased = false; // No jumping repeatedly by holding it down.
+
+		createjs.Sound.play("ld34-sound/sfx/Jump.wav", {loop: 0, volume: 0.35});
+		this.isRunning = false;
+	}
+	this.land = function(){
+		if(!this.inAir)
+			return;
+		this.vy = 0;
+		this.inAir = false;
+		createjs.Sound.play("ld34-sound/sfx/Land.wav", {loop: 0, volume: 0.35});
+	}
+	this.fall = function(){
+		this.inAir = true;
+		this.isRunning = false;
 	}
 }
 Player.prototype = new Animation();

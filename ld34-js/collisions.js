@@ -48,6 +48,10 @@ function addColliderToObject(object,width,height,offsetcode){
         object.cX = -width;
         object.cY = -height;
     }
+    if(object.colliderIsBasedOnSprite){
+        object.cY += 1;
+        object.cH -= 1;
+    }
     window.console.log("object xy: " + object.x + "," + object.y + "\n" +
                 "colx: " + (object.x+object.cX) + " to " + (object.x+object.cX+object.cW) + "\n" +
                 "coly: " + (object.y+object.cY) + " to " + (object.y+object.cY+object.cH) + "\n");
@@ -82,10 +86,10 @@ function addColliderToObject(object,width,height,offsetcode){
         else
             return false;
     }
-    object.getFirstCollision = function(){
+    object.getFirstNontriggerCollision = function(){
         for(firstColCounter=0;firstColCounter<mainWorld.colliders.length;firstColCounter++){
             var o2 = mainWorld.colliders[firstColCounter];
-            if(o2 != this && this.isCollidingWith(o2)){
+            if(o2 != this && !o2.trigger && this.isCollidingWith(o2)){
                 return o2;
             }
         }
@@ -96,7 +100,7 @@ function addColliderToObject(object,width,height,offsetcode){
         for(allColCounter=0;allColCounter<mainWorld.colliders.length;allColCounter++){
             var o2 = mainWorld.colliders[allColCounter];
             if(o2 != this && this.isCollidingWith(o2)){
-                cols.push(o2.image.src);
+                cols.push(o2);
             }
         }
         return cols;
@@ -121,10 +125,10 @@ function addColliderToObject(object,width,height,offsetcode){
         var top2 = o2.y + o2.cY;
         var bottom2 = o2.y + o2.cY + o2.cH;
 
-        dirs.up = bottom1 - top2;
-        dirs.down = bottom2 - top1;
-        dirs.left = right1-left2;
-        dirs.right = right2-left1;
+        dirs.up = bottom1 - top2 + 1;
+        dirs.down = bottom2 - top1 + 1;
+        dirs.left = right1-left2 + 1;
+        dirs.right = right2-left1 + 1;
 
         return dirs;
     }
@@ -191,34 +195,34 @@ function addColliderToObject(object,width,height,offsetcode){
         //figure out what shape of triangle this is
         if(!o2.solidAbove){
             if(o2.leftPoint.y > o2.rightPoint.y){ //L
-                dirs.left = right1-left2;
-                dirs.down = bottom2-top1;
+                dirs.left = right1-left2 + 1;
+                dirs.down = bottom2-top1 + 1;
                 if(bottom1 >= bottom2){
-                    dirs.right = right2-left1;
+                    dirs.right = right2-left + 11;
                 }else{
                     var percentTowardsBottom = 1-((bottom2-bottom1)/(bottom2-top2));
                     var horizontalDistance = percentTowardsBottom*(right2-left2);
                     dirs.right = horizontalDistance-(left1-left2);
                 }
                 if(left1 <= left2){
-                    dirs.up = bottom1-top2;
+                    dirs.up = bottom1-top2 + 1;
                 }else{
                     var percentToTheLeft = 1-((left1-left2)/(right2-left2));
                     var verticalDistance = percentToTheLeft*(bottom2-top2);
                     dirs.up = verticalDistance-(bottom2-bottom1);
                 }
             }else{ //J
-                dirs.right = right2-left1;
-                dirs.down = bottom2-top1;
+                dirs.right = right2-left1 + 1;
+                dirs.down = bottom2-top1 + 1;
                 if(bottom1 >= bottom2){
-                    dirs.left = right1-left2;
+                    dirs.left = right1-left2 + 1;
                 }else{
                     var percentTowardsBottom = 1-((bottom2-bottom1)/(bottom2-top2));
                     var horizontalDistance = percentTowardsBottom*(right2-left2);
                     dirs.left = horizontalDistance-(right2-right1);
                 }
                 if(right1 >= right2){
-                    dirs.up = bottom1-top2;
+                    dirs.up = bottom1-top2 + 1;
                 }else{
                     var percentToTheRight = 1-((right2-right1)/(right2-left2));
                     var verticalDistance = percentToTheRight*(bottom2-top2);
@@ -227,34 +231,34 @@ function addColliderToObject(object,width,height,offsetcode){
             }
         }else{
             if(o2.leftPoint.y > o2.rightPoint.y){ //7
-                dirs.right = right2-left1;
-                dirs.up = bottom1-top2;
+                dirs.right = right2-left1 + 1;
+                dirs.up = bottom1-top2 + 1;
                 if(top1 <= top2){
-                    dirs.left = right1-left2;
+                    dirs.left = right1-left2 + 1;
                 }else{
                     var percentTowardsTop = (bottom2-top1)/(bottom2-top2);
                     var horizontalDistance = percentTowardsTop*(right2-left2);
                     dirs.left = horizontalDistance-(right2-right1);
                 }
                 if(right1 >= right2){
-                    dirs.down = bottom1-top2;
+                    dirs.down = bottom1-top2 + 1;
                 }else{
                     var percentToTheLeft = (right2-left1)/(right2-left2);
                     var verticalDistance = percentToTheLeft*(bottom2-top2);
                     dirs.down = verticalDistance-(top1-top2);
                 }
             }else{ //P
-                dirs.left = right1-left2;
-                dirs.up = bottom1-top2;
+                dirs.left = right1-left2 + 1;
+                dirs.up = bottom1-top2 + 1;
                 if(top1 <= top2){
-                    dirs.right = right2-left1;
+                    dirs.right = right2-left1 + 1;
                 }else{
                     var percentTowardsTop = (bottom2-top1)/(bottom2-top2);
                     var horizontalDistance = percentTowardsTop*(right2-left2);
                     dirs.right = horizontalDistance-(left2-left1);
                 }
                 if(left1 <= left2){
-                    dirs.down = bottom1-top2;
+                    dirs.down = bottom1-top2 + 1;
                 }else{
                     var percentToTheRight = (left1-right2)/(right2-left2);
                     var verticalDistance = percentToTheRight*(bottom2-top2);
@@ -266,10 +270,29 @@ function addColliderToObject(object,width,height,offsetcode){
         return dirs;
     }
 
+    object.smallestCollisionEscapeLRUD = function(directions){
+        var dirsArray = [directions.left,directions.right,directions.up,directions.down];
+        var best = 2; //if for some asinine reason everything's negative, pick directions.up
+        var shortestDist = directions.left;
+        var distString = "distances: ";
+        for(smallColCount=0;smallColCount<dirsArray.length;smallColCount++){
+            var shortDist = dirsArray[smallColCount];
+            distString += shortDist + ", ";
+            if(shortDist > 0 && shortDist < shortestDist){
+                shortestDist = shortDist;
+                best = smallColCount;
+            }
+        }
+        window.console.log(distString);
+        window.console.log("shortest distance: " + shortestDist + " on " + best);
+        return best;
+    }
+
     mainWorld.colliders.push(object);
 }
 function addColliderToObjectBasedOnSprite(object)
 {
+    object.colliderIsBasedOnSprite = true;
     if(object.animated && object.slicewidth)
         addColliderToObject(object,object.slicewidth,object.image.naturalHeight,object.origin);
     else
@@ -378,5 +401,5 @@ function addTriangleCollider(object,above,leftX,leftY,rightX,rightY,offsetcode){
 
     }
 
-    mainWorld.colliders.push(object);
+        mainWorld.colliders.push(object);
 }

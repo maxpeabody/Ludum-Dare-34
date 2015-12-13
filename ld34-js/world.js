@@ -166,8 +166,8 @@ function World(){
 		
 		lighting1.image = loadImage("ld34-images/map1/lighting1.png");
 		lighting1.setDrawBasedOnOrigin(lighting1.bottomLeft);
-		
-		this.addDrawableObject(lighting1);
+		lighting = lighting1;
+		//this.addDrawableObject(lighting1);
 		
 /*
 		var cactus1 = new Drawable();

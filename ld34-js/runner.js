@@ -14,6 +14,8 @@ function Game(){
         mainWorld.drawAll();
         mainWorld.update();
 		this.player.update();
+        if(lighting)
+            lighting.drawImage(mainCamera);
     }
 }
 Game.prototype = new Updateable();

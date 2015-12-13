@@ -237,16 +237,16 @@ function World(){
 		
 		this.addDrawableObject(small_ceiling1);
 
-		var ramp_grassy1 = new Drawable();
-		ramp_grassy1.x = 199;
-		ramp_grassy1.y = 213;
-		ramp_grassy1.z = 0;
+		var ramp_grassy2 = new Drawable();
+		ramp_grassy2.x = 199;
+		ramp_grassy2.y = 213;
+		ramp_grassy2.z = 0;
 		
-		ramp_grassy1.image = loadImage("ld34-images/map1/ramp_grassy1.png");
-		ramp_grassy1.setDrawBasedOnOrigin(ramp_grassy1.bottomLeft);
-		addTriangleCollider(ramp_grassy1, false, 0, 0, 47, 24, ramp_grassy1.origin);
+		ramp_grassy2.image = loadImage("ld34-images/map1/ramp_grassy2.png");
+		ramp_grassy2.setDrawBasedOnOrigin(ramp_grassy2.bottomLeft);
+		addTriangleCollider(ramp_grassy2, false, 0, 0, 47, 24, ramp_grassy2.origin);
 		
-		this.addDrawableObject(ramp_grassy1);
+		this.addDrawableObject(ramp_grassy2);
 		
 		var bigwall3 = new Drawable();
 		bigwall3.x = 268;
@@ -261,7 +261,7 @@ function World(){
 		
 		var overhang3 = new Drawable();
 		overhang3.x = 198;
-		overhang3.y = 138;
+		overhang3.y = 165;
 		overhang3.z = 0;
 		
 		overhang3.image = loadImage("ld34-images/map1/overhang3.png");
@@ -307,7 +307,7 @@ function World(){
 		
 		var bridge3 = new Drawable();
 		bridge3.x = -42;
-		bridge3.y = 102;
+		bridge3.y = 103;
 		bridge3.z = 0;
 		
 		bridge3.image = loadImage("ld34-images/map1/bridge3.png");
@@ -328,6 +328,50 @@ function World(){
 		addColliderToObjectBasedOnSprite(landbridge1);
 		
 		this.addDrawableObject(landbridge1);
+		
+		var ramp_grassy2 = new Drawable();
+		ramp_grassy2.x = -225;
+		ramp_grassy2.y = 92;
+		ramp_grassy2.z = 0;
+		
+		ramp_grassy2.image = loadImage("ld34-images/map1/ramp_grassy2.png");
+		ramp_grassy2.setDrawBasedOnOrigin(ramp_grassy2.bottomLeft);
+		addTriangleCollider(ramp_grassy2, false, 0, 0, 69, 36, ramp_grassy2.origin);
+		
+		this.addDrawableObject(ramp_grassy2);
+		
+		/* var ramp_tinysandy1 = new Drawable();
+		ramp_tinysandy1.x = -156;
+		ramp_tinysandy1.y = 68;
+		ramp_tinysandy1.z = 0;
+		
+		ramp_tinysandy1.image = loadImage("ld34-images/map1/ramp_tinysandy1.png");
+		ramp_tinysandy1.setDrawBasedOnOrigin(ramp_tinysandy1.bottomLeft);
+		addTriangleCollider(ramp_tinysandy1, false, 0, 12, 23, 0, ramp_tinysandy1.origin);
+		
+		this.addDrawableObject(ramp_tinysandy1); */
+		
+		var block_tinysandy1 = new Drawable();
+		block_tinysandy1.x = -156;
+		block_tinysandy1.y = 92;
+		block_tinysandy1.z = 0;
+		
+		block_tinysandy1.image = loadImage("ld34-images/map1/block_tinysandy1.png");
+		block_tinysandy1.setDrawBasedOnOrigin(block_tinysandy1.bottomLeft);
+		addColliderToObjectBasedOnSprite(block_tinysandy1);
+		
+		this.addDrawableObject(block_tinysandy1);
+		
+		/* var ramp_sandy1 = new Drawable();
+		ramp_sandy1.x = -108;
+		ramp_sandy1.y = 92;
+		ramp_sandy1.z = 0;
+		
+		ramp_sandy1.image = loadImage("ld34-images/map1/ramp_sandy1.png");
+		ramp_sandy1.setDrawBasedOnOrigin(ramp_sandy1.bottomLeft);
+		addTriangleCollider(ramp_sandy1, false, 0, 47, 24, 0, ramp_sandy1.origin);
+		
+		this.addDrawableObject(ramp_sandy1); */
 		
 		// Floating platforms
 		var island1 = new Drawable();

@@ -22,7 +22,8 @@ Game.prototype = new Updateable();
 
 function animate() {
     requestAnimFrame( animate );
-	context.fillStyle = 'rgb(31, 39, 50)';
+	var bgpattern = context.createPattern(loadImage("ld34-images/bgtile.png"), 'repeat');
+	context.fillStyle = bgpattern;
     context.fillRect(0, 0, canvas.width,canvas.height);
 	
     //here's where you do all the draw and update calls to whatever's in the game!

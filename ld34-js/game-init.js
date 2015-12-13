@@ -11,7 +11,7 @@ var keyboard = {};
 
 var images = {};
 var allImagesLoaded = false;
-var imageMax = 30;
+var imageMax = 31;
 var imageCount = 0;
 function loadImage(imageFileName){ //call this to load image files- prevent loading same image more than once
     if(imageFileName in images)
@@ -74,6 +74,9 @@ function preloadStuff(){
 
 	// Load images: Testing and miscellaneous
 	loadImage("ld34-images/arrow_idle.png");
+	
+	// Load images: Background
+	loadImage("ld34-images/bgtile.png");
 
 	// Load images: Collision objects
 	loadImage("ld34-images/generic/island_small.png");

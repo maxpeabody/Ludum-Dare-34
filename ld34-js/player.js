@@ -7,8 +7,8 @@ Coded by: Max (physics, input, animation implementation/tweaks, sound),
 function Player()
 {
 	// Movement/location-related things
-	this.x = 400;
-	this.y = 70;
+	this.x = 430;
+	this.y = 428;
 	this.z = 5;
 
 	this.vx = 0;
@@ -25,7 +25,7 @@ function Player()
 	// SFX stuff
 	this.isRunning = false;
 	this.runSFXStarted = false;
-	this.runSFX = createjs.Sound.play("ld34-sound/sfx/StepBoth.wav", {loop: -1, volume: 0});
+	// this.runSFX = createjs.Sound.play("ld34-sound/sfx/StepBoth.wav", {loop: -1, volume: 0});
 	
 	// Animation stuff
 	this.facing = "right";
@@ -206,25 +206,11 @@ function Player()
 
 
 		// Turn running SFX on if the player is running, off if they aren't.
-		// This solution... isn't great, but it's functional and doesn't seem to harm performance.
-		if(this.isRunning)
+		// At some point this stopped working entirely. Whatever. It's not a huge priority.
+		/* if(this.isRunning)
 			this.runSFX.volume = 0.12;
 		else
-			this.runSFX.volume = 0;
-		
-		/* if(this.isRunning == true)
-		{
-			console.log("Start Running!");
-			this.runSFXStarted = true;
-			this.runSFX.play();
-		}
-		else if(this.runSFXStarted);
-		{
-			console.log("STOP RUNNING!");
-			
-			this.runSFXStarted = false;
-			this.runSFX.pause();
-		} */
+			this.runSFX.volume = 0; */
 	}
 
 	this.jump = function(){

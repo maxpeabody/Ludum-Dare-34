@@ -11,7 +11,7 @@ var keyboard = {};
 
 var images = {};
 var allImagesLoaded = false;
-var imageMax = 13;
+var imageMax = 26;
 var imageCount = 0;
 function loadImage(imageFileName){ //call this to load image files- prevent loading same image more than once
     if(imageFileName in images)
@@ -84,15 +84,31 @@ function preloadStuff(){
     loadImage("ld34-images/UGLYTESTRAMP3.png"); */
 	
 	// Load images: Collision objects
+	loadImage("ld34-images/generic/island_small.png");
+	loadImage("ld34-images/generic/island_medium.png");
+	
 	loadImage("ld34-images/map1/ground_start.png");
+	loadImage("ld34-images/map1/ground1.png");
 	loadImage("ld34-images/map1/valley1.png");
+	loadImage("ld34-images/map1/bridge1.png");
+	loadImage("ld34-images/map1/bridge2.png");
+	loadImage("ld34-images/map1/bridge3.png");
+	
+	loadImage("ld34-images/map1/overhang1.png");
+	
 	loadImage("ld34-images/map1/bigwall1.png");
+	loadImage("ld34-images/map1/bigwall2.png");
+	loadImage("ld34-images/map1/tallwall1.png");
 	
 	// Load images: Scenery and lighting
 	loadImage("ld34-images/map1/lighting1.png");
 	loadImage("ld34-images/scenery/grass_patch_small.png");
 	loadImage("ld34-images/scenery/grass_patch_big.png");
 	loadImage("ld34-images/scenery/tsundere.png");
+	loadImage("ld34-images/scenery/cattail_lone.png");
+	loadImage("ld34-images/scenery/cattail_twins.png");
+	loadImage("ld34-images/scenery/red_reeds_big.png");
+	loadImage("ld34-images/scenery/red_reeds_small.png");
 	
 	// Load images: Player sprites
 	loadImage("ld34-images/protag_fall_left.png");

@@ -57,6 +57,14 @@ function World(){
         secondThing.setDrawBasedOnOrigin(secondThing.bottomLeft);
         addColliderToObject(secondThing,270,23,secondThing.origin);
 
+        var triangle = new Drawable();
+        triangle.x = 160;
+        triangle.y = 380;
+        triangle.z = 1;
+        triangle.image = loadImage("ld34-images/UGLYTESTRAMP.png");
+        triangle.setDrawBasedOnOrigin(triangle.bottomLeft);
+        addTriangleCollider(triangle,false,0,70,141,0,triangle.origin);
+
         var floor = new Drawable();
         floor.x = -100;
         floor.y = 450;
@@ -68,6 +76,7 @@ function World(){
         this.addDrawableObject(firstThing);
         this.addDrawableObject(secondThing);
         this.addDrawableObject(floor);
+        this.addDrawableObject(triangle);
     }
 }
 World.prototype = new Updateable();

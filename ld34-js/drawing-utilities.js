@@ -123,7 +123,7 @@ function Animation(){
 Animation.prototype = new Drawable();
 
 function Camera(){
-    this.width = canvas.width;
-    this.height = canvas.height;
+    this.width = canvas.width/2;
+    this.height = canvas.height/2;
 }
 Camera.prototype = new Located();

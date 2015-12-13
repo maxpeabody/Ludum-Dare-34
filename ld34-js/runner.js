@@ -4,6 +4,8 @@ Coded by: Benedict, Max */
 
 function Game(){
 
+    //this.zoom = 2;
+
 	this.player = new Player();
     mainWorld.buildWorld();
     mainWorld.addDrawableObject(this.player);

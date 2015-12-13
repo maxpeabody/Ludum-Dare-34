@@ -4,6 +4,8 @@ Coded by: Benedict */
 
 var canvas = document.getElementById("gameCanvas");
 var context = canvas.getContext("2d");
+context.imageSmoothingEnabled = false;
+context.scale(2,2);
 
 var keyboard = {};
 
@@ -16,6 +18,7 @@ function loadImage(imageFileName){ //call this to load image files- prevent load
         return images[imageFileName];
     }else{
         var imgToAdd = new Image();
+        imgToAdd.imageRendering = "pixelated";
         imgToAdd.src = imageFileName;
         if(!allImagesLoaded) {
             imgToAdd.onload = function () {
@@ -51,7 +54,8 @@ function preloadStuff(){
     loadImage("ld34-images/protag_run_right.png");
     loadImage("ld34-images/protag_stand_left.png");
     loadImage("ld34-images/protag_stand_left.png");
-
+    loadImage("ld34-images/UGLYTESTRAMP.png");
+    loadImage("ld34-images/UGLYTESTRAMP2.png");
 }
 
 //some stuff for getting keyboard events- just ask if(keyboard["nameOfKey"]) and boom

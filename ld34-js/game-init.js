@@ -11,7 +11,7 @@ var keyboard = {};
 
 var images = {};
 var allImagesLoaded = false;
-var imageMax = 36;
+var imageMax = 39;
 var imageCount = 0;
 function loadImage(imageFileName){ //call this to load image files- prevent loading same image more than once
     if(imageFileName in images)
@@ -80,7 +80,8 @@ function preloadStuff(){
 
 	// Load images: Collision objects
 	loadImage("ld34-images/generic/island_small.png");
-	loadImage("ld34-images/generic/island_medium.png");
+	loadImage("ld34-images/generic/island_medium1.png");
+	loadImage("ld34-images/generic/island_medium2.png");
 	
 	loadImage("ld34-images/map1/ground_start.png");
 	loadImage("ld34-images/map1/ground1.png");
@@ -88,6 +89,7 @@ function preloadStuff(){
 	loadImage("ld34-images/map1/bridge1.png");
 	loadImage("ld34-images/map1/bridge2.png");
 	loadImage("ld34-images/map1/bridge3.png");
+	loadImage("ld34-images/map1/ramp_grassy1.png");
 	
 	loadImage("ld34-images/map1/tinywall1.png");
 	loadImage("ld34-images/map1/bigwall1.png");
@@ -103,6 +105,7 @@ function preloadStuff(){
 	
 	loadImage("ld34-images/map1/overhang1.png");
 	loadImage("ld34-images/map1/overhang2.png");
+	loadImage("ld34-images/map1/overhang3.png");
 	loadImage("ld34-images/map1/landbridge1.png");
 	loadImage("ld34-images/map1/tinyslope_ceiling1.png");
 	loadImage("ld34-images/map1/small_ceiling1.png");

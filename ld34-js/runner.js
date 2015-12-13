@@ -35,7 +35,7 @@ function animate() {
 	
     //here's where you do all the draw and update calls to whatever's in the game!
     game.update();
-    game.testDrawable.drawImage(mainCamera);
+    //game.testDrawable.drawImage(mainCamera);
 
 }
 

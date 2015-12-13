@@ -236,17 +236,17 @@ function World(){
 		addColliderToObjectBasedOnSprite(small_ceiling1);
 		
 		this.addDrawableObject(small_ceiling1);
-		
-		/* var ramp_grassy1 = new Drawable();
-		ramp_grassy1.x = 201;
-		ramp_grassy1.y = 212;
+
+		var ramp_grassy1 = new Drawable();
+		ramp_grassy1.x = 199;
+		ramp_grassy1.y = 213;
 		ramp_grassy1.z = 0;
 		
 		ramp_grassy1.image = loadImage("ld34-images/map1/ramp_grassy1.png");
 		ramp_grassy1.setDrawBasedOnOrigin(ramp_grassy1.bottomLeft);
 		addTriangleCollider(ramp_grassy1, false, 0, 0, 47, 24, ramp_grassy1.origin);
 		
-		this.addDrawableObject(ramp_grassy1); */
+		this.addDrawableObject(ramp_grassy1);
 		
 		var bigwall3 = new Drawable();
 		bigwall3.x = 268;
@@ -329,18 +329,45 @@ function World(){
 		
 		this.addDrawableObject(landbridge1);
 		
+		// Floating platforms
 		var island1 = new Drawable();
 		island1.x = -17;
 		island1.y = 152;
 		island1.z = 0;
 		
-		island1.image = loadImage("ld34-images/generic/island_medium.png");
+		island1.image = loadImage("ld34-images/generic/island_medium1.png");
 		island1.setDrawBasedOnOrigin(island1.bottomLeft);
 		addColliderToObjectBasedOnSprite(island1);
 		
 		island1.oneWay = true;
 		
 		this.addDrawableObject(island1);
+		
+		var island2 = new Drawable();
+		island2.x = 90;
+		island2.y = 176;
+		island2.z = 0;
+		
+		island2.image = loadImage("ld34-images/generic/island_small.png");
+		island2.setDrawBasedOnOrigin(island2.bottomLeft);
+		addColliderToObjectBasedOnSprite(island2);
+		
+		island2.oneWay = true;
+		
+		this.addDrawableObject(island2);
+		
+		var island3 = new Drawable();
+		island3.x = 144;
+		island3.y = 140;
+		island3.z = 0;
+		
+		island3.image = loadImage("ld34-images/generic/island_medium2.png");
+		island3.setDrawBasedOnOrigin(island3.bottomLeft);
+		addColliderToObjectBasedOnSprite(island3);
+		
+		island3.oneWay = true;
+		
+		this.addDrawableObject(island3);
 		
 		// Scenery and lighting
 		var lighting1 = new Drawable();

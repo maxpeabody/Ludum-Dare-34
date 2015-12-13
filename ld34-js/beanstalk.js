@@ -2,7 +2,7 @@ function Beanstalk(){
     this.segmentCount = 6;
     this.segmentsExtruded = 0;
     this.z = 3;
-    this.heightPerFrame = 3;
+    this.heightPerFrame = 1.5;
 
     this.segmentHeight = 1;
     this.totalHeight = 0;
@@ -67,11 +67,14 @@ function BeanTrunk(){
     this.drawImage = function(camera){
         if(this.stalk && !this.doneExtruding){
             if(this.image){
+
                 var xcoord = Math.floor(this.x + 0.5 - camera.x - this.xoffset + this.positionParent.x);
                 var ycoord = Math.floor(this.y + 0.5 - camera.y - this.yoffset + this.positionParent.y);
-                context.drawImage(this.image,
-                    0,0,this.image.naturalWidth,this.percentExtruded*this.naturalHeight,
+
+                context.drawImage(this.image,0,0,this.image.naturalWidth,this.percentExtruded*this.image.naturalHeight,
                     xcoord,ycoord,this.image.naturalWidth,this.percentExtruded*this.image.naturalHeight);
+                //window.console.log("slice size: 0,0 to " + this.image.naturalWidth + "," + this.percentExtruded*this.image.naturalHeight );
+                //window.console.log("draw coords: " + xcoord + "," + ycoord + " to " + this.image.naturalWidth + "," + this.percentExtruded*this.image.naturalHeight );
             }
         }else{
             if(this.image){

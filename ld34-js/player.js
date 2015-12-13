@@ -8,8 +8,8 @@ Coded by: Max (physics, input, animation implementation/tweaks, sound),
 function Player()
 {
 	// Movement/location-related things
-	this.x = -212; //this.x = 430;
-	this.y = 60; //this.y = 428;
+	this.x = 10; //this.x = 430;
+	this.y = 90; //this.y = 428;
 	this.z = 5;
 
 	this.vx = 0;
@@ -51,8 +51,13 @@ function Player()
 	this.footwatch.trigger = true;
 
 	this.update = function() {
-		window.console.log(this.downHeldDown);
+		// window.console.log(this.downHeldDown);
 		// HANDLING PLAYER INPUT
+		if(keyboard["r"] || this.y > 600)
+		{
+			this.x = 430; 
+			this.y = 428;
+		}
 
 		if (keyboard["left"] && !keyboard["right"]) {
 			this.vx = -this.xSpeed;

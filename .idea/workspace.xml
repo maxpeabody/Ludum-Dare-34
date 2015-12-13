@@ -2,28 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f90aa0b-f2a3-42bf-9830-7e419fd95833" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ld34-images/map1/bigwall2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ld34-images/map1/bridge1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ld34-images/map1/bridge2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ld34-images/map1/bridge3.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ld34-images/scenery/cattail_lone.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ld34-images/scenery/cattail_twins.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ld34-images/scenery/grass_patch_medium.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ld34-images/map1/ground1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ld34-images/generic/island_medium.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ld34-images/generic/island_small.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ld34-images/scenery/kuudere.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ld34-images/map1/mediumwall1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ld34-images/scenery/red_reeds_big.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ld34-images/scenery/red_reeds_small.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ld34-images/map1/tallwall1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ld34-images/scenery/yandere.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ld34-images/map1/scenery1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ld34-images/map1/tinyslope_ceiling1.png" />
+      <change type="DELETED" beforePath="C:\Users\Duncan\WebstormProjects\Ludum-Dare-34\ld34-images\scenery\cattail_lone.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Duncan\WebstormProjects\Ludum-Dare-34\ld34-images\scenery\cattail_twins.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Duncan\WebstormProjects\Ludum-Dare-34\ld34-images\scenery\grass_patch_big.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Duncan\WebstormProjects\Ludum-Dare-34\ld34-images\scenery\grass_patch_medium.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Duncan\WebstormProjects\Ludum-Dare-34\ld34-images\scenery\grass_patch_small.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Duncan\WebstormProjects\Ludum-Dare-34\ld34-images\scenery\kuudere.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Duncan\WebstormProjects\Ludum-Dare-34\ld34-images\scenery\red_reeds_big.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Duncan\WebstormProjects\Ludum-Dare-34\ld34-images\scenery\red_reeds_small.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Duncan\WebstormProjects\Ludum-Dare-34\ld34-images\scenery\tsundere.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Duncan\WebstormProjects\Ludum-Dare-34\ld34-images\scenery\yandere.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ld34-images/bg1.xcf" afterPath="$PROJECT_DIR$/ld34-images/bg1.xcf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ld34-js/collisions.js" afterPath="$PROJECT_DIR$/ld34-js/collisions.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ld34-js/drawing-utilities.js" afterPath="$PROJECT_DIR$/ld34-js/drawing-utilities.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ld34-images/map1/ground1.png" afterPath="$PROJECT_DIR$/ld34-images/map1/ground1.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ld34-js/game-init.js" afterPath="$PROJECT_DIR$/ld34-js/game-init.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ld34-js/player.js" afterPath="$PROJECT_DIR$/ld34-js/player.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ld34-js/seed.js" afterPath="$PROJECT_DIR$/ld34-js/seed.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ld34-js/world.js" afterPath="$PROJECT_DIR$/ld34-js/world.js" />
     </list>
@@ -70,11 +63,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="world.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="world.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ld34-js/world.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="3.88">
-              <caret line="178" column="39" selection-start-line="178" selection-start-column="39" selection-end-line="178" selection-end-column="39" />
+            <state vertical-scroll-proportion="0.73627687">
+              <caret line="231" column="32" selection-start-line="231" selection-start-column="32" selection-end-line="231" selection-end-column="32" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -107,8 +100,8 @@
       <file leaf-file-name="game-init.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ld34-js/game-init.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.148149">
-              <caret line="153" column="29" selection-start-line="153" selection-start-column="29" selection-end-line="153" selection-end-column="29" />
+            <state vertical-scroll-proportion="29.722221">
+              <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -116,10 +109,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="player.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="player.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ld34-js/player.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.1235012">
+            <state vertical-scroll-proportion="-3.5517242">
               <caret line="221" column="29" selection-start-line="221" selection-start-column="29" selection-end-line="221" selection-end-column="29" />
               <folding />
             </state>
@@ -162,11 +155,11 @@
         <option value="$PROJECT_DIR$/Ludum Dare 2015 - Unnamed.html" />
         <option value="$PROJECT_DIR$/ld34-js/testseed.js" />
         <option value="$PROJECT_DIR$/ld34-js/collisions.js" />
-        <option value="$PROJECT_DIR$/ld34-js/world.js" />
-        <option value="$PROJECT_DIR$/ld34-js/game-init.js" />
         <option value="$PROJECT_DIR$/ld34-js/drawing-utilities.js" />
         <option value="$PROJECT_DIR$/ld34-js/seed.js" />
         <option value="$PROJECT_DIR$/ld34-js/player.js" />
+        <option value="$PROJECT_DIR$/ld34-js/game-init.js" />
+        <option value="$PROJECT_DIR$/ld34-js/world.js" />
       </list>
     </option>
   </component>
@@ -629,30 +622,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ld34-js/world.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.88">
-          <caret line="178" column="39" selection-start-line="178" selection-start-column="39" selection-end-line="178" selection-end-column="39" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ld34-js/collisions.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="73" column="80" selection-start-line="73" selection-start-column="80" selection-end-line="73" selection-end-column="80" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ld34-js/game-init.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.148149">
-          <caret line="153" column="29" selection-start-line="153" selection-start-column="29" selection-end-line="153" selection-end-column="29" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
@@ -681,9 +654,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ld34-js/player.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1235012">
+        <state vertical-scroll-proportion="-3.5517242">
           <caret line="221" column="29" selection-start-line="221" selection-start-column="29" selection-end-line="221" selection-end-column="29" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ld34-js/game-init.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="29.722221">
+          <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ld34-js/world.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.73627687">
+          <caret line="231" column="32" selection-start-line="231" selection-start-column="32" selection-end-line="231" selection-end-column="32" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

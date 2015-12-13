@@ -116,7 +116,7 @@ function World(){
 		
 		var floor1 = new Drawable();
 		floor1.x = 162;
-		floor1.y = 356;
+		floor1.y = 355;
 		floor1.z = 0;
 		
 		floor1.image = loadImage("ld34-images/map1/ground1.png");
@@ -125,9 +125,20 @@ function World(){
 		
 		this.addDrawableObject(floor1);
 		
+		var tinyslope_ceiling1 = new Drawable();
+		tinyslope_ceiling1.x = 319;
+		tinyslope_ceiling1.y = 344;
+		tinyslope_ceiling1.z = 0;
+		
+		tinyslope_ceiling1.image = loadImage("ld34-images/map1/tinyslope_ceiling1.png");
+		tinyslope_ceiling1.setDrawBasedOnOrigin(tinyslope_ceiling1.bottomLeft);
+		addColliderToObjectBasedOnSprite(tinyslope_ceiling1);
+		
+		this.addDrawableObject(tinyslope_ceiling1);
+		
 		var bigwall2 = new Drawable();
 		bigwall2.x = 307;
-		bigwall2.y = 356;
+		bigwall2.y = 332;
 		bigwall2.z = 0;
 		
 		bigwall2.image = loadImage("ld34-images/map1/bigwall2.png");
@@ -138,7 +149,7 @@ function World(){
 		
 		var mediumwall1 = new Drawable();
 		mediumwall1.x = 403;
-		mediumwall1.y = 261;
+		mediumwall1.y = 237;
 		mediumwall1.z = 0;
 		
 		mediumwall1.image = loadImage("ld34-images/map1/mediumwall1.png");
@@ -147,7 +158,7 @@ function World(){
 		
 		this.addDrawableObject(mediumwall1);
 		
-		// Next, add scenery objects and lighting
+		// Next, add scenery and lighting
 		var lighting1 = new Drawable();
 		lighting1.x = -260;
 		lighting1.y = 775;
@@ -158,6 +169,7 @@ function World(){
 		
 		this.addDrawableObject(lighting1);
 		
+/*
 		var cactus1 = new Drawable();
 		cactus1.x = 252;
 		cactus1.y = 428;
@@ -178,12 +190,7 @@ function World(){
 		
 		this.addDrawableObject(grass1);
 		
-		var testSeed = new TestSeed();
-		testSeed.x = 320;
-		testSeed.y = 395;
-        testSeed.trigger = true;
 
-        this.addDrawableObject(testSeed);
         var cattail1 = new Drawable();
 		cattail1.x = 142;
 		cattail1.y = 332;
@@ -217,12 +224,23 @@ function World(){
 		var redreeds2 = new Drawable();
 		redreeds2.x = 283;
 		redreeds2.y = 332;
-		redreeds2.z = 1;
+		redreeds2.z = 1;*/
+
+		var testSeed = new TestSeed();
+		testSeed.x = 320;
+		testSeed.y = 395;
+		testSeed.trigger = true;
+		this.addDrawableObject(testSeed);
+
+		var scenery1 = new Drawable();
+		scenery1.x = -354;
+		scenery1.y = 572;
+		scenery1.z = -1;
 		
-		redreeds2.image = loadImage("ld34-images/scenery/red_reeds_big.png");
-		redreeds2.setDrawBasedOnOrigin(redreeds2.bottomLeft);
+		scenery1.image = loadImage("ld34-images/map1/scenery1.png");
+		scenery1.setDrawBasedOnOrigin(scenery1.bottomLeft);
 		
-		this.addDrawableObject(redreeds2);
+		this.addDrawableObject(scenery1);
     }
 }
 World.prototype = new Updateable();

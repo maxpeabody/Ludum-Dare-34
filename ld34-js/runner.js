@@ -55,7 +55,7 @@ function init()
     preloadStuff();
 	
 	// start the soundtrack
-	createjs.Sound.play("ld34-sound/bgm/Solitude.mp3", {loop: -1, volume: 0.4});
+	// createjs.Sound.play("ld34-sound/bgm/Solitude.mp3", {loop: -1, volume: 0.4});
 }
 function afterLoad(){
     mainWorld = new World();

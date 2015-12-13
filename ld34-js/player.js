@@ -2,7 +2,8 @@
 Defined as a singleton object.
 
 Coded by: Max (physics, input, animation implementation/tweaks, sound), 
-	Benedict (majority of animation stuff, collisions), Not The Author (animation implementation/tweaks) */
+	Benedict (majority of animation stuff, collisions),
+	Not The Author (animation implementation/tweaks, seed management implementation) */
 
 function Player()
 {
@@ -18,6 +19,8 @@ function Player()
 	this.upButtonReleased = true;
 	this.landingCooldown = 0;
 	
+	this.heldSeed = false; // Stores the currently-held seed object.
+	
 	// SFX stuff
 	this.isRunning = false;
 	this.runSFXStarted = false;
@@ -25,13 +28,13 @@ function Player()
 	
 	// Animation stuff
 	this.facing = "right";
-
+	
 	this.setSheet("ld34-images/protag_stand_right.png",64,100);
 	this.setDrawBasedOnOrigin(this.bottom);
-
+	
 	// Set up collision detection
 	addColliderToObject(this,20,this.image.naturalHeight,this.origin);
-
+	
 	this.update = function() 
 	{
 		// HANDLING PLAYER INPUT
@@ -137,7 +140,29 @@ function Player()
 			this.setDrawBasedOnOrigin(this.origin);
 			this.landingCooldown = 10; */
 		}
-
+		
+		// Handles seed pickup and dropoff.
+		// May break if more than one seed is collided with at a time.
+		/* if (!this.inAir && keyboard["s"]) {
+			if (colliding with newSeed) {
+				if (this.heldSeed)
+					this.heldSeed.putDown(newSeed); // Swap held seed with unheld seed
+				newSeed.pickUp();
+			}
+			else if (this.heldSeed) {
+				this.heldSeed.putDown(this); // Drop seed at player's feet
+			}
+		} */
+		
+		// Handles seed planting.
+		// Could be added to pickup/dropoff to handle all seed functions with 1 button,
+		// but I'm not sure how just yet.
+		/*
+		if (!this.inAir && keyboard["f"] && this.heldSeed) {
+			this.heldSeed.plant(this);
+		}
+		*/
+		
 		// Turn running SFX on if the player is running, off if they aren't.
 		// This solution... isn't great, but it's functional and doesn't seem to harm performance.
 		if(this.isRunning)

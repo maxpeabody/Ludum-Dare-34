@@ -6,6 +6,7 @@ function World(){
     this.colliders = [];
     this.drawables = [];
     this.updateables = [];
+    this.seeds = [];
 
     this.drawAll = function(){
         for(i=0;i<this.drawables.length;i++){
@@ -147,14 +148,14 @@ function World(){
         floor.y = 450;
         floor.image = loadImage("ld34-images/big_long_floor.png");
         floor.setDrawBasedOnOrigin(floor.topLeft);
-        addColliderToObjectBasedOnSprite(floor);
+        addColliderToObjectBasedOnSprite(floor);*/
+		
+		var testSeed = new TestSeed();
+		testSeed.x = 320;
+		testSeed.y = 395;
+        testSeed.trigger = true;
 
-        this.addDrawableObject(secondThing);
-        this.addDrawableObject(floor);
-        this.addDrawableObject(triangle);
-        this.addDrawableObject(triangle2);
-        this.addDrawableObject(triangle3);
-        this.addDrawableObject(secondThing2); */
+        this.addDrawableObject(testSeed);
     }
 }
 World.prototype = new Updateable();

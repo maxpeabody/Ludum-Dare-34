@@ -2,7 +2,8 @@
 Defined as a singleton object.
 
 Coded by: Max (physics, input, animation implementation/tweaks, sound), 
-	Benedict (majority of animation stuff, collisions), Not The Author (animation implementation/tweaks) */
+	Benedict (majority of animation stuff, collisions),
+	Not The Author (animation implementation/tweaks, seed management implementation) */
 
 function Player()
 {
@@ -22,6 +23,8 @@ function Player()
 	this.upButtonReleased = true;
 	this.landingCooldown = 0;
 	
+	this.heldSeed = false; // Stores the currently-held seed object.
+	
 	// SFX stuff
 	this.isRunning = false;
 	this.runSFXStarted = false;
@@ -29,12 +32,13 @@ function Player()
 	
 	// Animation stuff
 	this.facing = "right";
-
+	
 	this.setSheet("ld34-images/protag_stand_right.png",64,100);
 	this.setDrawBasedOnOrigin(this.bottom);
-
+	
 	// Set up collision detection
 	addColliderToObject(this,20,this.image.naturalHeight,this.bottom);
+	window.console.log(this.image.naturalHeight + " is player natural height");
 	this.footwatch = new Located();
 	this.footwatch.x = this.x;
 	this.footwatch.y = this.y;
@@ -198,10 +202,45 @@ function Player()
 		//after you've done all that, get a second opinion on collisions by calling the get-first thing again
 		//if you're still colliding with something, reset to your original xy and land
 
+		//handle anything attached to the player that needs to move with it
 		this.footwatch.x = this.x;
 		this.footwatch.y = this.y;
 		if(!this.inAir && this.footwatch.getAllCollisions().length == 1){
 			this.fall();
+		}
+		if(this.heldSeed){
+			var newSeedX = this.x;
+			if(this.facing == "right"){
+				newSeedX +=10;
+			}else{
+				newSeedX -=10;
+			}
+			this.heldSeed.x = newSeedX;
+			this.heldSeed.y = this.y-20;
+		}
+
+		// Handles seed pickup and dropoff.
+		// May break if more than one seed is collided with at a time.
+		if (!this.inAir && keyboard["s"]) {
+			var seedCols = this.getSeedCollisions();
+			window.console.log("number of seed collisions: " + seedCols.length);
+			if(seedCols.length == 0){
+				if(this.heldSeed)
+					this.heldSeed.putDown(this); // Drop seed at player's feet
+			}else{
+				var newSeed = seedCols[0];
+				if (this.heldSeed)
+					this.heldSeed.putDown(newSeed); // Swap held seed with unheld seed
+				newSeed.pickUp();
+			}
+		}
+		
+		// Handles seed planting.
+		// Could be added to pickup/dropoff to handle all seed functions with 1 button,
+		// but I'm not sure how just yet.
+
+		if (!this.inAir && keyboard["f"] && this.heldSeed) {
+			this.heldSeed.plant(this);
 		}
 
 

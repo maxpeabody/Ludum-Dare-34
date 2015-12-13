@@ -66,6 +66,20 @@ function addColliderToObject(object,width,height,offsetcode){
             return false;
         }
     }
+    object.getSeedCollisions = function(){
+        var seedcols = [];
+        for(seedColCounter=0;seedColCounter<mainWorld.seeds.length;seedColCounter++){
+            var o2 = mainWorld.seeds[seedColCounter];
+            var isColl = this.isCollidingWith(o2);
+            window.console.log("pcol: " + this.cW + "w" + this.cH + "h " + this.cX + "," +this.cY);
+            window.console.log("seedcol: " + o2.cW + "w" + o2.cH + "h " + o2.cX + "," +o2.cY);
+            window.console.log(isColl + " that it's colliding with player");
+            if(o2 != this && o2 != this.heldSeed && this.isCollidingWith(o2)){
+                seedcols.push(o2);
+            }
+        }
+        return seedcols;
+    }
     object.isRectangleCollidingWith = function(o2){
         if(o2.hasCollider){
             var left1 = object.x + object.cX;

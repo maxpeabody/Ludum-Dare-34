@@ -71,12 +71,17 @@ function World(){
         floor.image = loadImage("ld34-images/big_long_floor.png");
         floor.setDrawBasedOnOrigin(floor.topLeft);
         addColliderToObject(floor,floor.image.naturalWidth,floor.image.naturalHeight,floor.origin);
+		
+		/*var testSeed = new TestSeed();
+		testSeed.x = -100;
+		testSeed.y = 400;*/
 
         this.addDrawableObject(wiggles);
         this.addDrawableObject(firstThing);
         this.addDrawableObject(secondThing);
         this.addDrawableObject(floor);
         this.addDrawableObject(triangle);
+		/*this.addDrawableObject(testSeed);*/
     }
 }
 World.prototype = new Updateable();

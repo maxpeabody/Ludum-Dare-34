@@ -66,7 +66,7 @@ function Seed()
 			var firstCollision = this.getFirstNontriggerCollision();
 			if(firstCollision && !firstCollision.trigger) {
 				var colDirs1 = this.howFarToMoveToGetOut(firstCollision);
-				this.y -= colDirs1.up;
+				this.y -= colDirs1.up + this.image.naturalHeight;
 				this.land();
 			}
 		}

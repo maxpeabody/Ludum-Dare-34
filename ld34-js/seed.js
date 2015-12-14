@@ -2,11 +2,12 @@
 Seeds can be collected, dropped, and planted by the player.
 
 Coded by: Not The Author (Core implementation & functionality, physics)
-	Benedict (Tweaks) */
+	Benedict (Tweaks), Max (Tweaks) */
 
 function Seed()
 {
 	this.z = 3;
+	this.initialX = this.x; this.initialY = this.y;
 	
 	this.isHeld = false;
 	this.inAir = true;
@@ -69,6 +70,14 @@ function Seed()
 				this.y -= colDirs1.up + this.image.naturalHeight;
 				this.land();
 			}
+		}
+		
+		// Return the seed to its original location if it goes offscreen or the player resets
+		if(keyboard["r"] || this.y > 600)
+		{
+			this.x = this.initialX;
+			this.y = this.initialY;
+			this.inAir = true;
 		}
 	}
 	

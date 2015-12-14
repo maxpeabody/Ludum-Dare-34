@@ -311,7 +311,12 @@ function Player()
 		this.inAir = true; // Can't jump again until they hit the ground.
 		this.upButtonReleased = false; // No jumping repeatedly by holding it down.
 
-		createjs.Sound.play("ld34-sound/sfx/Jump.wav", {loop: 0, volume: 0.35});
+		var jumpsound = new Howl
+		({
+			urls: ['ld34-sound/sfx/Jump.wav'],
+			volume: 0.35
+		}).play();
+		
 		this.isRunning = false;
 	}
 	this.land = function(){
@@ -319,7 +324,12 @@ function Player()
 			return;
 		this.vy = 0;
 		this.inAir = false;
-		createjs.Sound.play("ld34-sound/sfx/Land.wav", {loop: 0, volume: 0.35});
+		
+		var landsound = new Howl
+		({
+			urls: ['ld34-sound/sfx/Land.wav'],
+			volume: 0.35
+		}).play();
 	}
 	this.fall = function(){
 		this.inAir = true;

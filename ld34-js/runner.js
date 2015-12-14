@@ -96,7 +96,14 @@ function init()
     preloadStuff();
 	
 	// start the soundtrack
-	createjs.Sound.play("ld34-sound/bgm/Solitude.mp3", {loop: -1, volume: 0.4});
+	/* createjs.Sound.registerSound("ld34-sound/bgm/Solitude.mp3", "song1");
+	createjs.Sound.play("song1"); */
+	var bgm1 = new Howl
+	({
+		urls: ['ld34-sound/bgm/Rainy Place.mp3'],
+		volume: 0.18,
+		loop: true
+	}).play();
 }
 function afterLoad(){
     window.console.log("did we call afterload");

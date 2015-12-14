@@ -17,11 +17,13 @@
 </head>
 <body onload="init()">
 	<canvas id="gameCanvas" width='900' height='526'>hey there delilah you need html5</canvas>
-	<!-- This project uses the PreloadJS and SoundJS libraries, maybe possibly?
-		http://www.createjs.com/#!/PreloadJS 
-		http://www.createjs.com/#!/SoundJS -->
+	<!-- This project uses the PreloadJS library. SoundJS is inscrutable so we switched.
+		http://www.createjs.com/#!/PreloadJS -->
 	<script src="http://code.createjs.com/preloadjs-0.4.1.min.js"></script>
-	<script src="http://code.createjs.com/soundjs-0.5.2.min.js"></script>
+	<!-- We use the Howler library to handle sound instead, now! 
+		http://goldfirestudios.com/blog/104/howler.js-Modern-Web-Audio-Javascript-Library -->
+	<script src="ld34-js/howler/howler.js"></script>
+	<script src="ld34-js/howler/howler.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 	<script src="ld34-js/game-init.js"></script>

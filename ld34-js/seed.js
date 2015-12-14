@@ -114,7 +114,7 @@ function StalkSeed(getX, getY)
 	mainWorld.updateables.push(this)
 	
 	this.grow = function(){
-		// Spawns a beanstalk at its current location, then self-annihilates.
+		// Spawns a beanstalk at its current location.
 		var newStalk = new Beanstalk();
 		newStalk.x = this.x;
 		newStalk.y = this.y;
@@ -137,7 +137,7 @@ function FlowerSeed(getX, getY)
 	mainWorld.updateables.push(this)
 
 	this.grow = function(){
-		// Spawns a beanstalk at its current location, then self-annihilates.
+		// Spawns a flower vine at its current location.
 		var newFlow = new FlowerVine();
 		newFlow.x = this.x;
 		newFlow.y = this.y;
@@ -167,3 +167,27 @@ function ShroomSeed()
 	};
 }
 ShroomSeed.prototype = new Seed();
+
+function BridgeSeed(getX, getY)
+{
+	this.initialX = getX; this.x = getX; 
+	this.initialY = getY; this.y = getY;
+	
+	this.setStatic("ld34-images/plants/placeholder_seed.png");
+	this.setDrawBasedOnOrigin(this.center);
+	addColliderToObject(this,this.image.naturalWidth,this.image.naturalHeight,this.origin);
+	this.trigger = true;
+	mainWorld.seeds.push(this);
+	mainWorld.updateables.push(this)
+
+	this.grow = function(){
+		// Spawns a bridgestalk at its current location.
+		var newBridge = new Bridgestalk();
+		newBridge.x = this.x;
+		newBridge.y = this.y;
+		//window.console.log("this xy = " + this.x + "," + this.y);
+		var growLeft = game.player.facing == "left";
+		newBridge.startGrowing(growLeft);
+	};
+}
+BridgeSeed.prototype = new Seed();

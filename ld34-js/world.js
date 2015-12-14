@@ -31,15 +31,15 @@ function World(){
 		}
 		idx = this.drawables.indexOf(object);
 		if(idx != -1){
-			this.drawables.splice(colIdx,1);
+			this.drawables.splice(idx,1);
 		}
 		idx = this.updateables.indexOf(object);
 		if(idx != -1){
-			this.updateables.splice(colIdx,1);
+			this.updateables.splice(idx,1);
 		}
 		idx = this.seeds.indexOf(object);
 		if(idx != -1){
-			this.seeds.splice(colIdx,1);
+			this.seeds.splice(idx,1);
 		}
 	}
 

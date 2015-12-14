@@ -57,6 +57,14 @@ function animate() {
 
             //context.drawImage(this.image,xcoord,ycoord);
         }
+        for(seedCounter=0;seedCounter<mainWorld.seeds.length;seedCounter++){
+            var a_seed = mainWorld.seeds[seedCounter];
+            var seedx = Math.floor(a_seed.x + 0.5 - mainCamera.x + a_seed.cX);
+            var seedy = Math.floor(a_seed.y + 0.5 - mainCamera.y + a_seed.cY);
+            context.strokeStyle = "green";
+            context.strokeRect(seedx,seedy,a_seed.cW,a_seed.cH);
+            window.console.log("we allegedly drew it (" + a_seed.cW + "," + seedx + "," + seedy);
+        }
     }
 
     //game.testDrawable.drawImage(mainCamera);

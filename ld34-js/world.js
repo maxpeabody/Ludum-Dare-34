@@ -761,9 +761,10 @@ function World(){
 		this.addDrawableObject(easterisland);
 		
 		// Seeds and any other interactables
-		var stalkSeed = new StalkSeed();
-		stalkSeed.x = 40;
-		stalkSeed.y = 480;
+		var flowerSeed = new FlowerSeed(-30, 100);
+		this.addDrawableObject(flowerSeed);
+		
+		var stalkSeed = new StalkSeed(60, 468);
 		this.addDrawableObject(stalkSeed);
 
 		/* var testStalk = new Beanstalk();
@@ -805,11 +806,6 @@ function World(){
 		sceneryfg1.setDrawBasedOnOrigin(sceneryfg1.bottomLeft);
 		
 		this.addDrawableObject(sceneryfg1);
-
-		var flowerSeed = new FlowerSeed();
-		flowerSeed.x = -30;
-		flowerSeed.y = 100;
-		this.addDrawableObject(flowerSeed);
 
 		this.worldBuilt = true;
     }

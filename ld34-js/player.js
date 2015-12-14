@@ -8,8 +8,8 @@ Coded by: Max (physics, input, animation implementation/tweaks, sound),
 function Player()
 {
 	// Movement/location-related things
-	this.x = 230;
-	this.y = -200; // this.y = 428;
+	this.x = 425;
+	this.y = 428;
 	this.z = 4;
 
 	this.vx = 0;
@@ -36,9 +36,9 @@ function Player()
 	// this.runSFX = createjs.Sound.play("ld34-sound/sfx/StepBoth.wav", {loop: -1, volume: 0});
 	
 	// Animation stuff
-	this.facing = "right";
+	this.facing = "left";
 	
-	this.setSheet("ld34-images/protag_stand_right.png",64,100);
+	this.setSheet("ld34-images/protag_stand_left.png",64,100);
 	this.setDrawBasedOnOrigin(this.bottom);
 	
 	// Set up collision detection

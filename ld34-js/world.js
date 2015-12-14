@@ -760,6 +760,17 @@ function World(){
 		
 		this.addDrawableObject(easterisland);
 		
+		// Seeds and any other interactables
+		var stalkSeed = new StalkSeed();
+		stalkSeed.x = 40;
+		stalkSeed.y = 480;
+		this.addDrawableObject(stalkSeed);
+
+		/* var testStalk = new Beanstalk();
+		testStalk.x = 50;
+		testStalk.y = 97;
+		testStalk.startGrowing(); */
+		
 		// Scenery and lighting
 		var lighting1 = new Drawable();
 		lighting1.x = -260;
@@ -774,16 +785,6 @@ function World(){
 		}else {
 			this.addDrawableObject(lighting1);
 		}
-
-		var stalkSeed = new StalkSeed();
-		stalkSeed.x = 20;
-		stalkSeed.y = 20;
-		this.addDrawableObject(stalkSeed);
-
-		var testStalk = new Beanstalk();
-		testStalk.x = 50;
-		testStalk.y = 97;
-		testStalk.startGrowing();
 
 		var scenery1 = new Drawable();
 		scenery1.x = -354;

@@ -64,7 +64,6 @@ function World(){
 			window.console.log("world's built already!");
 			return;
 		}
-		// "GROUND FLOOR"
 		var startFloor = new Drawable(); // this, as the name implies, is where the player starts
 		startFloor.x = 150;
 		startFloor.y = 500;
@@ -78,9 +77,7 @@ function World(){
 		
 		/* Walls to prevent the player going out of bounds and seeing the cracks.
 		
-		This is a TEMPORARY MEASURE - at some point, we should look into making everything out of
-		bounds black (or, at least, ENOUGH of it black that the player will never notice the seams
-		before they respawn or something... */
+		We might want to cut this at some point? Depends how we feel about the overall layout, I guess... */
 		var boundaryRight = new Drawable();
 		boundaryRight.x = 462;
 		boundaryRight.y = 500;
@@ -150,7 +147,7 @@ function World(){
 		
 		var bridge1 = new Drawable();
 		bridge1.x = 66;
-		bridge1.y = 356;
+		bridge1.y = 364;
 		bridge1.z = 0;
 		
 		bridge1.image = loadImage("ld34-images/map1/bridge1.png");
@@ -161,7 +158,8 @@ function World(){
 		
 		this.addDrawableObject(bridge1);
 		
-		var bridge2 = new Drawable();
+		// Cut this bridge so the player has to use the seed to progress.
+		/* var bridge2 = new Drawable();
 		bridge2.x = 77;
 		bridge2.y = 285;
 		bridge2.z = 0;
@@ -172,7 +170,7 @@ function World(){
 		
 		bridge2.oneWay = true;
 		
-		this.addDrawableObject(bridge2);
+		this.addDrawableObject(bridge2); */
 		
 		var floor1 = new Drawable();
 		floor1.x = 162;
@@ -184,6 +182,18 @@ function World(){
 		addColliderToObjectBasedOnSprite(floor1);
 		
 		this.addDrawableObject(floor1);
+		
+		var ceiling1 = new Drawable();
+		ceiling1.x = 194;
+		ceiling1.y = 354;
+		ceiling1.z = 0;
+		
+		// We'll place this one's origin at the top left to give the player a little leeway - it's a very low ceiling!
+		ceiling1.image = loadImage("ld34-images/map1/ceiling1.png");
+		ceiling1.setDrawBasedOnOrigin(ceiling1.topLeft);
+		addColliderToObject(ceiling1, 72, 23, ceiling1.topLeft);
+		
+		this.addDrawableObject(ceiling1);
 		
 		var tinyslope_ceiling1 = new Drawable();
 		tinyslope_ceiling1.x = 319;
@@ -256,16 +266,16 @@ function World(){
 		
 		this.addDrawableObject(small_ceiling1);
 
-		var ramp_grassy2 = new Drawable();
-		ramp_grassy2.x = 199;
-		ramp_grassy2.y = 213;
-		ramp_grassy2.z = 0;
+		var ramp_grassy1 = new Drawable();
+		ramp_grassy1.x = 199;
+		ramp_grassy1.y = 213;
+		ramp_grassy1.z = 0;
 		
-		ramp_grassy2.image = loadImage("ld34-images/map1/ramp_grassy2.png");
-		ramp_grassy2.setDrawBasedOnOrigin(ramp_grassy2.bottomLeft);
-		addTriangleCollider(ramp_grassy2, false, 0, 0, 69, 36, ramp_grassy2.origin);
+		ramp_grassy1.image = loadImage("ld34-images/map1/ramp_grassy2.png"); // Don't ask.
+		ramp_grassy1.setDrawBasedOnOrigin(ramp_grassy1.bottomLeft);
+		addTriangleCollider(ramp_grassy1, false, 0, 0, 69, 36, ramp_grassy1.origin);
 		
-		this.addDrawableObject(ramp_grassy2);
+		this.addDrawableObject(ramp_grassy1);
 		
 		var smallwall3 = new Drawable();
 		smallwall3.x = 245;
@@ -366,7 +376,7 @@ function World(){
 		
 		ramp_grassy3.image = loadImage("ld34-images/map1/ramp_grassy3.png");
 		ramp_grassy3.setDrawBasedOnOrigin(ramp_grassy3.bottomLeft);
-		addTriangleCollider(ramp_grassy2, false, 0, 23, 45, 0, ramp_grassy3.origin);
+		addTriangleCollider(ramp_grassy3, false, 0, 23, 45, 0, ramp_grassy3.origin);
 		
 		this.addDrawableObject(ramp_grassy3);
 		
@@ -383,7 +393,7 @@ function World(){
 		
 		var bridge3 = new Drawable();
 		bridge3.x = -43;
-		bridge3.y = 103;
+		bridge3.y = 113;
 		bridge3.z = 0;
 		
 		bridge3.image = loadImage("ld34-images/map1/bridge3.png");
@@ -602,7 +612,7 @@ function World(){
 		// Floating platforms
 		var island1 = new Drawable();
 		island1.x = -17;
-		island1.y = 152;
+		island1.y = 154;
 		island1.z = 0;
 		
 		island1.image = loadImage("ld34-images/generic/island_medium1.png");
@@ -614,7 +624,7 @@ function World(){
 		this.addDrawableObject(island1);
 		
 		var island2 = new Drawable();
-		island2.x = 90;
+		island2.x = 45;
 		island2.y = 176;
 		island2.z = 0;
 		
@@ -627,8 +637,8 @@ function World(){
 		this.addDrawableObject(island2);
 		
 		var island3 = new Drawable();
-		island3.x = 144;
-		island3.y = 140;
+		island3.x = 138;
+		island3.y = 161;
 		island3.z = -2;
 		
 		island3.image = loadImage("ld34-images/generic/island_medium2.png");
@@ -723,6 +733,19 @@ function World(){
 		island7.oneWay = true;
 		
 		this.addDrawableObject(island7);
+		
+		var island8 = new Drawable();
+		island8.x = 381;
+		island8.y = 5;
+		island8.z = -2;
+		
+		island8.image = loadImage("ld34-images/generic/island_small.png");
+		island8.setDrawBasedOnOrigin(island8.bottomLeft);
+		addColliderToObjectBasedOnSprite(island8);
+		
+		island8.oneWay = true;
+		
+		this.addDrawableObject(island8);
 		
 		var easterisland = new Drawable();
 		easterisland.x = -203;

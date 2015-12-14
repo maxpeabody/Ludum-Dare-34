@@ -11,7 +11,7 @@ var keyboard = {};
 
 var images = {};
 var allImagesLoaded = false;
-var imageMax = 77;
+var imageMax = 78;
 var imageCount = 0;
 function loadImage(imageFileName){ //call this to load image files- prevent loading same image more than once
     if(imageFileName in images)
@@ -138,6 +138,7 @@ function preloadStuff(){
 	loadImage("ld34-images/map1/landbridge1.png");
 	loadImage("ld34-images/map1/tinyslope_ceiling1.png");
 	loadImage("ld34-images/map1/small_ceiling1.png");
+	loadImage("ld34-images/map1/ceiling1.png");
 	
 	// Load images: Scenery and lighting
 	loadImage("ld34-images/map1/lighting1.png");

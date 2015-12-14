@@ -11,7 +11,7 @@ var keyboard = {};
 
 var images = {};
 var allImagesLoaded = false;
-var imageMax = 66;
+var imageMax = 72;
 var imageCount = 0;
 function loadImage(imageFileName){ //call this to load image files- prevent loading same image more than once
     if(imageFileName in images)
@@ -94,6 +94,7 @@ function preloadStuff(){
 	
 	loadImage("ld34-images/map1/ramp_grassy1.png");
 	loadImage("ld34-images/map1/ramp_grassy2.png");
+	loadImage("ld34-images/map1/ramp_grassy3.png");
 	loadImage("ld34-images/map1/ramp_sandy1.png");
 	loadImage("ld34-images/map1/ramp_sandy2.png");
 	loadImage("ld34-images/map1/ramp_tinysandy1.png");
@@ -102,11 +103,14 @@ function preloadStuff(){
 	loadImage("ld34-images/map1/ramp_tinygrassy1.png");
 	loadImage("ld34-images/map1/block_tinysandy1.png");
 	loadImage("ld34-images/map1/notchedwall1.png");
-	loadImage("ld34-images/map1/block_tinygrassy1.png");
+	loadImage("ld34-images/map1/block_sandy1.png");
+	loadImage("ld34-images/map1/block_grassy1.png");
+	loadImage("ld34-images/map1/block_jutting1.png");
 	
 	loadImage("ld34-images/map1/tinywall1.png");
 	loadImage("ld34-images/map1/smallwall1.png");
 	loadImage("ld34-images/map1/smallwall2.png");
+	loadImage("ld34-images/map1/smallwall3.png");
 	loadImage("ld34-images/map1/bigwall1.png");
 	loadImage("ld34-images/map1/bigwall2.png");
 	loadImage("ld34-images/map1/bigwall3.png");
@@ -124,6 +128,8 @@ function preloadStuff(){
 	loadImage("ld34-images/map1/overhang3.png");
 	loadImage("ld34-images/map1/overhang4.png");
 	loadImage("ld34-images/map1/overhang5.png");
+	loadImage("ld34-images/map1/overhang6.png");
+	loadImage("ld34-images/map1/overhang7.png");
 	loadImage("ld34-images/map1/overhang_thick1.png");
 	loadImage("ld34-images/map1/overhang_double1.png");
 	

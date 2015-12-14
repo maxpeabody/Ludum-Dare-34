@@ -8,8 +8,8 @@ Coded by: Max (physics, input, animation implementation/tweaks, sound),
 function Player()
 {
 	// Movement/location-related things
-	this.x = -100;//this.x = 425;
-	this.x = 140;//this.y = 428;
+	this.x = 425;
+	this.y = 428;
 	this.z = 4;
 
 	this.vx = 0;
@@ -57,8 +57,9 @@ function Player()
 		// HANDLING PLAYER INPUT
 		if(keyboard["r"] || this.y > 600)
 		{
-			this.x = 430; 
+			this.x = 425; 
 			this.y = 428;
+			this.facing = "left";
 		}
 
 		if (keyboard["left"] && !keyboard["right"]) {

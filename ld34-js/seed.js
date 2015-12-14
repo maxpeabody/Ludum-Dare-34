@@ -4,10 +4,11 @@ Seeds can be collected, dropped, and planted by the player.
 Coded by: Not The Author (Core implementation & functionality, physics)
 	Benedict (Tweaks), Max (Tweaks) */
 
-function Seed()
+function Seed(getX, getY)
 {
 	this.z = 3;
-	this.initialX = this.x; this.initialY = this.y;
+	this.initialX = getX; this.x = getX; 
+	this.initialY = getY; this.y = getY;
 	
 	this.isHeld = false;
 	this.inAir = true;
@@ -100,8 +101,11 @@ function TestSeed()
 }
 TestSeed.prototype = new Seed();
 
-function StalkSeed()
+function StalkSeed(getX, getY)
 {
+	this.initialX = getX; this.x = getX; 
+	this.initialY = getY; this.y = getY;
+	
 	this.setStatic("ld34-images/stalk_seed_placeholder.png");
 	this.setDrawBasedOnOrigin(this.center);
 	addColliderToObject(this,this.image.naturalWidth,this.image.naturalHeight,this.origin);
@@ -120,8 +124,11 @@ function StalkSeed()
 }
 StalkSeed.prototype = new Seed();
 
-function FlowerSeed()
+function FlowerSeed(getX, getY)
 {
+	this.initialX = getX; this.x = getX; 
+	this.initialY = getY; this.y = getY;
+	
 	this.setStatic("ld34-images/flower_seed_placeholder.png");
 	this.setDrawBasedOnOrigin(this.center);
 	addColliderToObject(this,this.image.naturalWidth,this.image.naturalHeight,this.origin);

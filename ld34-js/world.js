@@ -432,7 +432,7 @@ function World(){
 		this.addDrawableObject(ramp_grassy2);
 		
 		var overhang6 = new Drawable();
-		overhang6.x = -235;
+		overhang6.x = -234;
 		overhang6.y = 107;
 		overhang6.z = 0;
 		

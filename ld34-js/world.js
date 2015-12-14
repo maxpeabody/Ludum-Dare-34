@@ -541,7 +541,7 @@ function World(){
 		
 		this.addDrawableObject(island4);
 		
-		var ramp_tinygrassy1 = new Drawable();
+		/* var ramp_tinygrassy1 = new Drawable();
 		ramp_tinygrassy1.x = 119;
 		ramp_tinygrassy1.y = 6;
 		ramp_tinygrassy1.z = 0;
@@ -572,7 +572,7 @@ function World(){
 		ramp_tinysandy2.setDrawBasedOnOrigin(ramp_tinysandy2.bottomLeft);
 		addTriangleCollider(ramp_tinysandy2, false, 0, 12, 19, 0, ramp_tinysandy2.origin);
 		
-		this.addDrawableObject(ramp_tinysandy2);
+		this.addDrawableObject(ramp_tinysandy2); */
 		
 		var island5 = new Drawable();
 		island5.x = -340;
@@ -586,6 +586,32 @@ function World(){
 		island5.oneWay = true;
 		
 		this.addDrawableObject(island5);
+		
+		var island6 = new Drawable();
+		island6.x = 423;
+		island6.y = 56;
+		island6.z = 0;
+		
+		island6.image = loadImage("ld34-images/generic/island_medium1.png");
+		island6.setDrawBasedOnOrigin(island6.bottomLeft);
+		addColliderToObjectBasedOnSprite(island6);
+		
+		island6.oneWay = true;
+		
+		this.addDrawableObject(island6);
+		
+		var island7 = new Drawable();
+		island7.x = 379;
+		island7.y = 92;
+		island7.z = 0;
+		
+		island7.image = loadImage("ld34-images/generic/island_medium2.png");
+		island7.setDrawBasedOnOrigin(island7.bottomLeft);
+		addColliderToObjectBasedOnSprite(island7);
+		
+		island7.oneWay = true;
+		
+		this.addDrawableObject(island7);
 		
 		var easterisland = new Drawable();
 		easterisland.x = -203;
@@ -635,6 +661,16 @@ function World(){
 		scenery1.setDrawBasedOnOrigin(scenery1.bottomLeft);
 		
 		this.addDrawableObject(scenery1);
+		
+		var sceneryfg1 = new Drawable();
+		sceneryfg1.x = -354;
+		sceneryfg1.y = 572;
+		sceneryfg1.z = 5;
+		
+		sceneryfg1.image = loadImage("ld34-images/map1/sceneryfg1.png");
+		sceneryfg1.setDrawBasedOnOrigin(sceneryfg1.bottomLeft);
+		
+		this.addDrawableObject(sceneryfg1);
 
 		this.worldBuilt = true;
     }

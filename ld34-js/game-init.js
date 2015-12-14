@@ -99,7 +99,7 @@ function preloadStuff(){
 	loadImage("ld34-images/map1/ramp_sandy2.png");
 	loadImage("ld34-images/map1/ramp_tinysandy1.png");
 	loadImage("ld34-images/map1/ramp_tinysandy2.png");
-	loadImage("ld34-images/map1/ramp_smallsandy1.png");
+	// loadImage("ld34-images/map1/ramp_smallsandy1.png");
 	loadImage("ld34-images/map1/ramp_tinygrassy1.png");
 	loadImage("ld34-images/map1/block_tinysandy1.png");
 	loadImage("ld34-images/map1/notchedwall1.png");

@@ -28,6 +28,8 @@ function Player()
 
 	this.heldSeed = false; // Stores the currently-held seed object.
 	this.sHeldDown = false;
+	this.gHeldDown = false;
+	
 	
 	// SFX stuff
 	this.isRunning = false;
@@ -252,10 +254,10 @@ function Player()
 		if(this.heldSeed){
 			var newSeedX = this.x;
 			if(this.facing == "left"){
-				newSeedX -= 20;
-			}/*else{
-				newSeedX -= 30;
-			}*/
+				newSeedX -= 16;
+			} else {
+				newSeedX += 16;
+			}
 			this.heldSeed.x = newSeedX;
 			this.heldSeed.y = this.y-20;
 		}
@@ -275,7 +277,7 @@ function Player()
 					this.heldSeed.putDown(newSeed); // Swap held seed with unheld seed
 				newSeed.pickUp();
 			}
-		}else if(this.sHeldDown && !keyboard["s"]){
+		} else if(this.sHeldDown && !keyboard["s"]){
 			// window.console.log("we're trying to false it");
 			this.sHeldDown = false;
 		}
@@ -284,9 +286,14 @@ function Player()
 		// Handles seed planting.
 		// Could be added to pickup/dropoff to handle all seed functions with 1 button,
 		// but I'm not sure how just yet.
-
-		if (!this.inAir && keyboard["f"] && this.heldSeed) {
+		
+		if (keyboard["g"] && !this.gHeldDown && this.heldSeed && !this.inAir) {
+			window.console.log("Attempting to plant seed...");
 			this.heldSeed.plant(this);
+			this.gHeldDown = true;
+		}
+		else if (this.gHeldDown && !keyboard["g"]) {
+			this.gHeldDown = false;
 		}
 
 

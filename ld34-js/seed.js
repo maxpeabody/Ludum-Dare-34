@@ -30,13 +30,13 @@ function Seed()
 		game.player.heldSeed = false;
 		this.setZCoordinate(3);
 	}
-	this.plant = function(located){ // Needs location to plant to
+	this.plant = function(newX, newY){ // Needs location to plant to
 		this.isHeld = false;
 		this.inAir = false;
 		this.isPlanted = true;
 		game.player.heldSeed = false;
-		this.x = located.x;
-		this.y = located.y;
+		this.x = newX;
+		this.y = newY;
 		this.setZCoordinate(3);
 	}
 	this.land = function(){
@@ -106,6 +106,14 @@ function StalkSeed()
 	this.trigger = true;
 	mainWorld.seeds.push(this);
 	mainWorld.updateables.push(this)
+	
+	this.grow = function(){
+		// Spawns a beanstalk at its current location, then self-annihilates.
+		var newStalk = new Beanstalk();
+		newStalk.x = this.x;
+		newStalk.y = this.y;
+		newStalk.startGrowing();
+	};
 }
 StalkSeed.prototype = new Seed();
 

@@ -733,11 +733,10 @@ function World(){
 			this.addDrawableObject(lighting1);
 		}
 
-		var testSeed = new TestSeed();
-		testSeed.x = 20;
-		testSeed.y = 20;
-		testSeed.trigger = true;
-		this.addDrawableObject(testSeed);
+		var stalkSeed = new StalkSeed();
+		stalkSeed.x = 20;
+		stalkSeed.y = 20;
+		this.addDrawableObject(stalkSeed);
 
 		var testStalk = new Beanstalk();
 		testStalk.x = 50;

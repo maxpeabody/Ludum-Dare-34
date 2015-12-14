@@ -184,6 +184,8 @@ document.addEventListener("keydown",function(event){
         keyboard["right"] = true;
     if(event.keyCode == 40)
         keyboard["down"] = true;
+	if(event.keyCode == 71)
+		keyboard["g"] = true;
 	if(event.keyCode == 82)
 		keyboard["r"] = true;
 	if(event.keyCode == 83)
@@ -198,6 +200,8 @@ document.addEventListener("keyup",function(event){
         keyboard["right"] = false;
     if(event.keyCode == 40)
         keyboard["down"] = false;
+	if(event.keyCode == 71)
+		keyboard["g"] = false;
 	if(event.keyCode == 82)
 		keyboard["r"] = false;
 	if(event.keyCode == 83)

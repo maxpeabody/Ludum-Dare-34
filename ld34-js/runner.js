@@ -63,7 +63,7 @@ function animate() {
             var seedy = Math.floor(a_seed.y + 0.5 - mainCamera.y + a_seed.cY);
             context.strokeStyle = "green";
             context.strokeRect(seedx,seedy,a_seed.cW,a_seed.cH);
-            window.console.log("we allegedly drew it (" + a_seed.cW + "," + seedx + "," + seedy);
+            // window.console.log("we allegedly drew it (" + a_seed.cW + "," + seedx + "," + seedy);
         }
     }
 

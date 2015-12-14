@@ -30,7 +30,6 @@ function Player()
 	this.sHeldDown = false;
 	this.gHeldDown = false;
 	
-	
 	// SFX stuff
 	this.isRunning = false;
 	this.runSFXStarted = false;
@@ -64,20 +63,22 @@ function Player()
 
 		if (keyboard["left"] && !keyboard["right"]) {
 			this.vx = -this.xSpeed;
-			this.facing = "left";
 
-			this.isRunning = true;
-			if (this.image.src != "ld34-images/protag_run_left.png") { //a string comparison's faster than setSheet
+			if (!this.isRunning || this.facing == "right") 
+			{
+				this.facing = "left";
+				this.isRunning = true;
 				this.setSheet("ld34-images/protag_run_left.png", 64, 100);
 				this.setDrawBasedOnOrigin(this.origin);
 			}
 		}
 		else if (keyboard["right"] && !keyboard["left"]) {
 			this.vx = this.xSpeed;
-			this.facing = "right";
-
-			this.isRunning = true;
-			if (this.image.src != "ld34-images/protag_run_right.png") {
+			
+			if (!this.isRunning || this.facing == "left") 
+			{
+				this.facing = "right";
+				this.isRunning = true;
 				this.setSheet("ld34-images/protag_run_right.png", 64, 100);
 				this.setDrawBasedOnOrigin(this.origin);
 			}

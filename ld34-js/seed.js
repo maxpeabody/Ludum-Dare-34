@@ -53,6 +53,7 @@ function Seed()
 		
 		if (this.isPlanted) {
 			this.grow();
+			this.isPlanted = false;
 		}
 		else if (!this.isHeld && this.inAir) {
 			// Fall speed
@@ -112,6 +113,7 @@ function StalkSeed()
 		var newStalk = new Beanstalk();
 		newStalk.x = this.x;
 		newStalk.y = this.y;
+		window.console.log("this xy = " + this.x + "," + this.y);
 		newStalk.startGrowing();
 	};
 }

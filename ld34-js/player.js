@@ -289,7 +289,7 @@ function Player()
 		
 		if (keyboard["g"] && !this.gHeldDown && this.heldSeed && !this.inAir) {
 			window.console.log("Attempting to plant seed...");
-			this.heldSeed.plant(this);
+			this.heldSeed.plant(this.x,this.y);
 			this.gHeldDown = true;
 		}
 		else if (this.gHeldDown && !keyboard["g"]) {

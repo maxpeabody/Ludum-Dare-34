@@ -8,8 +8,8 @@ Coded by: Max (physics, input, animation implementation/tweaks, sound),
 function Player()
 {
 	// Movement/location-related things
-	this.x = 425;
-	this.y = 428;
+	this.x = 226.5; //425;
+	this.y = -300; //428;
 	this.z = 4;
 
 	this.vx = 0;
@@ -325,6 +325,8 @@ function Player()
 			return;
 		this.vy = 0;
 		this.inAir = false;
+		
+		console.log(this.x + ", " + this.y);
 		
 		var landsound = new Howl
 		({

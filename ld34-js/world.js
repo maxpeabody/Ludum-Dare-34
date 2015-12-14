@@ -496,16 +496,19 @@ function World(){
 		
 		this.addDrawableObject(ramp_tinysandy1);
 		
-		/*var ramp_sandy1 = new Drawable();
+		var ramp_sandy1 = new Drawable();
 		ramp_sandy1.x = -110;
-		ramp_sandy1.y = 94;
+		ramp_sandy1.y = 92;
 		ramp_sandy1.z = 0;
 		
 		ramp_sandy1.image = loadImage("ld34-images/map1/ramp_sandy1.png");
 		ramp_sandy1.setDrawBasedOnOrigin(ramp_sandy1.bottomLeft);
 		addTriangleCollider(ramp_sandy1, false, 0, 24, 47, 0, ramp_sandy1.origin);
 		
-		this.addDrawableObject(ramp_sandy1);*/
+		ramp_sandy1.cY = -2;
+		ramp_sandy1.cX = 1;
+		
+		this.addDrawableObject(ramp_sandy1);
 		
 		var block_sandy1 = new Drawable();
 		block_sandy1.x = -156;
@@ -565,9 +568,9 @@ function World(){
 		
 		this.addDrawableObject(ramp_sandy2);
 		
-		var block_tinysandy1 = new Drawable();
-		block_tinysandy1.x = 318;
-		block_tinysandy1.y = -90;
+		/* var block_tinysandy1 = new Drawable();
+		block_tinysandy1.x = 319;
+		block_tinysandy1.y = -89;
 		block_tinysandy1.z = 0;
 		
 		block_tinysandy1.image = loadImage("ld34-images/map1/block_tinysandy1.png");
@@ -575,6 +578,17 @@ function World(){
 		addColliderToObjectBasedOnSprite(block_tinysandy1);
 		
 		this.addDrawableObject(block_tinysandy1);
+		
+		var block_sandy2 = new Drawable();
+		block_sandy2.x = 343;
+		block_sandy2.y = -62;
+		block_sandy2.z = 0;
+		
+		block_sandy2.image = loadImage("ld34-images/map1/block_sandy2.png");
+		block_sandy2.setDrawBasedOnOrigin(block_sandy2.bottomLeft);
+		addColliderToObjectBasedOnSprite(block_sandy2); 
+		
+		this.addDrawableObject(block_sandy2);*/
 		
 		/*var ramp_tinysandy1_inst2 = new Drawable();
 		ramp_tinysandy1_inst2.x = 330;
@@ -589,7 +603,7 @@ function World(){
 		
 		var notchedwall1 = new Drawable();
 		notchedwall1.x = 318;
-		notchedwall1.y = -7;
+		notchedwall1.y = -18;
 		notchedwall1.z = 0;
 		
 		notchedwall1.image = loadImage("ld34-images/map1/notchedwall1.png");
@@ -600,7 +614,7 @@ function World(){
 		
 		var overhang_double1 = new Drawable();
 		overhang_double1.x = 354;
-		overhang_double1.y = -18;
+		overhang_double1.y = -29;
 		overhang_double1.z = 0;
 		
 		overhang_double1.image = loadImage("ld34-images/map1/overhang_double1.png");
@@ -615,7 +629,7 @@ function World(){
 		island1.y = 154;
 		island1.z = 0;
 		
-		island1.image = loadImage("ld34-images/generic/island_medium1.png");
+		island1.image = loadImage("ld34-images/islands/island_medium1.png");
 		island1.setDrawBasedOnOrigin(island1.bottomLeft);
 		addColliderToObjectBasedOnSprite(island1);
 		
@@ -628,7 +642,7 @@ function World(){
 		island2.y = 176;
 		island2.z = 0;
 		
-		island2.image = loadImage("ld34-images/generic/island_small.png");
+		island2.image = loadImage("ld34-images/islands/island_small.png");
 		island2.setDrawBasedOnOrigin(island2.bottomLeft);
 		addColliderToObjectBasedOnSprite(island2);
 		
@@ -641,7 +655,7 @@ function World(){
 		island3.y = 161;
 		island3.z = -2;
 		
-		island3.image = loadImage("ld34-images/generic/island_medium2.png");
+		island3.image = loadImage("ld34-images/islands/island_medium2.png");
 		island3.setDrawBasedOnOrigin(island3.bottomLeft);
 		addColliderToObjectBasedOnSprite(island3);
 		
@@ -654,7 +668,7 @@ function World(){
 		island4.y = 30;
 		island4.z = 0;
 		
-		island4.image = loadImage("ld34-images/generic/island_large1.png");
+		island4.image = loadImage("ld34-images/islands/island_large1.png");
 		island4.setDrawBasedOnOrigin(island4.bottomLeft);
 		addColliderToObjectBasedOnSprite(island4);
 		
@@ -700,7 +714,7 @@ function World(){
 		island5.y = 140;
 		island5.z = 0;
 		
-		island5.image = loadImage("ld34-images/generic/island_medium1.png");
+		island5.image = loadImage("ld34-images/islands/island_medium1.png");
 		island5.setDrawBasedOnOrigin(island5.bottomLeft);
 		addColliderToObjectBasedOnSprite(island5);
 		
@@ -713,7 +727,7 @@ function World(){
 		island6.y = 56;
 		island6.z = -2;
 		
-		island6.image = loadImage("ld34-images/generic/island_medium1.png");
+		island6.image = loadImage("ld34-images/islands/island_medium1.png");
 		island6.setDrawBasedOnOrigin(island6.bottomLeft);
 		addColliderToObjectBasedOnSprite(island6);
 		
@@ -726,7 +740,7 @@ function World(){
 		island7.y = 92;
 		island7.z = -2;
 		
-		island7.image = loadImage("ld34-images/generic/island_medium2.png");
+		island7.image = loadImage("ld34-images/islands/island_medium2.png");
 		island7.setDrawBasedOnOrigin(island7.bottomLeft);
 		addColliderToObjectBasedOnSprite(island7);
 		
@@ -739,7 +753,7 @@ function World(){
 		island8.y = 5;
 		island8.z = -2;
 		
-		island8.image = loadImage("ld34-images/generic/island_small.png");
+		island8.image = loadImage("ld34-images/islands/island_small.png");
 		island8.setDrawBasedOnOrigin(island8.bottomLeft);
 		addColliderToObjectBasedOnSprite(island8);
 		
@@ -747,12 +761,86 @@ function World(){
 		
 		this.addDrawableObject(island8);
 		
+		var island9 = new Drawable();
+		island9.x = -72;
+		island9.y = -42;
+		island9.z = 0;
+		
+		island9.image = loadImage("ld34-images/islands/isl2_tile.png");
+		island9.setDrawBasedOnOrigin(island9.bottomLeft);
+		addColliderToObjectBasedOnSprite(island9);
+		
+		island9.oneWay = true;
+		
+		this.addDrawableObject(island9);
+		
+		var island10 = new Drawable();
+		island10.x = -226;
+		island10.y = -62;
+		island10.z = 0;
+		
+		island10.image = loadImage("ld34-images/islands/isl1_tile1.png");
+		island10.setDrawBasedOnOrigin(island10.bottomLeft);
+		addColliderToObjectBasedOnSprite(island10);
+		
+		island10.oneWay = true;
+		
+		this.addDrawableObject(island10);
+		
+		var island11 = new Drawable();
+		island11.x = 180;
+		island11.y = -170;
+		island11.z = 0;
+		
+		island11.image = loadImage("ld34-images/islands/isl6_tile1.png");
+		island11.setDrawBasedOnOrigin(island11.bottomLeft);
+		addColliderToObjectBasedOnSprite(island11);
+		
+		island11.oneWay = true;
+		
+		this.addDrawableObject(island11);
+		
+		var island11_blockA = new Drawable();
+		island11_blockA.x = 216;
+		island11_blockA.y = -252;
+		island11_blockA.z = 0;
+		
+		island11_blockA.image = loadImage("ld34-images/islands/isl6_tile2.png");
+		island11_blockA.setDrawBasedOnOrigin(island11_blockA.bottomLeft);
+		addColliderToObjectBasedOnSprite(island11_blockA);
+		
+		this.addDrawableObject(island11_blockA);
+		
+		var island11_blockB = new Drawable();
+		island11_blockB.x = 290;
+		island11_blockB.y = -252;
+		island11_blockB.z = 0;
+		
+		island11_blockB.image = loadImage("ld34-images/islands/isl6_tile3.png");
+		island11_blockB.setDrawBasedOnOrigin(island11_blockB.bottomLeft);
+		addColliderToObjectBasedOnSprite(island11_blockB);
+		
+		this.addDrawableObject(island11_blockB);
+		
+		var island12 = new Drawable();
+		island12.x = -191;
+		island12.y = -450;
+		island12.z = 0;
+		
+		island12.image = loadImage("ld34-images/islands/island_medium2.png");
+		island12.setDrawBasedOnOrigin(island12.bottomLeft);
+		addColliderToObjectBasedOnSprite(island12);
+		
+		island12.oneWay = true;
+		
+		this.addDrawableObject(island12);
+		
 		var easterisland = new Drawable();
 		easterisland.x = -203;
 		easterisland.y = 385;
 		easterisland.z = -1;
 		
-		easterisland.image = loadImage("ld34-images/generic/island_mysterious.png");
+		easterisland.image = loadImage("ld34-images/islands/island_mysterious.png");
 		easterisland.setDrawBasedOnOrigin(easterisland.bottomLeft);
 		addColliderToObjectBasedOnSprite(easterisland);
 		

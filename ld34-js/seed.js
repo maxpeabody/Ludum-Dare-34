@@ -1,4 +1,4 @@
-/* Sets up the generic functions of a Seed object.
+/* Sets up the islands functions of a Seed object.
 Seeds can be collected, dropped, and planted by the player.
 
 Coded by: Not The Author (Core implementation & functionality, physics)

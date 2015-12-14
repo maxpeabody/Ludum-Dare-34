@@ -26,6 +26,7 @@ function Seed()
 	}
 	this.putDown = function(){ // Uses seed's fall logic to simply drop seed 
 		this.isHeld = false;
+		this.inAir = true;
 		this.isPlanted = false;
 		game.player.heldSeed = false;
 		this.setZCoordinate(3);
@@ -53,7 +54,7 @@ function Seed()
 		
 		if (this.isPlanted) {
 			this.grow();
-			this.isPlanted = false;
+			mainWorld.removeObjectFromAllLists(this);
 		}
 		else if (!this.isHeld && this.inAir) {
 			// Fall speed

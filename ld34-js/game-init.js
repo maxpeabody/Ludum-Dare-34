@@ -11,7 +11,7 @@ var keyboard = {};
 
 var images = {};
 var allImagesLoaded = false;
-var imageMax = 95;
+var imageMax = 98;
 var imageCount = 0;
 function loadImage(imageFileName){ //call this to load image files- prevent loading same image more than once
     if(imageFileName in images)
@@ -179,9 +179,12 @@ function preloadStuff(){
 	loadImage("ld34-images/plants/shroom_still.png");
 	loadImage("ld34-images/plants/shroomsheetrough.png");
 	
-	loadImage("ld34-images/plants/bridgestalk_anim.png");
-	loadImage("ld34-images/plants/bridgestalk_still.png");
-	loadImage("ld34-images/plants/bridgestalk_cap.png");
+	loadImage("ld34-images/plants/bridgestalk_anim_right.png");
+	loadImage("ld34-images/plants/bridgestalk_anim_left.png");
+	loadImage("ld34-images/plants/bridgestalk_still_right.png");
+	loadImage("ld34-images/plants/bridgestalk_still_left.png");
+	loadImage("ld34-images/plants/bridgestalk_cap_right.png");
+	loadImage("ld34-images/plants/bridgestalk_cap_left.png");
 	
 	// Load images: Player sprites
     loadImage("ld34-images/protag_fall_left.png");

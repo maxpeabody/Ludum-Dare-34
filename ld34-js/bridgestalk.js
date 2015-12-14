@@ -1,6 +1,9 @@
 function Bridgestalk()
 {
-	// Bridge
+    this.segmentCount = 14;
+    this.segmentsExtruded = 0;
+    this.z = 3;
+	
 	this.startGrowing(growLeft){
 		// Grow (left/right)
 	}

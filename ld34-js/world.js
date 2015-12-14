@@ -249,8 +249,8 @@ function World(){
 		this.addDrawableObject(ramp_grassy2);
 		
 		var smallwall3 = new Drawable();
-		smallwall3.x = 243;
-		smallwall3.y = 260;
+		smallwall3.x = 245;
+		smallwall3.y = 261;
 		smallwall3.z = 0;
 		
 		smallwall3.image = loadImage("ld34-images/map1/smallwall3.png");

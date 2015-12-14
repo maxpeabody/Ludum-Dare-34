@@ -8,15 +8,15 @@ Coded by: Max (physics, input, animation implementation/tweaks, sound),
 function Player()
 {
 	// Movement/location-related things
-	this.x = -53; //this.x = 430;
-	this.y = 30; //this.y = 428;
+	this.x = 230;
+	this.y = -200; // this.y = 428;
 	this.z = 4;
 
 	this.vx = 0;
 	this.vy = 0;
 
-	this.xSpeed = 3.75;
-	this.jumpVelocity = 9;
+	this.xSpeed = 3.5;
+	this.jumpVelocity = 8.2;
 	this.terminalVelocity = 10.5; //just under half the width of a tile, so it doesn't just clip through
 	this.inAir = false;
 	

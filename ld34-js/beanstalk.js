@@ -71,8 +71,8 @@ function BeanTrunk(){
                 var xcoord = Math.floor(this.x + 0.5 - camera.x - this.xoffset + this.positionParent.x);
                 var ycoord = Math.floor(this.y + 0.5 - camera.y - this.yoffset + this.positionParent.y);
 
-                context.drawImage(this.image,0,0,this.image.naturalWidth,this.percentExtruded*this.image.naturalHeight,
-                    xcoord,ycoord,this.image.naturalWidth,this.percentExtruded*this.image.naturalHeight);
+                //context.drawImage(this.image,0,0,this.image.naturalWidth,this.percentExtruded*this.image.naturalHeight,
+                //    xcoord,ycoord,this.image.naturalWidth,this.percentExtruded*this.image.naturalHeight);
                 //window.console.log("slice size: 0,0 to " + this.image.naturalWidth + "," + this.percentExtruded*this.image.naturalHeight );
                 //window.console.log("draw coords: " + xcoord + "," + ycoord + " to " + this.image.naturalWidth + "," + this.percentExtruded*this.image.naturalHeight );
             }

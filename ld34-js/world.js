@@ -712,8 +712,8 @@ function World(){
 		}
 
 		var testSeed = new TestSeed();
-		testSeed.x = 320;
-		testSeed.y = 395;
+		testSeed.x = 20;
+		testSeed.y = 20;
 		testSeed.trigger = true;
 		this.addDrawableObject(testSeed);
 

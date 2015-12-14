@@ -518,7 +518,7 @@ function World(){
 		var island3 = new Drawable();
 		island3.x = 144;
 		island3.y = 140;
-		island3.z = 0;
+		island3.z = -2;
 		
 		island3.image = loadImage("ld34-images/generic/island_medium2.png");
 		island3.setDrawBasedOnOrigin(island3.bottomLeft);
@@ -590,7 +590,7 @@ function World(){
 		var island6 = new Drawable();
 		island6.x = 423;
 		island6.y = 56;
-		island6.z = 0;
+		island6.z = -2;
 		
 		island6.image = loadImage("ld34-images/generic/island_medium1.png");
 		island6.setDrawBasedOnOrigin(island6.bottomLeft);
@@ -603,7 +603,7 @@ function World(){
 		var island7 = new Drawable();
 		island7.x = 379;
 		island7.y = 92;
-		island7.z = 0;
+		island7.z = -2;
 		
 		island7.image = loadImage("ld34-images/generic/island_medium2.png");
 		island7.setDrawBasedOnOrigin(island7.bottomLeft);

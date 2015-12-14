@@ -11,7 +11,7 @@ var keyboard = {};
 
 var images = {};
 var allImagesLoaded = false;
-var imageMax = 86;
+var imageMax = 89;
 var imageCount = 0;
 function loadImage(imageFileName){ //call this to load image files- prevent loading same image more than once
     if(imageFileName in images)
@@ -146,10 +146,10 @@ function preloadStuff(){
 	loadImage("ld34-images/map1/sceneryfg1.png");
 
 	// Load images: Seeds
-	loadImage("ld34-images/stalk_seed_placeholder.png");
-	loadImage("ld34-images/seed_placeholder.png");
-	loadImage("ld34-images/shroom_seed_placeholder.png");
-	loadImage("ld34-images/flower_seed_placeholder.png");
+	loadImage("ld34-images/plants/placeholder_seed.png");
+	loadImage("ld34-images/plants/stalk_seed.png");
+	loadImage("ld34-images/plants/shroom_seed.png");
+	loadImage("ld34-images/plants/flower_seed.png");
 
 	// Load images: Plant parts
 	loadImage("ld34-images/plants/stalk_anim.png");
@@ -160,13 +160,18 @@ function preloadStuff(){
 	loadImage("ld34-images/plants/bean_leaf_left.png");
 	loadImage("ld34-images/plants/leaf_frozen_right.png");
 	loadImage("ld34-images/plants/leaf_frozen_left.png");
+	
 	loadImage("ld34-images/plants/big_long_vine_right.png");
 	loadImage("ld34-images/plants/big_long_vine_left.png");
 	loadImage("ld34-images/plants/frozen_vine_right.png");
 	loadImage("ld34-images/plants/frozen_vine_left.png");
 	loadImage("ld34-images/plants/your_best_friend.png");
 	loadImage("ld34-images/plants/you_IDIOT.png");
+	
 	loadImage("ld34-images/plants/shroom_anim.png");
+	loadImage("ld34-images/plants/shroom_sprout_2.png");
+	loadImage("ld34-images/plants/shroom_still.png");
+	loadImage("ld34-images/plants/shroomsheetrough.png");
 	
 	// Load images: Player sprites
     loadImage("ld34-images/protag_fall_left.png");

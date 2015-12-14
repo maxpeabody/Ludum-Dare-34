@@ -416,5 +416,5 @@ function addTriangleCollider(object,above,leftX,leftY,rightX,rightY,offsetcode){
 
     }
 
-        mainWorld.colliders.push(object);
+    mainWorld.colliders.push(object);
 }

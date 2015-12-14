@@ -1,9 +1,8 @@
 /* Main method and game loop.
 
 Coded by: Benedict, Max */
-
+var colliderDebug = true;
 function Game(){
-
 
     this.testDrawable = new Drawable();
     this.testDrawable.x = 201;
@@ -30,11 +29,36 @@ Game.prototype = new Updateable();
 function animate() {
     requestAnimFrame( animate );
 	var bgpattern = context.createPattern(loadImage("ld34-images/bgtile.png"), 'repeat');
+    context.clearRect(0,0,canvas.width,canvas.height);
 	context.fillStyle = bgpattern;
     context.fillRect(0, 0, canvas.width,canvas.height);
 	
     //here's where you do all the draw and update calls to whatever's in the game!
     game.update();
+    if(colliderDebug){
+        for(debugCounter=0;debugCounter<mainWorld.colliders.length;debugCounter++){
+            var colObj = mainWorld.colliders[debugCounter];
+            var xcoord = Math.floor(colObj.x + 0.5 - mainCamera.x + colObj.cX);
+            var ycoord = Math.floor(colObj.y + 0.5 - mainCamera.y + colObj.cY);
+            if(colObj.oneWay){
+                context.strokeStyle = "white";
+            }else{
+                context.strokeStyle = "blue";
+            }
+            if(!colObj.hasTriangleCollider)
+                context.strokeRect(xcoord,ycoord,colObj.cW,colObj.cH);
+            if(colObj.hasTriangleCollider){
+                //window.console.log("triangle colliders exist");
+                context.strokeStyle = "red";
+                var txcoord = Math.floor(colObj.x + 0.5 - mainCamera.x + colObj.tcX);
+                var tycoord = Math.floor(colObj.y + 0.5 - mainCamera.y + colObj.tcY);
+                context.strokeRect(txcoord,tycoord,colObj.tcW,colObj.tcH);
+            }
+
+            //context.drawImage(this.image,xcoord,ycoord);
+        }
+    }
+
     //game.testDrawable.drawImage(mainCamera);
 
 }

@@ -114,7 +114,7 @@ function StalkSeed()
 		var newStalk = new Beanstalk();
 		newStalk.x = this.x;
 		newStalk.y = this.y;
-		window.console.log("this xy = " + this.x + "," + this.y);
+		//window.console.log("this xy = " + this.x + "," + this.y);
 		newStalk.startGrowing();
 	};
 }
@@ -128,6 +128,16 @@ function FlowerSeed()
 	this.trigger = true;
 	mainWorld.seeds.push(this);
 	mainWorld.updateables.push(this)
+
+	this.grow = function(){
+		// Spawns a beanstalk at its current location, then self-annihilates.
+		var newFlow = new FlowerVine();
+		newFlow.x = this.x;
+		newFlow.y = this.y;
+		//window.console.log("this xy = " + this.x + "," + this.y);
+		var growLeft = game.player.facing == "left";
+		newFlow.startGrowing(growLeft);
+	};
 }
 FlowerSeed.prototype = new Seed();
 

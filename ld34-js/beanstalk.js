@@ -94,6 +94,19 @@ function Beanstalk(){
 
         }
     }
+    this.uproot = function(){
+        mainWorld.removeObjectFromAllLists(this.cap);
+        for(prunecount=0;prunecount<this.segments.length;prunecount++){
+            mainWorld.removeObjectFromAllLists(this.segments[prunecount]);
+        }
+        for(prunecount=0;prunecount<this.buds.length;prunecount++){
+            mainWorld.removeObjectFromAllLists(this.buds[prunecount]);
+        }
+        var stalkSeed = new StalkSeed();
+        stalkSeed.x = this.x;
+        stalkSeed.y = this.y;
+        mainWorld.addDrawableObject(stalkSeed);
+    }
 }
 Beanstalk.prototype = new Located();
 

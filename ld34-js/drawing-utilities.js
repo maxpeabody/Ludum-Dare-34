@@ -103,12 +103,13 @@ function Animation(){
         this.slicecount = Math.floor(this.image.naturalWidth / this.slicewidth);
         this.framelength = msPerFrame;
         this.animated = true;
-        this.timer.restart();
-    }
+        this.timer = new Timer();
+        //this.timer.restart();
+    };
     this.setStatic = function(filename){
         this.animated = false;
         this.image = loadImage(filename);
-    }
+    };
     this.drawImage = function(camera){
         if(this.image){
             var xcoord = Math.floor(this.x + 0.5 - camera.x - this.xoffset + this.positionParent.x);

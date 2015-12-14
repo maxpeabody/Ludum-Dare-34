@@ -806,6 +806,11 @@ function World(){
 		
 		this.addDrawableObject(sceneryfg1);
 
+		var flowerSeed = new FlowerSeed();
+		flowerSeed.x = -30;
+		flowerSeed.y = 100;
+		this.addDrawableObject(flowerSeed);
+
 		this.worldBuilt = true;
     }
 }

@@ -244,9 +244,20 @@ function World(){
 		
 		ramp_grassy2.image = loadImage("ld34-images/map1/ramp_grassy2.png");
 		ramp_grassy2.setDrawBasedOnOrigin(ramp_grassy2.bottomLeft);
-		addTriangleCollider(ramp_grassy2, false, 0, 0, 47, 24, ramp_grassy2.origin);
+		addTriangleCollider(ramp_grassy2, false, 0, 0, 69, 36, ramp_grassy2.origin);
 		
 		this.addDrawableObject(ramp_grassy2);
+		
+		var smallwall3 = new Drawable();
+		smallwall3.x = 243;
+		smallwall3.y = 260;
+		smallwall3.z = 0;
+		
+		smallwall3.image = loadImage("ld34-images/map1/smallwall3.png");
+		smallwall3.setDrawBasedOnOrigin(smallwall3.bottomLeft);
+		addColliderToObjectBasedOnSprite(smallwall3);
+		
+		this.addDrawableObject(smallwall3);
 		
 		var bigwall3 = new Drawable();
 		bigwall3.x = 268;
@@ -329,6 +340,28 @@ function World(){
 		
 		this.addDrawableObject(tinywall1);
 		
+		var ramp_grassy3 = new Drawable();
+		ramp_grassy3.x = -89;
+		ramp_grassy3.y = 167;
+		ramp_grassy3.z = 0;
+		
+		ramp_grassy3.image = loadImage("ld34-images/map1/ramp_grassy3.png");
+		ramp_grassy3.setDrawBasedOnOrigin(ramp_grassy3.bottomLeft);
+		addTriangleCollider(ramp_grassy2, false, 0, 23, 45, 0, ramp_grassy3.origin);
+		
+		this.addDrawableObject(ramp_grassy3);
+		
+		var block_grassy1 = new Drawable();
+		block_grassy1.x = -89;
+		block_grassy1.y = 191;
+		block_grassy1.z = 0;
+		
+		block_grassy1.image = loadImage("ld34-images/map1/block_grassy1.png");
+		block_grassy1.setDrawBasedOnOrigin(block_grassy1.bottomLeft);
+		addColliderToObjectBasedOnSprite(block_grassy1);
+		
+		this.addDrawableObject(block_grassy1);
+		
 		var bridge3 = new Drawable();
 		bridge3.x = -43;
 		bridge3.y = 103;
@@ -364,27 +397,75 @@ function World(){
 		
 		this.addDrawableObject(ramp_grassy2);
 		
-		/* var ramp_tinygrassy1 = new Drawable();
-		ramp_tinygrassy1.x = -156;
-		ramp_tinygrassy1.y = 68;
-		ramp_tinygrassy1.z = 0;
+		var overhang6 = new Drawable();
+		overhang6.x = -235;
+		overhang6.y = 107;
+		overhang6.z = 0;
 		
-		ramp_tinygrassy1.image = loadImage("ld34-images/map1/ramp_tinygrassy1.png");
-		ramp_tinygrassy1.setDrawBasedOnOrigin(ramp_tinygrassy1.bottomLeft);
-		addTriangleCollider(ramp_tinygrassy1, false, 0, 12, 23, 0, ramp_tinygrassy1.origin);
+		overhang6.image = loadImage("ld34-images/map1/overhang6.png");
+		overhang6.setDrawBasedOnOrigin(overhang6.bottomLeft);
+		addColliderToObjectBasedOnSprite(overhang6);
 		
-		this.addDrawableObject(ramp_tinygrassy1); */
+		overhang6.oneWay = true;
 		
-		var block_tinygrassy1 = new Drawable();
-		block_tinygrassy1.x = -156;
-		block_tinygrassy1.y = 92;
-		block_tinygrassy1.z = 0;
+		this.addDrawableObject(overhang6);
 		
-		block_tinygrassy1.image = loadImage("ld34-images/map1/block_tinygrassy1.png");
-		block_tinygrassy1.setDrawBasedOnOrigin(block_tinygrassy1.bottomLeft);
-		addColliderToObjectBasedOnSprite(block_tinygrassy1);
+		var overhang7 = new Drawable();
+		overhang7.x = -232;
+		overhang7.y = 215;
+		overhang7.z = 0;
 		
-		this.addDrawableObject(block_tinygrassy1);
+		overhang7.image = loadImage("ld34-images/map1/overhang7.png");
+		overhang7.setDrawBasedOnOrigin(overhang7.bottomLeft);
+		addColliderToObjectBasedOnSprite(overhang7);
+		
+		overhang7.oneWay = true;
+		
+		this.addDrawableObject(overhang7);
+		
+		var block_jutting1 = new Drawable();
+		block_jutting1.x = -318;
+		block_jutting1.y = 332;
+		block_jutting1.z = 0;
+		
+		block_jutting1.image = loadImage("ld34-images/map1/block_jutting1.png");
+		block_jutting1.setDrawBasedOnOrigin(block_jutting1.bottomLeft);
+		addColliderToObjectBasedOnSprite(block_jutting1);
+		
+		this.addDrawableObject(block_jutting1);
+		
+		var ramp_tinysandy1 = new Drawable();
+		ramp_tinysandy1.x = -156;
+		ramp_tinysandy1.y = 68;
+		ramp_tinysandy1.z = 0;
+		
+		ramp_tinysandy1.image = loadImage("ld34-images/map1/ramp_tinysandy1.png");
+		ramp_tinysandy1.setDrawBasedOnOrigin(ramp_tinysandy1.bottomLeft);
+		addTriangleCollider(ramp_tinysandy1, false, 0, 12, 23, 0, ramp_tinysandy1.origin);
+		
+		this.addDrawableObject(ramp_tinysandy1);
+		
+		var ramp_sandy1 = new Drawable();
+		ramp_sandy1.x = -109;
+		ramp_sandy1.y = 92;
+		ramp_sandy1.z = 0;
+		
+		ramp_sandy1.image = loadImage("ld34-images/map1/ramp_sandy1.png");
+		ramp_sandy1.setDrawBasedOnOrigin(ramp_sandy1.bottomLeft);
+		addTriangleCollider(ramp_sandy1, false, 0, 24, 47, 0, ramp_sandy1.origin);
+		
+		this.addDrawableObject(ramp_sandy1);
+		
+		var block_sandy1 = new Drawable();
+		block_sandy1.x = -156;
+		block_sandy1.y = 92;
+		block_sandy1.z = 0;
+		
+		block_sandy1.image = loadImage("ld34-images/map1/block_sandy1.png");
+		block_sandy1.setDrawBasedOnOrigin(block_sandy1.bottomLeft);
+		addColliderToObjectBasedOnSprite(block_sandy1);
+		
+		this.addDrawableObject(block_sandy1);
 		
 		var smallwall1 = new Drawable();
 		smallwall1.x = -268;
@@ -396,17 +477,6 @@ function World(){
 		addColliderToObjectBasedOnSprite(smallwall1);
 		
 		this.addDrawableObject(smallwall1);
-		
-		/* var ramp_sandy1 = new Drawable();
-		ramp_sandy1.x = -108;
-		ramp_sandy1.y = 92;
-		ramp_sandy1.z = 0;
-		
-		ramp_sandy1.image = loadImage("ld34-images/map1/ramp_sandy1.png");
-		ramp_sandy1.setDrawBasedOnOrigin(ramp_sandy1.bottomLeft);
-		addTriangleCollider(ramp_sandy1, false, 0, 47, 24, 0, ramp_sandy1.origin);
-		
-		this.addDrawableObject(ramp_sandy1); */
 		
 		var smallwall2 = new Drawable();
 		smallwall2.x = 245;
@@ -552,16 +622,16 @@ function World(){
 		
 		this.addDrawableObject(ramp_tinygrassy1);
 		
-		var block_tinygrassy1 = new Drawable();
-		block_tinygrassy1.x = 137;
-		block_tinygrassy1.y = 6;
-		block_tinygrassy1.z = 0;
+		var block_sandy1 = new Drawable();
+		block_sandy1.x = 137;
+		block_sandy1.y = 6;
+		block_sandy1.z = 0;
 		
-		block_tinygrassy1.image = loadImage("ld34-images/map1/block_tinygrassy1.png");
-		block_tinygrassy1.setDrawBasedOnOrigin(block_tinygrassy1.bottomLeft);
-		addColliderToObjectBasedOnSprite(block_tinygrassy1);
+		block_sandy1.image = loadImage("ld34-images/map1/block_sandy1.png");
+		block_sandy1.setDrawBasedOnOrigin(block_sandy1.bottomLeft);
+		addColliderToObjectBasedOnSprite(block_sandy1);
 		
-		this.addDrawableObject(block_tinygrassy1);
+		this.addDrawableObject(block_sandy1);
 		
 		var ramp_tinysandy2 = new Drawable();
 		ramp_tinysandy2.x = 153;

@@ -42,7 +42,7 @@ function Player()
 	
 	// Set up collision detection
 	var pboxheight = Math.floor(this.image.naturalHeight *.55);
-	addColliderToObject(this,20,pboxheight,this.bottom);
+	addColliderToObject(this,12,pboxheight,this.bottom);
 	this.trigger = true;
 	// window.console.log(this.image.naturalHeight + " is player natural height");
 	this.footwatch = new Located();

@@ -11,7 +11,7 @@ var keyboard = {};
 
 var images = {};
 var allImagesLoaded = false;
-var imageMax = 59;
+var imageMax = 66;
 var imageCount = 0;
 function loadImage(imageFileName){ //call this to load image files- prevent loading same image more than once
     if(imageFileName in images)
@@ -137,7 +137,14 @@ function preloadStuff(){
 	loadImage("ld34-images/map1/sceneryfg1.png");
 
 	// Load images: Plant parts
-	loadImage("ld34-images/plants/beanstalk_trunk.png");
+	loadImage("ld34-images/plants/stalk_anim.png");
+	loadImage("ld34-images/plants/stalk_cap.png");
+	loadImage("ld34-images/plants/stalk_mid.png");
+	loadImage("ld34-images/plants/stalk_still.png");
+	loadImage("ld34-images/plants/bean_leaf_right.png");
+	loadImage("ld34-images/plants/bean_leaf_left.png");
+	loadImage("ld34-images/plants/leaf_frozen_right.png");
+	loadImage("ld34-images/plants/leaf_frozen_left.png");
 	
 	// Load images: Player sprites
     loadImage("ld34-images/protag_fall_left.png");

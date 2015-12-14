@@ -648,7 +648,7 @@ function World(){
 		this.addDrawableObject(testSeed);
 
 		var testStalk = new Beanstalk();
-		testStalk.x = 80;
+		testStalk.x = 50;
 		testStalk.y = 97;
 		testStalk.startGrowing();
 

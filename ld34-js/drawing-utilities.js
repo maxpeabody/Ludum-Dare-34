@@ -103,6 +103,7 @@ function Animation(){
         this.slicecount = Math.floor(this.image.naturalWidth / this.slicewidth);
         this.framelength = msPerFrame;
         this.animated = true;
+        this.timer.restart();
     }
     this.setStatic = function(filename){
         this.animated = false;

@@ -8,8 +8,8 @@ Coded by: Max (physics, input, animation implementation/tweaks, sound),
 function Player()
 {
 	// Movement/location-related things
-	this.x = 370; //this.x = 430;
-	this.y = 120; //this.y = 428;
+	this.x = 170; //this.x = 430;
+	this.y = 100; //this.y = 428;
 	this.z = 4;
 
 	this.vx = 0;

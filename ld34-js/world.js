@@ -249,8 +249,8 @@ function World(){
 		this.addDrawableObject(ramp_grassy2);
 		
 		var smallwall3 = new Drawable();
-		smallwall3.x = 243;
-		smallwall3.y = 260;
+		smallwall3.x = 245;
+		smallwall3.y = 261;
 		smallwall3.z = 0;
 		
 		smallwall3.image = loadImage("ld34-images/map1/smallwall3.png");
@@ -433,6 +433,28 @@ function World(){
 		addColliderToObjectBasedOnSprite(block_jutting1);
 		
 		this.addDrawableObject(block_jutting1);
+		
+		var overhang_thick2 = new Drawable();
+		overhang_thick2.x = -342;
+		overhang_thick2.y = 288;
+		overhang_thick2.z = 0;
+		
+		overhang_thick2.image = loadImage("ld34-images/map1/overhang_thick2.png");
+		overhang_thick2.setDrawBasedOnOrigin(overhang_thick2.bottomLeft);
+		addColliderToObjectBasedOnSprite(overhang_thick2);
+		
+		this.addDrawableObject(overhang_thick2);
+		
+		var block_smallsandy1 = new Drawable();
+		block_smallsandy1.x = -291;
+		block_smallsandy1.y = 260;
+		block_smallsandy1.z = 0;
+		
+		block_smallsandy1.image = loadImage("ld34-images/map1/block_smallsandy1.png");
+		block_smallsandy1.setDrawBasedOnOrigin(block_smallsandy1.bottomLeft);
+		addColliderToObjectBasedOnSprite(block_smallsandy1);
+		
+		this.addDrawableObject(block_smallsandy1);
 		
 		var ramp_tinysandy1 = new Drawable();
 		ramp_tinysandy1.x = -156;
@@ -711,11 +733,10 @@ function World(){
 			this.addDrawableObject(lighting1);
 		}
 
-		var testSeed = new TestSeed();
-		testSeed.x = 20;
-		testSeed.y = 20;
-		testSeed.trigger = true;
-		this.addDrawableObject(testSeed);
+		var stalkSeed = new StalkSeed();
+		stalkSeed.x = 20;
+		stalkSeed.y = 20;
+		this.addDrawableObject(stalkSeed);
 
 		var testStalk = new Beanstalk();
 		testStalk.x = 50;

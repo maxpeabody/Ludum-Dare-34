@@ -30,13 +30,13 @@ function Seed()
 		game.player.heldSeed = false;
 		this.setZCoordinate(3);
 	}
-	this.plant = function(located){ // Needs location to plant to
+	this.plant = function(newX, newY){ // Needs location to plant to
 		this.isHeld = false;
 		this.inAir = false;
 		this.isPlanted = true;
 		game.player.heldSeed = false;
-		this.x = located.x;
-		this.y = located.y;
+		this.x = newX;
+		this.y = newY;
 		this.setZCoordinate(3);
 	}
 	this.land = function(){
@@ -67,7 +67,7 @@ function Seed()
 			var firstCollision = this.getFirstNontriggerCollision();
 			if(firstCollision && !firstCollision.trigger) {
 				var colDirs1 = this.howFarToMoveToGetOut(firstCollision);
-				this.y -= colDirs1.up + this.image.naturalHeight;
+				this.y -= colDirs1.up;
 				this.land();
 			}
 		}
@@ -97,3 +97,44 @@ function TestSeed()
 	mainWorld.updateables.push(this)
 }
 TestSeed.prototype = new Seed();
+
+function StalkSeed()
+{
+	this.setStatic("ld34-images/stalk_seed_placeholder.png");
+	this.setDrawBasedOnOrigin(this.center);
+	addColliderToObject(this,this.image.naturalWidth,this.image.naturalHeight,this.origin);
+	this.trigger = true;
+	mainWorld.seeds.push(this);
+	mainWorld.updateables.push(this)
+	
+	this.grow = function(){
+		// Spawns a beanstalk at its current location, then self-annihilates.
+		var newStalk = new Beanstalk();
+		newStalk.x = this.x;
+		newStalk.y = this.y;
+		newStalk.startGrowing();
+	};
+}
+StalkSeed.prototype = new Seed();
+
+function FlowerSeed()
+{
+	this.setStatic("ld34-images/flower_seed_placeholder.png");
+	this.setDrawBasedOnOrigin(this.center);
+	addColliderToObject(this,this.image.naturalWidth,this.image.naturalHeight,this.origin);
+	this.trigger = true;
+	mainWorld.seeds.push(this);
+	mainWorld.updateables.push(this)
+}
+FlowerSeed.prototype = new Seed();
+
+function ShroomSeed()
+{
+	this.setStatic("ld34-images/shroom_seed_placeholder.png");
+	this.setDrawBasedOnOrigin(this.center);
+	addColliderToObject(this,this.image.naturalWidth,this.image.naturalHeight,this.origin);
+	this.trigger = true;
+	mainWorld.seeds.push(this);
+	mainWorld.updateables.push(this)
+}
+ShroomSeed.prototype = new Seed();

@@ -5,8 +5,8 @@ var colliderDebug = true;
 function Game(){
 
     this.testDrawable = new Drawable();
-    this.testDrawable.x = 201;
-    this.testDrawable.y = 189;
+    this.testDrawable.x = -90;
+    this.testDrawable.y = 169;
     this.testDrawable.image = loadImage("ld34-images/arrow_idle.png");
     this.testDrawable.setDrawBasedOnOrigin(this.testDrawable.center);
 
@@ -67,7 +67,7 @@ function animate() {
         }
     }
 
-    //game.testDrawable.drawImage(mainCamera);
+    game.testDrawable.drawImage(mainCamera);
 
 }
 

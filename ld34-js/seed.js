@@ -92,7 +92,7 @@ Seed.prototype = new Animation();
 
 function TestSeed()
 {
-	this.setStatic("ld34-images/seed_placeholder.png");
+	this.setStatic("ld34-images/plants/placeholder_seed.png");
 	this.setDrawBasedOnOrigin(this.center);
 	addColliderToObject(this,this.image.naturalWidth,this.image.naturalHeight,this.origin);
 	this.trigger = true;
@@ -106,7 +106,7 @@ function StalkSeed(getX, getY)
 	this.initialX = getX; this.x = getX; 
 	this.initialY = getY; this.y = getY;
 	
-	this.setStatic("ld34-images/stalk_seed_placeholder.png");
+	this.setStatic("ld34-images/plants/stalk_seed.png");
 	this.setDrawBasedOnOrigin(this.center);
 	addColliderToObject(this,this.image.naturalWidth,this.image.naturalHeight,this.origin);
 	this.trigger = true;
@@ -129,7 +129,7 @@ function FlowerSeed(getX, getY)
 	this.initialX = getX; this.x = getX; 
 	this.initialY = getY; this.y = getY;
 	
-	this.setStatic("ld34-images/flower_seed_placeholder.png");
+	this.setStatic("ld34-images/plants/flower_seed.png");
 	this.setDrawBasedOnOrigin(this.center);
 	addColliderToObject(this,this.image.naturalWidth,this.image.naturalHeight,this.origin);
 	this.trigger = true;
@@ -150,7 +150,7 @@ FlowerSeed.prototype = new Seed();
 
 function ShroomSeed()
 {
-	this.setStatic("ld34-images/shroom_seed_placeholder.png");
+	this.setStatic("ld34-images/plants/shroom_seed.png");
 	this.setDrawBasedOnOrigin(this.center);
 	addColliderToObject(this,this.image.naturalWidth,this.image.naturalHeight,this.origin);
 	this.trigger = true;

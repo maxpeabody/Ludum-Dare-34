@@ -1,4 +1,4 @@
-/* Sets up the generic functions of a Seed object.
+/* Sets up the islands functions of a Seed object.
 Seeds can be collected, dropped, and planted by the player.
 
 Coded by: Not The Author (Core implementation & functionality, physics)
@@ -156,5 +156,14 @@ function ShroomSeed()
 	this.trigger = true;
 	mainWorld.seeds.push(this);
 	mainWorld.updateables.push(this)
+
+	this.grow = function(){
+		// Spawns a beanstalk at its current location, then self-annihilates.
+		var newMush = new Mushroom();
+		newMush.x = this.x;
+		newMush.y = this.y;
+		//window.console.log("this xy = " + this.x + "," + this.y);
+		newMush.startGrowing();
+	};
 }
 ShroomSeed.prototype = new Seed();

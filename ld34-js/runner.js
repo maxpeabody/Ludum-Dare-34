@@ -1,7 +1,7 @@
 /* Main method and game loop.
 
 Coded by: Benedict, Max */
-var colliderDebug = false;
+var colliderDebug = true;
 function Game(){
 
     this.testDrawable = new Drawable();

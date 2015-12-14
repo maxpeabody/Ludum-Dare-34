@@ -8,9 +8,10 @@ Coded by: Max (physics, input, animation implementation/tweaks, sound),
 function Player()
 {
 	// Movement/location-related things
-	this.x = 425;
-	this.y = 428;
-	this.z = 5;
+
+	this.x = 226.5; //425;
+	this.y = -300; //428;
+	this.z = 4;
 
 	this.vx = 0;
 	this.vy = 0;
@@ -53,6 +54,16 @@ function Player()
 	this.footwatch.trigger = true;
 
 	this.update = function() {
+		if(this.immobile){ //a mushroom is bouncing you
+			var timePassed = this.immobilityTimer.timeElapsedMillis();
+			if(timePassed < 150){
+				this.y = this.immobilityStartY + 1.2*(timePassed/100);
+
+			}else{
+				this.immobile = false;
+				this.mushJump();
+			}
+		}
 		// window.console.log(this.downHeldDown);
 		// HANDLING PLAYER INPUT
 		if(keyboard["r"] || this.y > 600)
@@ -145,6 +156,7 @@ function Player()
 		this.x += this.vx;
 		this.y += this.vy;
 		var firstCollision = this.getFirstNontriggerCollision();
+		var mushCollisions = this.footwatch.getAllCollisions();
 		if(firstCollision && !firstCollision.trigger) {
 			var colDirs1 = this.howFarToMoveToGetOut(firstCollision);
 			if (firstCollision.hasTriangleCollider) {
@@ -238,6 +250,21 @@ function Player()
 				}
 			}
 
+		}else if(mushCollisions.length > 0){
+			window.console.log("there's some trigger collisions");
+			var theresAMushroom = false;
+			var mushIndex = -1;
+			for(dshjh=0;dshjh<mushCollisions.length;dshjh++){
+				if(mushCollisions[dshjh].isAMushroom){
+					theresAMushroom = true;
+					mushIndex = dshjh;
+				}
+			}
+			if(theresAMushroom && this.inAir && this.vy > 0){//we're falling
+				window.console.log("well we reached the condition");
+				this.mushGrab(mushCollisions[mushIndex]);
+				return;
+			}
 		}
 		//after you've done all that, get a second opinion on collisions by calling the get-first thing again
 		//if you're still colliding with something, reset to your original xy and land
@@ -336,7 +363,7 @@ function Player()
 				}
 			}
 		}
-	}
+	};
 
 	this.jump = function(){
 		this.vy = -1 * this.jumpVelocity;
@@ -348,21 +375,38 @@ function Player()
 			urls: ['ld34-sound/sfx/Jump.wav'],
 			volume: 0.35
 		}).play();
-		
+
 		this.isRunning = false;
-	}
+	};
+	this.mushGrab = function(shroom){
+		window.console.log("mush grabbed");
+		shroom.playBounce();
+		this.immobile = true;
+		this.immobilityTimer = new Timer();
+		this.immobilityStartX = this.x;
+		this.immobilityStartY = this.y;
+
+	};
+	this.mushJump = function(){
+		this.vy = -2 * this.jumpVelocity;
+		this.inAir = true;
+		this.isRunning = false;
+		this.upButtonReleased = false;
+	};
 	this.land = function(){
 		if(!this.inAir)
 			return;
 		this.vy = 0;
 		this.inAir = false;
 		
+		console.log(this.x + ", " + this.y);
+		
 		var landsound = new Howl
 		({
 			urls: ['ld34-sound/sfx/Land.wav'],
 			volume: 0.35
 		}).play();
-	}
+	};
 	this.fall = function(){
 		this.inAir = true;
 		this.isRunning = false;

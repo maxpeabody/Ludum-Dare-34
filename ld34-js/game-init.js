@@ -11,7 +11,7 @@ var keyboard = {};
 
 var images = {};
 var allImagesLoaded = false;
-var imageMax = 89;
+var imageMax = 95;
 var imageCount = 0;
 function loadImage(imageFileName){ //call this to load image files- prevent loading same image more than once
     if(imageFileName in images)
@@ -79,11 +79,16 @@ function preloadStuff(){
 	loadImage("ld34-images/bgtile.png");
 
 	// Load images: Collision objects
-	loadImage("ld34-images/generic/island_small.png");
-	loadImage("ld34-images/generic/island_medium1.png");
-	loadImage("ld34-images/generic/island_medium2.png");
-	loadImage("ld34-images/generic/island_large1.png");
-	loadImage("ld34-images/generic/island_mysterious.png");
+	loadImage("ld34-images/islands/island_small.png");
+	loadImage("ld34-images/islands/island_medium1.png");
+	loadImage("ld34-images/islands/island_medium2.png");
+	loadImage("ld34-images/islands/island_large1.png");
+	loadImage("ld34-images/islands/isl1_tile1.png");
+	loadImage("ld34-images/islands/isl2_tile.png");
+	loadImage("ld34-images/islands/isl6_tile1.png");
+	loadImage("ld34-images/islands/isl6_tile2.png");
+	loadImage("ld34-images/islands/isl6_tile3.png");
+	loadImage("ld34-images/islands/island_mysterious.png");
 	
 	loadImage("ld34-images/map1/ground_start.png");
 	loadImage("ld34-images/map1/ground1.png");
@@ -105,6 +110,7 @@ function preloadStuff(){
 	loadImage("ld34-images/map1/block_smallsandy1.png");
 	loadImage("ld34-images/map1/notchedwall1.png");
 	loadImage("ld34-images/map1/block_sandy1.png");
+	loadImage("ld34-images/map1/block_sandy2.png");
 	loadImage("ld34-images/map1/block_grassy1.png");
 	loadImage("ld34-images/map1/block_jutting1.png");
 	

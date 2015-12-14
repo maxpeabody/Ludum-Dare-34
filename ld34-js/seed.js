@@ -97,3 +97,36 @@ function TestSeed()
 	mainWorld.updateables.push(this)
 }
 TestSeed.prototype = new Seed();
+
+function StalkSeed()
+{
+	this.setStatic("ld34-images/stalk_seed_placeholder.png");
+	this.setDrawBasedOnOrigin(this.center);
+	addColliderToObject(this,this.image.naturalWidth,this.image.naturalHeight,this.origin);
+	this.trigger = true;
+	mainWorld.seeds.push(this);
+	mainWorld.updateables.push(this)
+}
+StalkSeed.prototype = new Seed();
+
+function FlowerSeed()
+{
+	this.setStatic("ld34-images/flower_seed_placeholder.png");
+	this.setDrawBasedOnOrigin(this.center);
+	addColliderToObject(this,this.image.naturalWidth,this.image.naturalHeight,this.origin);
+	this.trigger = true;
+	mainWorld.seeds.push(this);
+	mainWorld.updateables.push(this)
+}
+FlowerSeed.prototype = new Seed();
+
+function ShroomSeed()
+{
+	this.setStatic("ld34-images/shroom_seed_placeholder.png");
+	this.setDrawBasedOnOrigin(this.center);
+	addColliderToObject(this,this.image.naturalWidth,this.image.naturalHeight,this.origin);
+	this.trigger = true;
+	mainWorld.seeds.push(this);
+	mainWorld.updateables.push(this)
+}
+ShroomSeed.prototype = new Seed();

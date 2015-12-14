@@ -11,7 +11,7 @@ var keyboard = {};
 
 var images = {};
 var allImagesLoaded = false;
-var imageMax = 72;
+var imageMax = 74;
 var imageCount = 0;
 function loadImage(imageFileName){ //call this to load image files- prevent loading same image more than once
     if(imageFileName in images)
@@ -102,6 +102,7 @@ function preloadStuff(){
 	// loadImage("ld34-images/map1/ramp_smallsandy1.png");
 	loadImage("ld34-images/map1/ramp_tinygrassy1.png");
 	loadImage("ld34-images/map1/block_tinysandy1.png");
+	loadImage("ld34-images/map1/block_smallsandy1.png");
 	loadImage("ld34-images/map1/notchedwall1.png");
 	loadImage("ld34-images/map1/block_sandy1.png");
 	loadImage("ld34-images/map1/block_grassy1.png");
@@ -131,6 +132,7 @@ function preloadStuff(){
 	loadImage("ld34-images/map1/overhang6.png");
 	loadImage("ld34-images/map1/overhang7.png");
 	loadImage("ld34-images/map1/overhang_thick1.png");
+	loadImage("ld34-images/map1/overhang_thick2.png");
 	loadImage("ld34-images/map1/overhang_double1.png");
 	
 	loadImage("ld34-images/map1/landbridge1.png");

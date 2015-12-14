@@ -8,8 +8,8 @@ Coded by: Max (physics, input, animation implementation/tweaks, sound),
 function Player()
 {
 	// Movement/location-related things
-	this.x = -43; //this.x = 430;
-	this.y = 130; //this.y = 428;
+	this.x = -53; //this.x = 430;
+	this.y = 30; //this.y = 428;
 	this.z = 4;
 
 	this.vx = 0;
@@ -251,11 +251,11 @@ function Player()
 		}
 		if(this.heldSeed){
 			var newSeedX = this.x;
-			if(this.facing == "right"){
-				newSeedX +=15;
-			}else{
-				newSeedX -=15;
-			}
+			if(this.facing == "left"){
+				newSeedX -= 20;
+			}/*else{
+				newSeedX -= 30;
+			}*/
 			this.heldSeed.x = newSeedX;
 			this.heldSeed.y = this.y-20;
 		}

@@ -434,6 +434,28 @@ function World(){
 		
 		this.addDrawableObject(block_jutting1);
 		
+		var overhang_thick2 = new Drawable();
+		overhang_thick2.x = -342;
+		overhang_thick2.y = 288;
+		overhang_thick2.z = 0;
+		
+		overhang_thick2.image = loadImage("ld34-images/map1/overhang_thick2.png");
+		overhang_thick2.setDrawBasedOnOrigin(overhang_thick2.bottomLeft);
+		addColliderToObjectBasedOnSprite(overhang_thick2);
+		
+		this.addDrawableObject(overhang_thick2);
+		
+		var block_smallsandy1 = new Drawable();
+		block_smallsandy1.x = -291;
+		block_smallsandy1.y = 260;
+		block_smallsandy1.z = 0;
+		
+		block_smallsandy1.image = loadImage("ld34-images/map1/block_smallsandy1.png");
+		block_smallsandy1.setDrawBasedOnOrigin(block_smallsandy1.bottomLeft);
+		addColliderToObjectBasedOnSprite(block_smallsandy1);
+		
+		this.addDrawableObject(block_smallsandy1);
+		
 		var ramp_tinysandy1 = new Drawable();
 		ramp_tinysandy1.x = -156;
 		ramp_tinysandy1.y = 68;

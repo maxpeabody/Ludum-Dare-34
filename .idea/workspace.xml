@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f90aa0b-f2a3-42bf-9830-7e419fd95833" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ld34-js/player.js" afterPath="$PROJECT_DIR$/ld34-js/player.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ld34-js/runner.js" afterPath="$PROJECT_DIR$/ld34-js/runner.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ld34-js/seed.js" afterPath="$PROJECT_DIR$/ld34-js/seed.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ld34-js/world.js" afterPath="$PROJECT_DIR$/ld34-js/world.js" />
     </list>
     <ignored path="Ludum-Dare-34.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,11 +57,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="world.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="world.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ld34-js/world.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="740" column="40" selection-start-line="740" selection-start-column="40" selection-end-line="740" selection-end-column="40" />
+            <state vertical-scroll-proportion="0.8317422">
+              <caret line="41" column="40" selection-start-line="41" selection-start-column="40" selection-end-line="41" selection-end-column="40" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -75,7 +72,7 @@
       <file leaf-file-name="seed.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ld34-js/seed.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-76.16">
+            <state vertical-scroll-proportion="-43.52">
               <caret line="116" column="32" selection-start-line="116" selection-start-column="32" selection-end-line="116" selection-end-column="32" />
               <folding />
             </state>
@@ -116,11 +113,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="player.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="player.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ld34-js/player.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33333334">
-              <caret line="291" column="47" selection-start-line="291" selection-start-column="47" selection-end-line="291" selection-end-column="47" />
+            <state vertical-scroll-proportion="-18.37931">
+              <caret line="306" column="0" selection-start-line="306" selection-start-column="0" selection-end-line="306" selection-end-column="0" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -154,10 +151,10 @@
         <option value="$PROJECT_DIR$/ld34-js/drawing-utilities.js" />
         <option value="$PROJECT_DIR$/ld34-js/beanstalk.js" />
         <option value="$PROJECT_DIR$/ld34-js/game-init.js" />
-        <option value="$PROJECT_DIR$/ld34-js/world.js" />
         <option value="$PROJECT_DIR$/ld34-js/runner.js" />
         <option value="$PROJECT_DIR$/ld34-js/seed.js" />
         <option value="$PROJECT_DIR$/ld34-js/player.js" />
+        <option value="$PROJECT_DIR$/ld34-js/world.js" />
       </list>
     </option>
   </component>
@@ -795,16 +792,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ld34-js/world.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="740" column="40" selection-start-line="740" selection-start-column="40" selection-end-line="740" selection-end-column="40" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ld34-js/game-init.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -825,18 +812,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ld34-js/player.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.37931">
+          <caret line="306" column="0" selection-start-line="306" selection-start-column="0" selection-end-line="306" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ld34-js/seed.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-76.16">
+        <state vertical-scroll-proportion="-43.52">
           <caret line="116" column="32" selection-start-line="116" selection-start-column="32" selection-end-line="116" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ld34-js/player.js">
+    <entry file="file://$PROJECT_DIR$/ld34-js/world.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="291" column="47" selection-start-line="291" selection-start-column="47" selection-end-line="291" selection-end-column="47" />
+        <state vertical-scroll-proportion="0.8317422">
+          <caret line="41" column="40" selection-start-line="41" selection-start-column="40" selection-end-line="41" selection-end-column="40" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>

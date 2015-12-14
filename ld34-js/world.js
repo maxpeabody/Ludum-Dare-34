@@ -24,6 +24,25 @@ function World(){
         }
     }
 
+	this.removeObjectFromAllLists = function(object){
+		var idx = this.colliders.indexOf(object);
+		if(idx != -1){
+			this.colliders.splice(idx,1);
+		}
+		idx = this.drawables.indexOf(object);
+		if(idx != -1){
+			this.drawables.splice(colIdx,1);
+		}
+		idx = this.updateables.indexOf(object);
+		if(idx != -1){
+			this.updateables.splice(colIdx,1);
+		}
+		idx = this.seeds.indexOf(object);
+		if(idx != -1){
+			this.seeds.splice(colIdx,1);
+		}
+	}
+
     this.addDrawableObject = function(drawable){ //adds object to draw list according to z
         var z = drawable.z;
         var found = false;

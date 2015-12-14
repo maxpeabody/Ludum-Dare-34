@@ -10,7 +10,7 @@ function Player()
 	// Movement/location-related things
 	this.x = 425;
 	this.y = 428;
-	this.z = 4;
+	this.z = 5;
 
 	this.vx = 0;
 	this.vy = 0;

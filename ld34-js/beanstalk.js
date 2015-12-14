@@ -27,6 +27,10 @@ function Beanstalk(){
         this.maxHeight = this.segmentHeight*this.segmentCount;
         mainWorld.updateables.push(this);
         this.spawnBud();
+
+        addColliderToObject(this,32,20,this.cap.center);
+        this.trigger = true;
+        mainWorld.plantstems.push(this);
     }
 
     this.addNewSegment = function(){
@@ -102,6 +106,7 @@ function Beanstalk(){
         for(prunecount=0;prunecount<this.buds.length;prunecount++){
             mainWorld.removeObjectFromAllLists(this.buds[prunecount]);
         }
+        mainWorld.removeObjectFromAllLists(this);
         var stalkSeed = new StalkSeed();
         stalkSeed.x = this.x;
         stalkSeed.y = this.y;
@@ -190,7 +195,6 @@ function BeanLeaf(){
             else
                 this.cX +=20;
             this.oneWay = true;
-            mainWorld.colliders.push(this);
         }
     }
 }

@@ -7,6 +7,7 @@ function World(){
     this.drawables = [];
     this.updateables = [];
     this.seeds = [];
+	this.plantstems = [];
 
 	this.worldBuilt = false;
 
@@ -40,6 +41,10 @@ function World(){
 		idx = this.seeds.indexOf(object);
 		if(idx != -1){
 			this.seeds.splice(idx,1);
+		}
+		idx = this.plantstems.indexOf(object);
+		if(idx != -1){
+			this.plantstems.splice(idx,1);
 		}
 	}
 

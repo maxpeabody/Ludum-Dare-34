@@ -204,6 +204,11 @@ document.addEventListener("keydown",function(event){
 		keyboard["r"] = true;
 	if(event.keyCode == 83)
 		keyboard["s"] = true;
+	if(event.keyCode == 85){
+		//do something kinda unorthodox
+		window.console.log("bound action u fired");
+		game.player.bindButtonAction("u");
+	}
 });
 document.addEventListener("keyup",function(event){
     if(event.keyCode == 37)

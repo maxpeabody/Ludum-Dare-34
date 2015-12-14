@@ -236,6 +236,7 @@ function Player()
 					}
 				}
 			}
+
 		}
 		//after you've done all that, get a second opinion on collisions by calling the get-first thing again
 		//if you're still colliding with something, reset to your original xy and land
@@ -304,6 +305,36 @@ function Player()
 			this.runSFX.volume = 0.12;
 		else
 			this.runSFX.volume = 0; */
+
+		if(this.buttonBoundAction){
+			window.console.log("oh man we have a bound action");
+			this.buttonBoundAction();
+			this.buttonBoundAction = false;
+		}
+	}
+	this.bindButtonAction = function(key){
+		if(key == "u"){
+			this.buttonBoundAction = function(){
+				//try to uproot a plant
+				var stemFound = false;
+				for(stemcount=0;stemcount<mainWorld.plantstems.length;stemcount++){
+					var stem = mainWorld.plantstems[stemcount];
+					if(this.isCollidingWith(stem)){
+						stemFound = stemcount;
+						if(stemcount == 0){
+							stemFound = -1; //because god damn it javascript
+						}
+						break;
+					}
+				}
+				if(stemFound){
+					if(stemFound == -1) //because god DAMN it javascript
+						stemFound++;
+					var foundStem = mainWorld.plantstems[stemFound];
+					foundStem.uproot();
+				}
+			}
+		}
 	}
 
 	this.jump = function(){

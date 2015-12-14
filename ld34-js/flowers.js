@@ -3,15 +3,17 @@ function FlowerVine(){
     this.flowers = [];
     this.budPositions = [{x:45,y:42},{x:91,y:81},{x:183,y:99},{x:215,y:148},{x:306,y:185}];
     this.budPercents = [.6,.4,.65,.8,.999];
-    this.flowerOffsetX = 5;
-    this.flowerOffsetY = -3;
+    this.flowerOffsetX = -8;
+    this.flowerOffsetY = -4;
 
     this.startGrowing = function(left){
         this.vine = new Vine();
         this.vine.y = this.y;
         this.vine.setupLeft(this.x,left);
-        addColliderToObject(this,3,3,this.vine.center); //located doesn't have origin constants is all
+        addColliderToObject(this,32,20,this.vine.center); //located doesn't have origin constants is all
+        //window.console.log("we started growing and our collider stuff is " + this.cX + "+" + this.cW + " " + this.cY + "+" + this.cH);
         this.trigger = true;
+        mainWorld.plantstems.push(this);
         mainWorld.updateables.push(this.vine);
         for(flo=0;flo<this.budPositions.length;flo++){
             var newFlower = new Flower();
@@ -23,7 +25,7 @@ function FlowerVine(){
             newFlower.y = this.y - this.budPositions[flo].y + this.flowerOffsetY;
             this.flowers.push(newFlower);
         }
-        window.console.log("this x is " + this.x);
+        //window.console.log("this x is " + this.x);
         mainWorld.updateables.push(this);
     }
     this.update = function(){
@@ -43,6 +45,7 @@ function FlowerVine(){
         for(prunecount=0;prunecount<this.flowers.length;prunecount++){
             mainWorld.removeObjectFromAllLists(this.flowers[prunecount]);
         }
+        mainWorld.removeObjectFromAllLists(this);
         var flowerSeed = new FlowerSeed();
         flowerSeed.x = this.x;
         flowerSeed.y = this.y;
@@ -52,16 +55,17 @@ function FlowerVine(){
 FlowerVine.prototype = new Located();
 
 function Vine(){
+    this.vineOffsetX = 13;
     this.leftFacing = false;
 
     this.setupLeft = function(x,dir){
         this.leftFacing = dir;
         if(dir) { //we're facing left
-            this.x = x-4;
+            this.x = x+this.vineOffsetX;
             this.setSheet("ld34-images/plants/big_long_vine_left.png",320,100);
             this.setDrawBasedOnOrigin(this.bottomRight);
         }else{
-            this.x = x+4;
+            this.x = x-this.vineOffsetX;
             this.setSheet("ld34-images/plants/big_long_vine_right.png",320,100);
             this.setDrawBasedOnOrigin(this.bottomLeft);
         }
@@ -107,10 +111,9 @@ function Flower(){
             this.frozen = true;
             this.setStatic("ld34-images/plants/you_IDIOT.png");
             addColliderToObject(this,40,23,this.origin);
-            this.cY += 10;
+            this.cY += 15;
             this.cX -= 3;
             this.oneWay = true;
-            mainWorld.colliders.push(this);
         }
     }
 }

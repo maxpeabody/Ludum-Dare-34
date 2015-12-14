@@ -28,7 +28,7 @@ Game.prototype = new Updateable();
 
 function animate() {
     requestAnimFrame( animate );
-	var bgpattern = context.createPattern(loadImage("ld34-images/bgtile.png"), 'repeat');
+	var bgpattern = context.createPattern(loadImage("ld34-images/bgtilev2.png"), 'repeat');
     context.clearRect(0,0,canvas.width,canvas.height);
 	context.fillStyle = bgpattern;
     context.fillRect(0, 0, canvas.width,canvas.height);

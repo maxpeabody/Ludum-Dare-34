@@ -393,7 +393,7 @@ function World(){
 		
 		var bridge3 = new Drawable();
 		bridge3.x = -50;
-		bridge3.y = 113;
+		bridge3.y = 115;
 		bridge3.z = 0;
 		
 		bridge3.image = loadImage("ld34-images/map1/bridge3.png");

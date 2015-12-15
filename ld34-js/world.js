@@ -878,7 +878,7 @@ function World(){
 		
 		// Scenery and lighting
 		var lighting1 = new Drawable();
-		lighting1.x = -1660;
+		lighting1.x = -1880;
 		lighting1.y = 2155;
 		lighting1.z = 10;
 		

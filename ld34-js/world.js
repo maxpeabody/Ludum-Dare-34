@@ -840,7 +840,7 @@ function World(){
 		
 		this.addDrawableObject(island12);
 		
-		var easterisland = new Drawable();
+		/* var easterisland = new Drawable();
 		easterisland.x = -203;
 		easterisland.y = 385;
 		easterisland.z = -1;
@@ -851,7 +851,7 @@ function World(){
 		
 		easterisland.oneWay = true;
 		
-		this.addDrawableObject(easterisland);
+		this.addDrawableObject(easterisland); */
 		
 		// Seeds and any other interactables
 		var flowerSeed = new FlowerSeed(-30, 100);
@@ -878,8 +878,8 @@ function World(){
 		
 		// Scenery and lighting
 		var lighting1 = new Drawable();
-		lighting1.x = -260;
-		lighting1.y = 775;
+		lighting1.x = -1660;
+		lighting1.y = 2155;
 		lighting1.z = 2;
 		
 		lighting1.image = loadImage("ld34-images/map1/lighting1.png");
@@ -902,7 +902,7 @@ function World(){
 		this.addDrawableObject(scenery1);
 		
 		var sceneryfg1 = new Drawable();
-		sceneryfg1.x = -354;
+		sceneryfg1.x = -554;
 		sceneryfg1.y = 572;
 		sceneryfg1.z = 5;
 		

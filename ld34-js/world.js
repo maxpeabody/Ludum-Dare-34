@@ -11,7 +11,7 @@ function World(){
 
 	this.worldBuilt = false;
 
-	this.lightingInFront = true;
+	this.lightingInFront = false;
 
     this.drawAll = function(){
         for(i=0;i<this.drawables.length;i++){
@@ -880,7 +880,7 @@ function World(){
 		var lighting1 = new Drawable();
 		lighting1.x = -1660;
 		lighting1.y = 2155;
-		lighting1.z = 2;
+		lighting1.z = 10;
 		
 		lighting1.image = loadImage("ld34-images/map1/lighting1.png");
 		lighting1.setDrawBasedOnOrigin(lighting1.bottomLeft);

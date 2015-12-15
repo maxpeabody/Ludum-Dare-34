@@ -11,7 +11,7 @@ var keyboard = {};
 
 var images = {};
 var allImagesLoaded = false;
-var imageMax = 101;
+var imageMax = 111;
 var imageCount = 0;
 function loadImage(imageFileName){ //call this to load image files- prevent loading same image more than once
     if(imageFileName in images)
@@ -195,6 +195,17 @@ function preloadStuff(){
     loadImage("ld34-images/protag_run_right.png");
     loadImage("ld34-images/protag_stand_left.png");
     loadImage("ld34-images/protag_stand_right.png");
+
+	loadImage("ld34-images/jump_fall_eyesonly.png");
+	loadImage("ld34-images/jump_land_eyesonly.png");
+	loadImage("ld34-images/jump_up_eyesonly.png");
+	loadImage("ld34-images/jump_fall_eyesonly_left.png");
+	loadImage("ld34-images/jump_land_eyesonly_left.png");
+	loadImage("ld34-images/jump_up_eyesonly_left.png");
+	loadImage("ld34-images/runanimsheet_trans_left_eyesonly.png");
+	loadImage("ld34-images/runanimsheet_trans_right_eyesonly.png");
+	loadImage("ld34-images/eyes_left.png");
+	loadImage("ld34-images/eyes_right.png");
 	
 	// Load music and SFX
 	loadSound("ld34-sound/bgm/Rainy Place.mp3");

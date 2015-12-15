@@ -41,6 +41,14 @@ function Player()
 	
 	this.setSheet("ld34-images/protag_stand_left.png",64,100);
 	this.setDrawBasedOnOrigin(this.bottom);
+
+	this.eyes = new Animation();
+	this.eyes.x = this.x;
+	this.eyes.y = this.y;
+	this.eyes.z = 11;
+	this.eyes.setStatic("ld34-images/eyes_left.png");
+	this.eyes.setDrawBasedOnOrigin(this.bottom);
+	mainWorld.addDrawableObject(this.eyes);
 	
 	// Set up collision detection
 	var pboxheight = Math.floor(this.image.naturalHeight *.55);
@@ -58,6 +66,7 @@ function Player()
 			var timePassed = this.immobilityTimer.timeElapsedMillis();
 			if(timePassed < 150){
 				this.y = this.immobilityStartY + 1.2*(timePassed/100);
+				this.eyes.y = this.y;
 
 			}else{
 				this.immobile = false;
@@ -81,6 +90,7 @@ function Player()
 				this.facing = "left";
 				this.isRunning = true;
 				this.setSheet("ld34-images/protag_run_left.png", 64, 100);
+				this.eyes.setSheet("ld34-images/runanimsheet_trans_left_eyesonly.png",64,100);
 				this.setDrawBasedOnOrigin(this.origin);
 			}
 		}
@@ -92,6 +102,7 @@ function Player()
 				this.facing = "right";
 				this.isRunning = true;
 				this.setSheet("ld34-images/protag_run_right.png", 64, 100);
+				this.eyes.setSheet("ld34-images/runanimsheet_trans_right_eyesonly.png",64,100);
 				this.setDrawBasedOnOrigin(this.origin);
 			}
 		} else {
@@ -99,9 +110,11 @@ function Player()
 			this.isRunning = false;
 			if (this.facing == "left") {
 				this.setStatic("ld34-images/protag_stand_left.png");
+				this.eyes.setStatic("ld34-images/eyes_left.png");
 				this.setDrawBasedOnOrigin(this.origin);
 			} else {
 				this.setStatic("ld34-images/protag_stand_right.png");
+				this.eyes.setStatic("ld34-images/eyes_right.png");
 				this.setDrawBasedOnOrigin(this.origin);
 			}
 		}
@@ -114,14 +127,19 @@ function Player()
 			if(this.vy > this.terminalVelocity)
 				this.vy = this.terminalVelocity;
 
-			if (this.facing == "left" && this.vy < 0)
+			if (this.facing == "left" && this.vy < 0) {
 				this.setStatic("ld34-images/protag_jump_left.png");
-			else if (this.facing == "right" && this.vy < 0)
+				this.eyes.setStatic("ld34-images/jump_up_eyesonly_left.png");
+			}else if (this.facing == "right" && this.vy < 0) {
 				this.setStatic("ld34-images/protag_jump_right.png");
-			else if (this.facing == "left") // velocity >= 0 implicit
+				this.eyes.setStatic("ld34-images/jump_up_eyesonly.png");
+			}else if (this.facing == "left") { // velocity >= 0 implicit
 				this.setStatic("ld34-images/protag_fall_left.png");
-			else // etc.
+				this.eyes.setStatic("ld34-images/jump_fall_eyesonly_left.png");
+			}else { // etc.
 				this.setStatic("ld34-images/protag_fall_right.png");
+				this.eyes.setStatic("ld34-images/jump_fall_eyesonly.png");
+			}
 			this.setDrawBasedOnOrigin(this.origin);
 			if(!keyboard["up"] && this.vy < -2){
 				this.vy = -2;
@@ -270,6 +288,8 @@ function Player()
 		//if you're still colliding with something, reset to your original xy and land
 
 		//handle anything attached to the player that needs to move with it
+		this.eyes.x = this.x;
+		this.eyes.y = this.y;
 		this.footwatch.x = this.x;
 		this.footwatch.y = this.y;
 		var footsteps = this.footwatch.getAllCollisions();

@@ -16,7 +16,6 @@ function Mushroom(){
         mushSeed.y = this.y;
         mainWorld.addDrawableObject(mushSeed);
     }
-
 }
 Mushroom.prototype = new Located();
 
@@ -45,7 +44,17 @@ function MushroomMushroom(){ //AGH EEK A SNAKE! SNAAAAAKE, A SNAAAAAKE! OOOOOOOH
     }
     this.playBounce = function(){
         this.setSheet("ld34-images/plants/shroom_anim.png",80,60);
-        this.frozen = false;
+       
+		if(this.frozen)
+		{
+			var landsound = new Howl
+			({
+				urls: ['ld34-sound/sfx/Bounce.wav'],
+				volume: 0.2
+			}).play();
+		}
+		
+		this.frozen = false;
     }
 }
 MushroomMushroom.prototype = new Animation();

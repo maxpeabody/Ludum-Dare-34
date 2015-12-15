@@ -857,13 +857,24 @@ function World(){
 		var flowerSeed = new FlowerSeed(-30, 100);
 		this.addDrawableObject(flowerSeed);
 		
+		var testFlow = new FlowerVine();
+		testFlow.x = 431;
+		testFlow.y = 140;
+		testFlow.startGrowing(false);
+		
 		var stalkSeed = new StalkSeed(60, 468);
 		this.addDrawableObject(stalkSeed);
+		
+		var stalkSeed2 = new StalkSeed(264, -255);
+		this.addDrawableObject(stalkSeed2);
 
 		var testShroom = new Mushroom();
 		testShroom.x = 50;
 		testShroom.y = -101;
 		testShroom.startGrowing();
+		
+		var shroomSeed = new ShroomSeed(-325, 255);
+		this.addDrawableObject(shroomSeed);
 		
 		// Scenery and lighting
 		var lighting1 = new Drawable();

@@ -148,8 +148,11 @@ function FlowerSeed(getX, getY)
 }
 FlowerSeed.prototype = new Seed();
 
-function ShroomSeed()
+function ShroomSeed(getX, getY)
 {
+	this.initialX = getX; this.x = getX; 
+	this.initialY = getY; this.y = getY;
+	
 	this.setStatic("ld34-images/plants/shroom_seed.png");
 	this.setDrawBasedOnOrigin(this.center);
 	addColliderToObject(this,this.image.naturalWidth,this.image.naturalHeight,this.origin);

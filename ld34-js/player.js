@@ -251,7 +251,7 @@ function Player()
 			}
 
 		}else if(mushCollisions.length > 0){
-			window.console.log("there's some trigger collisions");
+			// window.console.log("there's some trigger collisions");
 			var theresAMushroom = false;
 			var mushIndex = -1;
 			for(dshjh=0;dshjh<mushCollisions.length;dshjh++){
@@ -261,7 +261,7 @@ function Player()
 				}
 			}
 			if(theresAMushroom && this.inAir && this.vy > 0){//we're falling
-				window.console.log("well we reached the condition");
+				// window.console.log("well we reached the condition");
 				this.mushGrab(mushCollisions[mushIndex]);
 				return;
 			}

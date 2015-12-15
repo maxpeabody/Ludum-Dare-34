@@ -9,8 +9,8 @@ function Player()
 {
 	// Movement/location-related things
 
-	this.x = -33;//425;
-	this.y = 188//428;
+	this.x = 425;//-33;
+	this.y = 428;//188;
 	this.z = 4;
 
 	this.vx = 0;
